@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class HandCard : Card
+public class HandCard : MonoBehaviour
 {
     [SerializeField]
-    private GameObject cardPrefab;//存放卡牌所对应的预制件
+    private Card[] cards;//从选牌阶段获取卡组
 
-    public GameObject GetCardPrefab()
+    [SerializeField]
+    private Card[] handCards;//手牌
+
+    private void AddCard()
     {
-        return cardPrefab;//获取预制件
+        
     }
 }

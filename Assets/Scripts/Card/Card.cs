@@ -14,7 +14,8 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
     [SerializeField]
     private string description;//效果描述
 
-    
+    [SerializeField]
+    private GameObject cardPrefab;
 
     public Sprite MyIcon { get => icon; }
 
@@ -31,6 +32,11 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
     public string GetTitle()
     {
         return title;//获取名字
+    }
+
+    public GameObject GetPrefab()
+    {
+        return cardPrefab;
     }
 
     public virtual void Use()

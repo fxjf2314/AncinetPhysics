@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AreaManager : MonoBehaviour
 {
+    
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -14,12 +16,19 @@ public class AreaManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("InteractiveObj"))
+                if (hit.collider.CompareTag("Area"))
                 {
-                    TextMeshProUGUI areaTitle = hit.collider.gameObject.GetComponentInChildren<TextMeshProUGUI>();
-                    //enabled = true;
+                    
+                    AreaTips.MyInstance.FadeIn(hit.collider);
+                    //Debug.Log("111");
+                }
+                else
+                {
+                    AreaTips.MyInstance.FadeOut();
                 }
             }
         }
     }
+
+    
 }

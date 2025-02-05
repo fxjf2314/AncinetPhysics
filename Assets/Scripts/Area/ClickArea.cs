@@ -8,6 +8,10 @@ public class ClickArea : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro areaTitle;
+    [SerializeField]
+    private TextMeshPro areaPopu;
+    [SerializeField]
+    private GameObject areaPopuIcon;
 
     private Outline outline;
 
@@ -22,11 +26,15 @@ public class ClickArea : MonoBehaviour
     {
         outline.enabled = true;
         areaTitle.enabled = true;
+        areaPopu.enabled = true;
+        areaPopuIcon.SetActive(true);
     }
 
     private void OnMouseExit()
     {
         outline.enabled = false;
         areaTitle.enabled = false;
+        areaPopu.enabled = false;
+        areaPopuIcon.SetActive(false);
     }
 }
