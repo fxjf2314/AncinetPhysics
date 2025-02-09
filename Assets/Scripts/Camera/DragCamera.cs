@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DragCamera : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class DragCamera : MonoBehaviour
             RaycastHit hit;
 
             // 射线检测
-            if (Physics.Raycast(ray, out hit, 500f, targetLayer))
+            if (Physics.Raycast(ray, out hit, 500f, targetLayer) && !EventSystem.current.IsPointerOverGameObject())
             {
                 // 如果击中了目标物体，调整摄像机的位置
                 Vector3 targetPosition = hit.collider.gameObject.transform.position;
@@ -58,7 +59,7 @@ public class DragCamera : MonoBehaviour
             float deltaZ = Input.GetAxis("Mouse Y"); // 使用鼠标 Y 轴作为 Z 轴的移动
 
             // 将鼠标移动距离转换为世界坐标中的移动距离
-            Vector3 moveDistance = new Vector3(deltaX, 0, deltaZ) * mainCamera.orthographicSize * 1.0f;
+            Vector3 moveDistance = new Vector3(deltaX, 0, deltaZ) * mainCamera.orthographicSize * 2.0f;
 
             // 更新摄像机位置
             Vector3 newPosition = mainCamera.transform.position - mainCamera.transform.rotation * moveDistance;

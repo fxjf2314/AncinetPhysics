@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaf1a858a673ad4fb77998834252186, type: 3}
+  m_Name: HunTian
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 089bc48758990f2429f1efadf4431a03, type: 3}
+  title: "\u6D51\u5929\u4EEA"
+  description: 
+  cardPrefab: {fileID: 0}

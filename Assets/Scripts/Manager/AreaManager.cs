@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AreaManager : MonoBehaviour
 {
@@ -16,15 +17,19 @@ public class AreaManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Area"))
+                if (hit.collider.CompareTag("Area") && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    
+                    HandCard.MyInstance.targetArea = hit.transform.GetComponent<AreaScript>();                    
                     AreaTips.MyInstance.FadeIn(hit.collider);
                     //Debug.Log("111");
                 }
-                else
+                else 
                 {
-                    AreaTips.MyInstance.FadeOut();
+                    if (!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        AreaTips.MyInstance.FadeOut();
+                    }
+                    
                 }
             }
         }
