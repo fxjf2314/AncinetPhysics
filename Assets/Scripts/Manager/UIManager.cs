@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        totalRound = 0;
+        totalRound = 1;
     }
 
     public void NextRound()

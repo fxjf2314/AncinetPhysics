@@ -56,8 +56,12 @@ public class AreaTips : MonoBehaviour
         foreach(Image image in areaAchivements)
         {
             image.sprite = null;
+            Color color = image.color;
+            color.a = 0;
+            image.color = color;
         }
     }
+
 
     
 
@@ -66,6 +70,8 @@ public class AreaTips : MonoBehaviour
         string AddOrRemove = string.Empty;
         if(area.transform.GetComponent<AreaScript>() != null)
         {
+            tipsCanvasGroup.blocksRaycasts = true;
+            tipsCanvasGroup.interactable = true;
             areaScript = area.transform.GetComponent<AreaScript>();
             PlacedAchivement(areaScript);
             areaName.text = areaScript.GetName();
@@ -104,6 +110,8 @@ public class AreaTips : MonoBehaviour
     }
     public void FadeOut()
     {
+        tipsCanvasGroup.blocksRaycasts = false;
+        tipsCanvasGroup.interactable = false;
         if (currentCoroutine == null)
         {
             currentCoroutine = StartCoroutine(FadeCanvasGroupRoutine(tipsCanvasGroup, tipsCanvasGroup.alpha, 0, duration, startPosition));
@@ -112,18 +120,21 @@ public class AreaTips : MonoBehaviour
 
     public void PlacedAchivement(AreaScript area)
     {
-        foreach(Card card in area.cards)
+        for(int i = 0;i < area.cards.Count ;i++)
         {
-            if(card != null)
+            areaAchivements[i].sprite = area.cards[i].GetSprite();
+            Color color = areaAchivements[i].color;
+            color.a = 1;
+            areaAchivements[i].color = color;
+        }
+        if(area.cards.Count == 0)
+        {
+            foreach (Image image in areaAchivements)
             {
-                foreach(Image achivement in areaAchivements)
-                {
-                    if(achivement.sprite == null)
-                    {
-                        achivement.sprite = card.GetSprite();
-                    }
-
-                }
+                image.sprite = null;
+                Color color = image.color;
+                color.a = 0;
+                image.color = color;
             }
         }
     }

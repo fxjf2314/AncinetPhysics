@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IUseable //可使用的UI可以挂这个接口
 {
-    public void Use();
+    public void Use(AreaScript area);
 }

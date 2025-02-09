@@ -32,4 +32,19 @@ public class AreaScript : MonoBehaviour
     {
         return areaDetail.areaIcon;
     }
+
+    public void PopulationControl(int count)
+    {
+        areaDetail.population += count;
+    }
+
+    public void CoinControl(int count)
+    {
+        areaDetail.coin += count;
+    }
+
+    public void FoodControl(int count)
+    {
+        areaDetail.food += count;
+    }
 }

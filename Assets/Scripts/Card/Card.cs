@@ -39,8 +39,14 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
         return cardPrefab;
     }
 
-    public virtual void Use()
+    public virtual void Use(AreaScript area)
     {
+        if (area.cards.Count < 3)
+        {
         
+            area.cards.Add(this);
+        }
+        
+
     }
 }

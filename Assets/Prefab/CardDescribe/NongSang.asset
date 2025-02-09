@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77dd707d18b31745aa38f9f32ab42f8, type: 3}
+  m_Name: NongSang
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: e0e2911135a5f07448e6bb73059bbf52, type: 3}
+  title: "\u300A\u519C\u6851\u8F91\u8981\u300B"
+  description: 
+  cardPrefab: {fileID: 0}
