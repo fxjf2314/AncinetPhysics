@@ -10,14 +10,18 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     public float riseHeight = 10.0f; // 上升高度
     public float riseDuration = 0.3f; // 上升持续时间
     public LayerMask planeLayer; // Plane 的 Layer
-    public float yOffset = 1.0f; // Y 轴偏移量，可在 Inspector 中修改
     public float buttonXOffset = 250f; // 水平偏移量（负数向左）
     public float buttonYOffset = 0f;   // 垂直偏移量
     public string planeTag = "Area"; // Plane 的 Tag 名称，可在 Inspector 中修改
     public Material highlightMaterial; // 高亮材质
     public GameObject cancelButtonPrefab; // 取消按钮预制体
 
+    public Vector3 cameraTargetPosition = new Vector3(0, 10, -10); // 摄像机目标位置
+    public Quaternion cameraTargetRotation = Quaternion.Euler(1, 0, 0); // 摄像机目标旋转角度
+    public float cameraMoveDuration = 0.5f; // 摄像机移动持续时间
+
     private GameObject spawnedPrefab; // 生成的预制体（2）
+    private CardRangeController rangeController; // 范围控制器
 
     private bool isDragging = false;
     private bool isPlaced = false;
@@ -26,10 +30,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     private bool isRising = false;
 
     private Plane targetPlane;
-    private int currentRangeIndicatorCount = 0;
-    private List<GameObject> rangeIndicators = new List<GameObject>(); // 存储所有生成的 RangeIndicator
-    private HashSet<Collider> clickedPlanes = new HashSet<Collider>(); // 记录已被点击的 Plane
-    private Renderer currentRenderer; // 当前高亮的 Renderer
+    private Collider currentAreaCollider;
     private Material originalMaterial; // 原始材质
     private GameObject cancelButtonInstance; // 取消按钮实例
     private GameObject cancelButton;
@@ -38,18 +39,23 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     private RectTransform rectTransform;
     private Vector2 originalAnchoredPosition;
     private Vector2 riseStartPosition;
-    private Vector3 originalWorldPosition;
-
-    // 是否已放置且未完成
-    public bool IsPlacedAndNotFinalized => isPlaced && !isFinalized;
+    private Camera mainCamera;
+    private Vector3 cameraOriginalPosition; // 摄像机初始位置
+    private Quaternion cameraOriginalRotation; // 摄像机初始旋转角度
 
     private void Start()
     {
+        mainCamera = Camera.main;
         rectTransform = GetComponent<RectTransform>();
         originalAnchoredPosition = rectTransform.anchoredPosition;
-        
+
         originalPosition = transform.position;
         targetPlane = new Plane(Vector3.up, Vector3.zero); // 假设平面是水平的
+
+        // 记录摄像机的初始位置和旋转角度
+        cameraOriginalPosition = Camera.main.transform.position;
+        cameraOriginalRotation = Camera.main.transform.rotation;
+
         Debug.Log("CanvasClickHandler: Script initialized.");
     }
 
@@ -64,13 +70,17 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         if (prefabToSpawn != null && spawnedPrefab == null)
         {
             Vector3 spawnPosition = GetMouseWorldPosition();
-            spawnPosition.y += yOffset; // 在鼠标 Y 轴位置的基础上增加偏移量
             spawnedPrefab = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+            rangeController = spawnedPrefab.GetComponent<CardRangeController>();
             isDragging = true;
             Debug.Log("CanvasClickHandler: Prefab (2) spawned at position: " + spawnPosition);
+
+            // 移动摄像机到目标位置和旋转角度
+            StartCoroutine(MoveCamera(cameraTargetPosition, cameraTargetRotation));
         }
     }
-    //卡牌动画
+
+    // 卡牌动画
     private IEnumerator RisePrefab()
     {
         isRising = true;
@@ -92,7 +102,6 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
         rectTransform.anchoredPosition = targetPosition;
     }
-
 
     private IEnumerator ResetPosition()
     {
@@ -122,7 +131,6 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             Vector3 newPosition = GetMouseWorldPosition();
             newPosition.y = spawnedPrefab.transform.position.y; // 保持 Y 轴坐标不变
             spawnedPrefab.transform.position = newPosition;
-            //Debug.Log("CanvasClickHandler: Dragging prefab (2) to position: " + newPosition);
         }
     }
 
@@ -140,6 +148,14 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                     isDragging = false;
                     isPlaced = true;
                     isFinalized = false;
+
+                    currentAreaCollider = hit.collider;
+                    Renderer renderer = currentAreaCollider.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        originalMaterial = renderer.material;
+                        renderer.material = highlightMaterial; // 设置高亮材质
+                    }
 
                     // 显示取消按钮
                     if (cancelButtonPrefab != null)
@@ -169,7 +185,6 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 Debug.Log("CanvasClickHandler: Prefab (2) placed in empty space, destroyed.");
             }
         }
-
     }
 
     public void ResetPlacement()
@@ -186,31 +201,14 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             spawnedPrefab = null;
         }
 
-        // 销毁所有已生成的范围指示器
-        foreach (var indicator in rangeIndicators)
-        {
-            if (indicator != null)
-            {
-                Destroy(indicator);
-            }
-        }
-        rangeIndicators.Clear();
-
         // 重置状态
         isDragging = false;
         isPlaced = false;
         isFinalized = false;
-        currentRangeIndicatorCount = 0;
-        clickedPlanes.Clear();
-
-        // 恢复 Area 的材质
-        if (currentRenderer != null)
-        {
-            currentRenderer.material = originalMaterial;
-            currentRenderer = null;
-        }
-
         Debug.Log("CanvasClickHandler: Placement reset.");
+
+        // 重置摄像机位置和旋转角度
+        StartCoroutine(MoveCamera(cameraOriginalPosition, cameraOriginalRotation));
     }
 
     private void Update()
@@ -220,18 +218,15 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             // 新逻辑：通过拖拽直接处理材质
             HandleDragSelection();
         }
-        HandleAreaHighlight(); // 处理 Area 的高亮逻辑
     }
 
-
-
-    //材质相关逻辑
+    // 材质相关逻辑
     private void HandleDragSelection()
     {
         // 此处逻辑已由DragMaterialController处理
     }
 
-    //取消按钮相关逻辑
+    // 取消按钮相关逻辑
     private Vector2 GetButtonCanvasPosition()
     {
         Canvas canvas = FindObjectOfType<Canvas>();
@@ -252,6 +247,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             localPoint.y                  // Y轴保持原样
         );
     }
+
     private void ShowCancelButton()
     {
         if (cancelButton == null)
@@ -271,6 +267,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         }
         cancelButton.SetActive(true);
     }
+
     private void HideCancelButton()
     {
         if (cancelButton != null)
@@ -278,99 +275,61 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             cancelButton.SetActive(false);
         }
     }
-    
-    // 处理 Area 的高亮逻辑
-    private void HandleAreaHighlight()
-    {
-
-        if (isDragging || isPlaced) return;
-
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
-        {
-            if (hit.collider.CompareTag("Area"))
-            {
-                var dragController = FindObjectOfType<DragMaterialController>();
-                if (dragController != null && dragController.affectedAreas.Contains(hit.collider))
-                    return;
-                // 高亮 Area
-                if (currentRenderer != null && currentRenderer != hit.collider.GetComponent<Renderer>())
-                {
-                    currentRenderer.material = originalMaterial;
-                }
-
-                currentRenderer = hit.collider.GetComponent<Renderer>();
-                originalMaterial = currentRenderer.material;
-                currentRenderer.material = highlightMaterial;
-            }
-            else
-            {
-                // 恢复 Area 的材质
-                if (currentRenderer != null)
-                {
-                    currentRenderer.material = originalMaterial;
-                    currentRenderer = null;
-                }
-            }
-        }
-        else
-        {
-            // 恢复 Area 的材质
-            if (currentRenderer != null)
-            {
-                currentRenderer.material = originalMaterial;
-                currentRenderer = null;
-            }
-        }
-    }
-
     // 完成放置并销毁预制体（1）
     public void FinalizePlacement()
     {
         if (isDestroyed) return;
 
-        // 销毁关联的DragMaterialController
-        var dragController = FindObjectOfType<DragMaterialController>();
-        if (dragController != null)
-        {
-            dragController.ConfirmSelection();
-            Destroy(dragController);        // 如果直接挂载在spawnedPrefab上
-        }
+        // 立即标记防止重复调用
+        isDestroyed = true;
 
-        Debug.Log("CanvasClickHandler: Placement finalized.");
+        // 启动异步完成流程
+        StartCoroutine(FinalizationProcess());
+    }
 
-        // 销毁预制体（1）
+    private IEnumerator FinalizationProcess()
+    {
+        // 第一阶段：摄像机复位
+        yield return StartCoroutine(MoveCamera(cameraOriginalPosition, cameraOriginalRotation));
+
+        // 第二阶段：执行清理操作
+        ExecuteCleanup();
+
+        // 第三阶段：延迟销毁确保协程完成
         if (gameObject != null)
         {
-            isDestroyed = true;
             Destroy(gameObject);
         }
+    }
 
-        // 销毁取消按钮
-        if (cancelButtonInstance != null)
+    private void ExecuteCleanup()
+    {
+        // 恢复材质
+        if (currentAreaCollider != null)
         {
-            HideCancelButton();
+            var renderer = currentAreaCollider.GetComponent<Renderer>();
+            if (renderer) renderer.material = originalMaterial;
+        }
+
+        // 清理UI
+        if (cancelButtonInstance)
+        {
             Destroy(cancelButtonInstance);
+            cancelButtonInstance = null;
         }
 
         // 重置状态
         spawnedPrefab = null;
         isPlaced = false;
         isFinalized = true;
-        currentRangeIndicatorCount = 0;
 
-        // 清空已点击的 Plane 记录
-        clickedPlanes.Clear();
-
-        // 恢复所有 Area 的材质
-        foreach (Collider area in affectedAreas)
+        // 清理区域记录
+        foreach (var area in affectedAreas)
         {
             ResetMaterial(area);
         }
         affectedAreas.Clear();
     }
-
     private void ResetMaterial(Collider collider)
     {
         if (collider != null)
@@ -382,7 +341,6 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             }
         }
     }
-
 
     // 获取鼠标在世界坐标中的位置
     private Vector3 GetMouseWorldPosition()
@@ -400,5 +358,30 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         ResetPlacement();
         Debug.Log("CanvasClickHandler: Placement canceled.");
+    }
+
+    // 平滑移动摄像机
+    private IEnumerator MoveCamera(Vector3 targetPosition, Quaternion targetRotation)
+    {
+        if (mainCamera == null)
+        {
+            Debug.LogError("Main camera is null.");
+            yield break;
+        }
+
+        Vector3 startPosition = mainCamera.transform.position;
+        Quaternion startRotation = mainCamera.transform.rotation;
+        float elapsed = 0f;
+
+        while (elapsed < cameraMoveDuration)
+        {
+            mainCamera.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / cameraMoveDuration);
+            mainCamera.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / cameraMoveDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        mainCamera.transform.position = targetPosition;
+        mainCamera.transform.rotation = targetRotation;
     }
 }

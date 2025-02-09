@@ -30,7 +30,7 @@ public class RangeConfirmationButton : MonoBehaviour
         // 调用系统级取消操作
         if (placementSystem != null)
         {
-            placementSystem.CancelPlacement();
+           // placementSystem.CancelPlacement();
         }
 
         // 自动销毁按钮实例
