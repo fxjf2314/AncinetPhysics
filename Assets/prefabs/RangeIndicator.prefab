@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 150713604813714298}
   - component: {fileID: 8780435205857331147}
   - component: {fileID: 3698283248959517366}
+  - component: {fileID: 9191971761476374934}
   m_Layer: 0
   m_Name: RangeIndicator
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 5751300511677318966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.68, y: -3.09, z: -8.56}
-  m_LocalScale: {x: 7.153318, y: 0.007153318, z: 7.153318}
+  m_LocalPosition: {x: -6.68, y: -3.09, z: -764}
+  m_LocalScale: {x: 134.95695, y: 0.13495697, z: 134.95695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,3 +106,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9191971761476374934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751300511677318966}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79504bc0180c5e241823131a05426215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 63baa45651391a84bb3fe68ab2b71e3f, type: 2}
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  originalMaterial: {fileID: 2100000, guid: 2662f6ca61961ca4abddafee66971072, type: 2}
