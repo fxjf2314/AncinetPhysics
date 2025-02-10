@@ -3,8 +3,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler,IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject prefabToSpawn; // 预制体（2）
     public float riseHeight = 10.0f; // 上升高度
@@ -16,6 +17,18 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     public Material highlightMaterial; // 高亮材质
     public GameObject cancelButtonPrefab; // 取消按钮预制体
 
+    [Header("Card Info Display")]
+    public string cardDetailSceneName = "CardDetailScene";
+    public GameObject cardInfoPanelPrefab; // 卡牌信息面板预制体（使用 TMP）
+    public float hoverDelay = 1.0f; // 悬浮延迟时间
+    public string cardArea = "Area"; // 卡牌区域
+    public string cardEffect = "Effect"; // 卡牌效果简述
+
+    private GameObject cardInfoPanelInstance; // 卡牌信息面板实例
+    private bool isHovering = false; // 是否正在悬浮
+    private Coroutine hoverCoroutine; // 悬浮协程
+
+    //-----
     public Vector3 cameraTargetPosition = new Vector3(0, 10, -10); // 摄像机目标位置
     public Quaternion cameraTargetRotation = Quaternion.Euler(1, 0, 0); // 摄像机目标旋转角度
     public float cameraMoveDuration = 0.5f; // 摄像机移动持续时间
@@ -45,6 +58,16 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     private void Start()
     {
+        if (cardInfoPanelPrefab != null && cardInfoPanelInstance == null)
+        {
+            // 实例化面板
+            cardInfoPanelInstance = Instantiate(cardInfoPanelPrefab, FindObjectOfType<Canvas>().transform);
+            cardInfoPanelInstance.SetActive(false);
+
+            // 调整面板尺寸
+            RectTransform panelRect = cardInfoPanelInstance.GetComponent<RectTransform>();
+            panelRect.sizeDelta = new Vector2(100, 75); 
+        }
         mainCamera = Camera.main;
         rectTransform = GetComponent<RectTransform>();
         originalAnchoredPosition = rectTransform.anchoredPosition;
@@ -62,12 +85,12 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     // 点击预制体（1）时生成预制体（2）
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!isRising)
+        if (!isRising && eventData.button == PointerEventData.InputButton.Right)
         {
             riseStartPosition = rectTransform.anchoredPosition;
             StartCoroutine(RisePrefab());
         }
-        if (prefabToSpawn != null && spawnedPrefab == null)
+        if (prefabToSpawn != null && spawnedPrefab == null&& eventData.button == PointerEventData.InputButton.Right)
         {
             Vector3 spawnPosition = GetMouseWorldPosition();
             spawnedPrefab = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
@@ -126,7 +149,8 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     // 拖拽预制体（2）
     public void OnDrag(PointerEventData eventData)
     {
-        if (isDragging && spawnedPrefab != null)
+        // 检查是否为右键拖动
+        if (isDragging && spawnedPrefab != null && eventData.button == PointerEventData.InputButton.Right)
         {
             Vector3 newPosition = GetMouseWorldPosition();
             newPosition.y = spawnedPrefab.transform.position.y; // 保持 Y 轴坐标不变
@@ -145,7 +169,10 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Area"))
                 {
                     // 如果放置在 Area 平面上，完成放置
-                    isDragging = false;
+                    if (eventData.button == PointerEventData.InputButton.Right)
+                    {
+                        isDragging = false;
+                    }
                     isPlaced = true;
                     isFinalized = false;
 
@@ -186,7 +213,90 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             }
         }
     }
+    //卡牌悬浮
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        // 开始悬停
+        isHovering = true;
+        if (hoverCoroutine != null)
+        {
+            StopCoroutine(hoverCoroutine); // 停止之前的协程
+        }
+        hoverCoroutine = StartCoroutine(ShowCardInfoAfterDelay()); // 启动新的协程
+    }
 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        // 结束悬停
+        isHovering = false;
+        if (hoverCoroutine != null)
+        {
+            StopCoroutine(hoverCoroutine); // 停止协程
+        }
+        if (cardInfoPanelInstance != null)
+        {
+            cardInfoPanelInstance.SetActive(false); // 隐藏面板
+        }
+    }
+
+    private IEnumerator ShowCardInfoAfterDelay()
+    {
+        yield return new WaitForSeconds(hoverDelay);
+
+        if (isHovering && cardInfoPanelInstance != null)
+        {
+            Debug.Log("Displaying card info panel.");
+            cardInfoPanelInstance.SetActive(true);
+
+            // 设置卡牌信息面板的位置
+            RectTransform rt = cardInfoPanelInstance.GetComponent<RectTransform>();
+            rt.anchoredPosition = GetMouseCanvasPosition();
+
+            // 设置卡牌信息
+            CardInfoPanel cardInfoPanel = cardInfoPanelInstance.GetComponent<CardInfoPanel>();
+            if (cardInfoPanel != null)
+            {
+                cardInfoPanel.SetCardInfo(cardArea, cardEffect);
+            }
+        }
+    }
+
+    private Vector2 GetMouseCanvasPosition()
+    {
+        // 将鼠标屏幕坐标转换为 Canvas 坐标
+        Vector2 mousePosition = Input.mousePosition;
+        Canvas canvas = FindObjectOfType<Canvas>();
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, mousePosition, canvas.worldCamera, out Vector2 canvasPosition);
+        return canvasPosition + new Vector2(50, 50); // 添加偏移量，避免面板紧贴鼠标
+    }
+
+
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.pointerEnter == gameObject && eventData.button == PointerEventData.InputButton.Left)
+        {
+            // 进入卡牌介绍界面
+            ShowCardDetail();
+        }
+    }
+
+    private void ShowCardDetail()
+    {
+        Debug.Log("CanvasClickHandler: Loading card detail scene.");
+
+        // 加载卡牌详情场景
+        if (!string.IsNullOrEmpty(cardDetailSceneName))
+        {
+            SceneManager.LoadScene(cardDetailSceneName);
+        }
+        else
+        {
+            Debug.LogError("CardDetailSceneName is not assigned!");
+        }
+    }
+
+    //--
     public void ResetPlacement()
     {
         if (isRising)

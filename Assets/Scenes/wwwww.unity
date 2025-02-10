@@ -536,7 +536,7 @@ Transform:
   m_GameObject: {fileID: 131616462}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -145.7, y: 6.4, z: -145.4}
+  m_LocalPosition: {x: 139.9, y: 6.4, z: 0.9}
   m_LocalScale: {x: 13.236935, y: 13.236935, z: 13.236935}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3317,85 +3317,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663050643}
   m_CullTransparentMesh: 1
---- !u!1 &711920670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
-  m_PrefabInstance: {fileID: 3550058229328361092}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &711920673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711920670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 7989523528599969739, guid: 2aebe55d47239e84fada8689bf015259, type: 3}
-  riseHeight: 10
-  riseDuration: 0.3
-  planeLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  buttonXOffset: 250
-  buttonYOffset: 0
-  planeTag: Area
-  highlightMaterial: {fileID: 2100000, guid: 2662f6ca61961ca4abddafee66971072, type: 2}
-  cancelButtonPrefab: {fileID: 1248790323}
-  cameraTargetPosition: {x: 0, y: 500, z: 0}
-  cameraTargetRotation: {x: 1, y: 0, z: 0, w: 0.9999619}
-  cameraMoveDuration: 0.5
---- !u!65 &711920674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711920670}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 74.44, y: 94.12, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &711920677
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711920670}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &713973936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3411,11 +3332,11 @@ PrefabInstance:
     - target: {fileID: 5339231746053561507, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
       propertyPath: placementSystem
       value: 
-      objectReference: {fileID: 711920673}
+      objectReference: {fileID: 2013306432}
     - target: {fileID: 5339231746053561507, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
       propertyPath: canvasClickHandler
       value: 
-      objectReference: {fileID: 711920673}
+      objectReference: {fileID: 0}
     - target: {fileID: 6914012549734389667, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3521,6 +3442,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
+--- !u!224 &713973937 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6914012549734389667, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
+  m_PrefabInstance: {fileID: 713973936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725414940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,6 +5346,7 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+  describe: 
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1110908260
 GameObject:
@@ -7611,7 +7538,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2033153446}
-  - {fileID: 1443873961}
+  - {fileID: 713973937}
   m_Father: {fileID: 1202395601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8641,6 +8568,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1801994482}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1801994484}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!224 &1801994479 stripped
 RectTransform:
@@ -8670,6 +8600,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1801994484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79851154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 0}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 0}
+  cancelButtonPrefab: {fileID: 0}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 0}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 10, z: -10}
+  cameraTargetRotation: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &1809666767
 GameObject:
   m_ObjectHideFlags: 0
@@ -8762,6 +8723,7 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+  describe: 
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1839962160
 GameObject:
@@ -8855,6 +8817,7 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+  describe: 
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1862558896
 GameObject:
@@ -9169,6 +9132,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2013306432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65700222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 7989523528599969739, guid: 2aebe55d47239e84fada8689bf015259, type: 3}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 2100000, guid: 40ce35b16b530f049bfb547de7d18274, type: 2}
+  cancelButtonPrefab: {fileID: 1248790323}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 7762720994615822269, guid: 3cf6204673f82ff4e9bdeb35c3a3b841, type: 3}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 500, z: -10}
+  cameraTargetRotation: {x: 1, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &2033153445
 GameObject:
   m_ObjectHideFlags: 0
@@ -9447,6 +9441,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2045291669}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045291671}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!224 &2045291666 stripped
 RectTransform:
@@ -9476,6 +9473,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2045291671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236319879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 0}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 0}
+  cancelButtonPrefab: {fileID: 0}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 0}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 10, z: -10}
+  cameraTargetRotation: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &2066617087
 GameObject:
   m_ObjectHideFlags: 0
@@ -9568,6 +9596,7 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+  describe: 
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2143911772
 GameObject:
@@ -9877,6 +9906,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2013306431}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2013306432}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!23 &3955706054240539203
 MeshRenderer:
