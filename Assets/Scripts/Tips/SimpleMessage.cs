@@ -38,7 +38,7 @@ public class SimpleMessage : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
         tip.transform.position = position;
 
         detailMessage.text = describe;
-        frameColor.color = color;
+        //frameColor.color = color;
     }
 
     public void HideToolTip()

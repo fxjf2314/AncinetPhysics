@@ -48,7 +48,7 @@ public class HandCardSlot : MonoBehaviour,IPointerClickHandler
     {
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            if(card != null && HandCard.MyInstance.targetArea.cards.Count < 3)
+            if(card != null && HandCard.MyInstance.targetArea != null && HandCard.MyInstance.targetArea.cards.Count < 3 )
             {
                 UseCard(HandCard.MyInstance.targetArea);
                 //HandCard.MyInstance.NextCard(this);
@@ -60,6 +60,7 @@ public class HandCardSlot : MonoBehaviour,IPointerClickHandler
                 handCardIcon.color = color;
                 handcardTitle.text = "";
                 HandCard.MyInstance.NextCard(this);
+                AreaTips.MyInstance.FadeIn(HandCard.MyInstance.targetArea.GetComponent<Collider>());
             }
            
         }

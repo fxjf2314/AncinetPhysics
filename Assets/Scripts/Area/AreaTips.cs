@@ -112,6 +112,7 @@ public class AreaTips : MonoBehaviour
     {
         tipsCanvasGroup.blocksRaycasts = false;
         tipsCanvasGroup.interactable = false;
+        
         if (currentCoroutine == null)
         {
             currentCoroutine = StartCoroutine(FadeCanvasGroupRoutine(tipsCanvasGroup, tipsCanvasGroup.alpha, 0, duration, startPosition));
@@ -127,7 +128,17 @@ public class AreaTips : MonoBehaviour
             color.a = 1;
             areaAchivements[i].color = color;
         }
-        if(area.cards.Count == 0)
+        if (area.cards.Count < areaAchivements.Length)
+        {
+            for (int i = area.cards.Count; i < areaAchivements.Length; i++)
+            {
+                areaAchivements[i].sprite = null;
+                Color color = areaAchivements[i].color;
+                color.a = 0; // ÉèÖÃÍ¸Ã÷
+                areaAchivements[i].color = color;
+            }
+        }
+        if (area.cards.Count == 0)
         {
             foreach (Image image in areaAchivements)
             {

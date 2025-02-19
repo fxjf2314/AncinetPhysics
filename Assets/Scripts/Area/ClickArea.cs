@@ -26,6 +26,7 @@ public class ClickArea : MonoBehaviour
     {
         outline.enabled = true;
         areaTitle.enabled = true;
+        areaPopu.text = transform.GetComponent<AreaScript>().areaDetail.population.ToString();
         areaPopu.enabled = true;
         areaPopuIcon.SetActive(true);
     }

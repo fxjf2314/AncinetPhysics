@@ -23,8 +23,10 @@ public class HandCard : MonoBehaviour
 
     public AreaScript targetArea;
 
+    private int totalCardNum;
+
     [SerializeField]
-    private Card[] cards;//从选牌阶段获取卡组
+    private List<Card> cards;//从选牌阶段获取卡组
 
     [SerializeField]
     private Card[] handCards;//手牌
@@ -36,11 +38,23 @@ public class HandCard : MonoBehaviour
     
     private void Start()
     {
+        foreach(Card card in cards)
+        {
+            if (card != null)
+            {
+                totalCardNum++;
+            }
+        }
+        
         int count = 0;
         while(indexes.Count < 4)
         {
-            int index = UnityEngine.Random.Range(0, 8);
-            indexes.Add(index);
+            int index = UnityEngine.Random.Range(0, totalCardNum);
+            if (cards[index] != null)
+            {
+                indexes.Add(index);
+            }
+            
         }
         foreach(int index in indexes)
         {
@@ -83,13 +97,32 @@ public class HandCard : MonoBehaviour
 
         slot.MyCard = handCards[3];
         int totalCount = indexes.Count;
-        while (indexes.Count < (totalCount + 1))
+        if(indexes.Count != totalCardNum)
         {
-            int index = UnityEngine.Random.Range(0, 8);
-            indexes.Add(index);
+            while (indexes.Count < (totalCount + 1))
+            {
+                int index = UnityEngine.Random.Range(0, totalCardNum);
+                if (cards[index] != null)
+                {
+                    indexes.Add(index);
+                }
+                
+            }
+            int[] array = indexes.ToArray();
+            handCards[3] = cards[array[indexes.Count - 1]];
+            slots[3].MyCard = cards[array[indexes.Count - 1]];
         }
-        int[] array = indexes.ToArray();
-        handCards[3] = cards[array[indexes.Count - 1]];
-        slots[3].MyCard = cards[array[indexes.Count - 1]];
+        else
+        {
+            handCards[3] = null;
+            slots[3].MyCard = null;
+            Color color = slots[3].handCardBack.color;
+            color.a = 0;
+            slots[3].handCardBack.color = color;
+
+            slots[3].handCardIcon.color = color;
+            slots[3].handcardTitle.text = "";
+        }
+        
     }
 }

@@ -20,6 +20,7 @@ public class AreaManager : MonoBehaviour
                 if (hit.collider.CompareTag("Area") && !EventSystem.current.IsPointerOverGameObject())
                 {
                     HandCard.MyInstance.targetArea = hit.transform.GetComponent<AreaScript>();                    
+                    //AreaTips.MyInstance.FadeOut();
                     AreaTips.MyInstance.FadeIn(hit.collider);
                     //Debug.Log("111");
                 }
