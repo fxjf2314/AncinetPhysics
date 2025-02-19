@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AreaManager : MonoBehaviour
 {
+    
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -14,12 +17,23 @@ public class AreaManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("InteractiveObj"))
+                if (hit.collider.CompareTag("Area") && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    TextMeshProUGUI areaTitle = hit.collider.gameObject.GetComponentInChildren<TextMeshProUGUI>();
-                    //enabled = true;
+                    HandCard.MyInstance.targetArea = hit.transform.GetComponent<AreaScript>();                    
+                    AreaTips.MyInstance.FadeIn(hit.collider);
+                    //Debug.Log("111");
+                }
+                else 
+                {
+                    if (!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        AreaTips.MyInstance.FadeOut();
+                    }
+                    
                 }
             }
         }
     }
+
+    
 }
