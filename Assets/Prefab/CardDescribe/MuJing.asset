@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: MuJing
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 5aa65ff49854df5468670ea68f833c98, type: 3}
-  title: "\u300A\u6728\u7ECF\u300B"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u300A\u6728\u7ECF\u300B"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

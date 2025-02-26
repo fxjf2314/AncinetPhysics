@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: HuDun
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 83d9f0c09c5d52843810c808bb9090be, type: 3}
-  title: "\u864E\u8E72\u70AE"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u864E\u8E72\u70AE"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

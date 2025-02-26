@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Chongzhen
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d06249690e6291e4f9fee6a9bdb720dd, type: 3}
-  title: "\u300A\u5D07\u796F\u5386\u4E66\u300B"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u300A\u5D07\u796F\u5386\u4E66\u300B"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

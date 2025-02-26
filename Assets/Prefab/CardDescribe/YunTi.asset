@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: YunTi
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 140a9af66bc1e2049a4ef57646df66fe, type: 3}
-  title: "\u4E91\u68AF"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u4E91\u68AF"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

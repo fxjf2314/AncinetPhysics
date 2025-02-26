@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: HangHai
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 2b0746687716a4a4587224bc86e957e1, type: 3}
-  title: "\u822A\u6D77\u672F"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u822A\u6D77\u672F"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

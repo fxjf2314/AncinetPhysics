@@ -3,13 +3,31 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-    public int foodBaseNumber;
-    
-    
+    private static UIManager instance;
+    public static UIManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIManager>();
+            }
+            return instance;
+        }
+    }
 
+    #region 变量
+    
+    
+    public int foodBaseNumber;
+
+    public int foodIncrease;
+
+    public int coinIncraese;
 
     public int totalRound;
 
@@ -18,6 +36,9 @@ public class UIManager : MonoBehaviour
     private float totalFood;
 
     private int totalPopulation;
+
+    [SerializeField]
+    private GameObject nextRoundButtton;
     
     [SerializeField]
     private GameObject areaTip;
@@ -34,26 +55,32 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI populationText;
 
+    #endregion
+
+    //区域集合
     [SerializeField]
     private AreaScript[] areas;
 
-    private Image nextRound;
+   
 
-    private Image tip;
 
     private void Start()
     {
-        nextRound = GetComponentInChildren<Image>();
+        
         totalRound = 1;
         roundText.text = $"{totalRound}/10";
+        
     }
 
+    #region 下一回合按钮代码块
     public void NextRound()
     {
-        if(totalRound < 10)
+        if (totalRound < 10)
         {
             totalPopulation = 0;
             PopulationNatural();
+            FoodNatural();
+            CoinNatural();
             totalRound++;
             roundText.text = $"{totalRound}/10";
             foreach (AreaScript area in areas)
@@ -66,9 +93,15 @@ public class UIManager : MonoBehaviour
             foodText.text = totalFood.ToString();
             populationText.text = totalPopulation.ToString();
             AreaTips.MyInstance.FadeOut();
+
+            ButtonsManager.MyInstance.isPlaceCard = false;
+            ButtonsManager.MyInstance.SearchEvent();
+            ButtonsManager.MyInstance.stepButtons[2].transform.gameObject.SetActive(false);
+            
         }
-        
+
     }
+    
 
     //人口自然增长
     public void PopulationNatural()
@@ -77,7 +110,7 @@ public class UIManager : MonoBehaviour
         {
             area.PopulationControl((int)(area.areaDetail.food / (area.areaDetail.population * foodBaseNumber)));
             area.PopulationControl(1);
-            
+
         }
     }
 
@@ -86,7 +119,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (AreaScript area in areas)
         {
-            //area.FoodControl((int)(area.areaDetail.population * ));
+            area.FoodControl((int)(area.areaDetail.population * foodIncrease));
 
         }
     }
@@ -95,8 +128,17 @@ public class UIManager : MonoBehaviour
     {
         foreach (AreaScript area in areas)
         {
-            
 
+            area.CoinControl((int)(area.areaDetail.population * coinIncraese));
         }
     }
+
+    #endregion
+
+    public void CheckEvent()
+    {
+        ButtonsManager.MyInstance.isHappenEvent = false;
+        ButtonsManager.MyInstance.stepButtons[1].transform.gameObject.SetActive(true);
+    }
+
 }

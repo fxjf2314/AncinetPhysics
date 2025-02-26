@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: SimpleMachine
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c7e3e62865a5a6648980cda381d3f5b8, type: 3}
-  title: "\u7B80\u5355\u673A\u68B0\u7EC4"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u7B80\u5355\u673A\u68B0\u7EC4"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

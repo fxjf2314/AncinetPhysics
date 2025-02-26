@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: HuoChong
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c5e0768cc2e33ce4aa8fdae0eb8bae69, type: 3}
-  title: "\u706B\u94F3"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u706B\u94F3"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

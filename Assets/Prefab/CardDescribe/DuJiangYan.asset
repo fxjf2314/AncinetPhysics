@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122af217593b7db4da65a842bcd30eb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 14813273be4938145b1fbabbd711147d, type: 3}
   m_Name: DuJiangYan
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 291e68a525820ee4fbe0467e84723065, type: 3}
-  title: "\u90FD\u6C5F\u5830"
-  description: 
+  icon: {fileID: 0}
+  id: 0
+  cardDes:
+    title: "\u90FD\u6C5F\u5830"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

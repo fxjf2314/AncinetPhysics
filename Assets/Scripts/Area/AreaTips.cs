@@ -68,6 +68,7 @@ public class AreaTips : MonoBehaviour
     public void FadeIn(Collider area)
     {
         string AddOrRemove = string.Empty;
+        Logo.MyInstance.FadeOut();
         if(area.transform.GetComponent<AreaScript>() != null)
         {
             tipsCanvasGroup.blocksRaycasts = true;
@@ -110,6 +111,7 @@ public class AreaTips : MonoBehaviour
     }
     public void FadeOut()
     {
+        Logo.MyInstance.FadeIn();
         tipsCanvasGroup.blocksRaycasts = false;
         tipsCanvasGroup.interactable = false;
         

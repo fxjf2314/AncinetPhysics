@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: DiDong
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 2ad801d58d4ba4a4facee63caa9693b3, type: 3}
-  title: "\u5730\u52A8\u4EEA"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u5730\u52A8\u4EEA"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

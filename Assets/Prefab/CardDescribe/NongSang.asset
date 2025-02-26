@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: NongSang
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: e0e2911135a5f07448e6bb73059bbf52, type: 3}
-  title: "\u300A\u519C\u6851\u8F91\u8981\u300B"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u300A\u519C\u6851\u8F91\u8981\u300B"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}

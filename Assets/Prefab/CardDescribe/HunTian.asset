@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: HunTian
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 089bc48758990f2429f1efadf4431a03, type: 3}
-  title: "\u6D51\u5929\u4EEA"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u6D51\u5929\u4EEA"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}
