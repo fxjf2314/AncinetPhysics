@@ -143,5 +143,5 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 40ce35b16b530f049bfb547de7d18274, type: 2}
   areaLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   maxAffectedAreas: 2

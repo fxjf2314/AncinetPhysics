@@ -5,14 +5,16 @@ public class RangeConfirmationButton : MonoBehaviour
 {
     [Header("Reference")]
     public CanvasClickHandler placementSystem;
-
     private Button button;
+    public bool ifbutton;
     private bool isActiveState = false;
 
     private void Awake()
     {
+        ifbutton = false;
         button = GetComponent<Button>();
         button.onClick.AddListener(OnConfirmCancel);
+
     }
 
     void Update()
@@ -30,11 +32,13 @@ public class RangeConfirmationButton : MonoBehaviour
         // 调用系统级取消操作
         if (placementSystem != null)
         {
-           // placementSystem.CancelPlacement();
+            //placementSystem.CancelPlacement();
         }
 
         // 自动销毁按钮实例
+
         Destroy(gameObject);
+        ifbutton = true;
     }
 
     private void OnDestroy()
