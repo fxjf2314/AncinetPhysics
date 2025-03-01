@@ -33,12 +33,16 @@ public class DescriptionManger : MonoBehaviour
 
     public void OpenSimpleDes(Card cardData)
     {
-        simpleDes.SetActive(true);
-        simpleDes.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;
-        simpleDes.transform.Find("Area").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().area;
-        simpleDes.transform.Find("Effect").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().effect;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(simpleDes.GetComponent<RectTransform>());
-        timer = StartCoroutine(CanClickTime());
+        if(simpleDes != null)
+        {
+            simpleDes.SetActive(true);
+            simpleDes.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;
+            simpleDes.transform.Find("Area").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().area;
+            simpleDes.transform.Find("Effect").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().effect;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(simpleDes.GetComponent<RectTransform>());
+            timer = StartCoroutine(CanClickTime());
+        }
+        
     }
 
     public void OpenDetailDes(Card cardData)

@@ -74,6 +74,7 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     public void RemoveCardFromHandCrad()
     {
+        isInHand = false;
         Image icon = transform.Find("Icon").GetComponent<Image>();
         Color color = icon.color;
         color.a = 1f;

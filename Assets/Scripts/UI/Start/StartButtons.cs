@@ -30,15 +30,14 @@ public class StartButtons : MonoBehaviour
     {
         startGameBtn.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("PrepareScene");
+            Transition.Instance.LoadSceneWithTransition("PrepareScene");
         });
 
         if(GameSettingSave.Instance.isExistSave)
         {
             continueGameBtn.onClick.AddListener(() =>
             {
-                SceneManager.LoadScene("wwwww");
-                DataPersistence.Instance.LoadGame(GameSettingSave.Instance.setting.currentSave);
+                Transition.Instance.LoadSceneWithTransition("wwwww", GameSettingSave.Instance.setting.currentSave);
             });
         }
         else

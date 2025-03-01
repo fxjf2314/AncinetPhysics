@@ -65,6 +65,7 @@ public class TipPanelManager : MonoBehaviour
                         Debug.Log("¿ªÊ¼ÓÎÏ·");
                         SceneManager.LoadScene("wwwww");
                         this.gameObject.SetActive(false);
+
                     });
                 }break;
             case BtnFunction.goToTitle:

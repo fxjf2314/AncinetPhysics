@@ -72,7 +72,6 @@ public class ButtonsManager : MonoBehaviour
     #region 查看区域事件代码块
     public void SearchEvent()
     {
-        Debug.Log("1111");
         if(isHappenEvent)
         {
             stepButtons[0].transform.gameObject.SetActive(true);
