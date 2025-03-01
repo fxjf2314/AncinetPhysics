@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df4c8982555f744fb33d8a98231911c, type: 3}
   m_Name: SimpleMachine
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: c7e3e62865a5a6648980cda381d3f5b8, type: 3}
+  icon: {fileID: 21300000, guid: c4241f2e7198b0f4a93b1ef7b78a7611, type: 3}
   id: 0
   cardDes:
     title: "\u7B80\u5355\u673A\u68B0\u7EC4"

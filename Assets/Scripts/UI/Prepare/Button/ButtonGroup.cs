@@ -57,7 +57,6 @@ public class ButtonGroup : MonoBehaviour
 
 
     [SerializeField]
-    Button confirmStartGameBtn;
     Button goToGameBtn;
 
     [Header("ÏµÍ³°´Å¥")]

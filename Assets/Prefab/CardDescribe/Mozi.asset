@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb48b306760181488d96afb8cc0e31c, type: 3}
   m_Name: Mozi
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 95f1f6c62533d58448c0ffdd30b71488, type: 3}
+  icon: {fileID: 21300000, guid: 98b0fe96169283941b2fd23944b2961a, type: 3}
   id: 0
   cardDes:
     title: "\u300A\u58A8\u7ECF\u300B\u300A\u8003\u5DE5\u8BB0\u300B"
