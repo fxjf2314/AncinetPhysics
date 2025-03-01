@@ -22,6 +22,8 @@ public class HandCard : MonoBehaviour
     }
 
     public AreaScript targetArea;
+    public AreaScript[] applicationArea=new AreaScript[5];
+    public AreaScript[] allarea=new AreaScript[5];
 
     private int totalCardNum;
 

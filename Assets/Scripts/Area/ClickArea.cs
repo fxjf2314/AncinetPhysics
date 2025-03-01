@@ -24,18 +24,18 @@ public class ClickArea : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        outline.enabled = true;
-        areaTitle.enabled = true;
-        areaPopu.text = transform.GetComponent<AreaScript>().areaDetail.population.ToString();
-        areaPopu.enabled = true;
-        areaPopuIcon.SetActive(true);
+            outline.enabled = true;
+            areaTitle.enabled = true;
+            areaPopu.text = transform.GetComponent<AreaScript>().areaDetail.population.ToString();
+            areaPopu.enabled = true;
+            areaPopuIcon.SetActive(true);
     }
 
     private void OnMouseExit()
     {
-        outline.enabled = false;
-        areaTitle.enabled = false;
-        areaPopu.enabled = false;
-        areaPopuIcon.SetActive(false);
+            outline.enabled = false;
+            areaTitle.enabled = false;
+            areaPopu.enabled = false;
+            areaPopuIcon.SetActive(false);
     }
 }

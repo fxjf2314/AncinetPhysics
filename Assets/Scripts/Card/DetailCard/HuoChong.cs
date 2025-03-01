@@ -8,9 +8,18 @@ public class HuoChong : Card
     public override void Use(AreaScript area)
     {
         base.Use(area);
-        if (area.cards.Count < 3)
-        {
+            if (area != null)
+            {
+            if (area.cards.Count < 3)
+            {
+                for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                {
+                    if (HandCard.MyInstance.applicationArea[i] != null)
+                    {
 
+                    }
+                }
+            }
         }
         //受战争影响降低
         //战争提供正面收益
