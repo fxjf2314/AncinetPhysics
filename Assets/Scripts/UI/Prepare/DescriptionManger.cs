@@ -26,19 +26,23 @@ public class DescriptionManger : MonoBehaviour
     private void Start()
     {
         instance = this;
-        simpleDes.SetActive(false);
-        detailDes.SetActive(false);
+        //simpleDes.SetActive(false);
+        //detailDes.SetActive(false);
         progressBar = simpleDes.transform.Find("ProgressBar").GetComponent<Image>();
     }
 
     public void OpenSimpleDes(Card cardData)
     {
-        simpleDes.SetActive(true);
-        simpleDes.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;
-        simpleDes.transform.Find("Area").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().area;
-        simpleDes.transform.Find("Effect").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().effect;
-        LayoutRebuilder.ForceRebuildLayoutImmediate(simpleDes.GetComponent<RectTransform>());
-        timer = StartCoroutine(CanClickTime());
+        if(simpleDes != null)
+        {
+            simpleDes.SetActive(true);
+            simpleDes.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;
+            simpleDes.transform.Find("Area").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().area;
+            simpleDes.transform.Find("Effect").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().effect;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(simpleDes.GetComponent<RectTransform>());
+            timer = StartCoroutine(CanClickTime());
+        }
+        
     }
 
     public void OpenDetailDes(Card cardData)
@@ -60,7 +64,6 @@ public class DescriptionManger : MonoBehaviour
         }
         mIsCanClick = false;
         progressBar.fillAmount = 0;
-        Debug.Log(0);
     }
 
     public void CloseDetailedDes()

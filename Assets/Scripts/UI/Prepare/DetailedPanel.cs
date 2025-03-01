@@ -21,7 +21,6 @@ public class DetailedPanel : MonoBehaviour
         title = TransformFind.TransformFindChild(transform, "Title").GetComponent<TextMeshProUGUI>();
         area = TransformFind.TransformFindChild(transform, "Area").GetComponent<TextMeshProUGUI>();
         effect = TransformFind.TransformFindChild(transform, "Effect").GetComponent<TextMeshProUGUI>();
-        gameObject.SetActive(false);
     }
 
     public void LoadCardData(Card cardData)

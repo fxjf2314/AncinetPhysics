@@ -30,6 +30,7 @@ public class HandCardGroupUI : MonoBehaviour
         {
             GameObject obj = Instantiate(slotPrefab, transform.position, Quaternion.identity);
             obj.transform.SetParent(transform);
+            obj.transform.localScale = Vector3.one;
             mSlots.Add(obj);
         }
     }

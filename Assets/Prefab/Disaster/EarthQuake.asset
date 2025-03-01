@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34c52eef44d37140b6764212d9e16f7, type: 3}
+  m_Name: EarthQuake
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  id: 0
+  cardDes:
+    title: 
+    area: 
+    effect: 
+  cardPrefab: {fileID: 0}
+  images:
+  - {fileID: 21300000, guid: 0f09a89e70515bc449ccb024f1ae20f9, type: 3}
+  - {fileID: 21300000, guid: cbb86c658a5eb794480f4aab97975e24, type: 3}
+  - {fileID: 21300000, guid: 41aa281bfbddafa4cb23da1b213894e2, type: 3}
+  - {fileID: 21300000, guid: cbb86c658a5eb794480f4aab97975e24, type: 3}
+  cValue: 0.001
+  pValue: 0.006
+  count: 6
