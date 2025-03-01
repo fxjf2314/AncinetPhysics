@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class HandCardUI : MonoBehaviour,IPointerClickHandler
 {
-    [SerializeField]
-    Card slotData;
+    //[SerializeField]
+    //Card slotData;
     Card originCardData;
     CardUI originCard;
     bool isContainCard;

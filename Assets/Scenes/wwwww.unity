@@ -489,6 +489,29 @@ BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125675403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!224 &128399295 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+  m_PrefabInstance: {fileID: 3550058229328361092}
+>>>>>>> feature
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125675403}
   m_Material: {fileID: 0}
@@ -2657,6 +2680,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552957666}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 --- !u!1 &554465983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,6 +2731,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> feature
 --- !u!1 &560031881
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,7 +3468,11 @@ PrefabInstance:
     - target: {fileID: 5339231746053561507, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
       propertyPath: placementSystem
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 0}
+=======
+      objectReference: {fileID: 2013306432}
+>>>>>>> feature
     - target: {fileID: 5339231746053561507, guid: f5b71a46ab166034d9bd980f4bc3652a, type: 3}
       propertyPath: canvasClickHandler
       value: 
@@ -5606,7 +5636,11 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+<<<<<<< HEAD
   describe: "\u603B\u6536\u6210"
+=======
+  describe: 
+>>>>>>> feature
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1110908260
 GameObject:
@@ -9276,6 +9310,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1801994482}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1801994484}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!224 &1801994479 stripped
 RectTransform:
@@ -9305,6 +9342,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1801994484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79851154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 0}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 0}
+  cancelButtonPrefab: {fileID: 0}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 0}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 10, z: -10}
+  cameraTargetRotation: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &1809666767
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,7 +9465,11 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+<<<<<<< HEAD
   describe: "\u603B\u4EBA\u53E3"
+=======
+  describe: 
+>>>>>>> feature
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1839962160
 GameObject:
@@ -9491,7 +9563,11 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+<<<<<<< HEAD
   describe: "\u56DE\u5408\u6570"
+=======
+  describe: 
+>>>>>>> feature
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1862558896
 GameObject:
@@ -9823,17 +9899,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b3408873c3cbe4d9f3f8a831d5a37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
   describe: noPlace
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1978075778
+=======
+--- !u!114 &2013306432
+>>>>>>> feature
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1978075775}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -10072,6 +10153,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983008433}
   m_CullTransparentMesh: 1
+=======
+  m_GameObject: {fileID: 65700222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 7989523528599969739, guid: 2aebe55d47239e84fada8689bf015259, type: 3}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 2100000, guid: 40ce35b16b530f049bfb547de7d18274, type: 2}
+  cancelButtonPrefab: {fileID: 1248790323}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 7762720994615822269, guid: 3cf6204673f82ff4e9bdeb35c3a3b841, type: 3}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 500, z: -10}
+  cameraTargetRotation: {x: 1, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
+>>>>>>> feature
 --- !u!1 &2033153445
 GameObject:
   m_ObjectHideFlags: 0
@@ -10363,6 +10471,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2045291669}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045291671}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!224 &2045291666 stripped
 RectTransform:
@@ -10392,6 +10503,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2045291671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236319879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 0}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 0}
+  cancelButtonPrefab: {fileID: 0}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 0}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 10, z: -10}
+  cameraTargetRotation: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &2066617087
 GameObject:
   m_ObjectHideFlags: 0
@@ -10484,7 +10626,11 @@ MonoBehaviour:
   tip: {fileID: 635221514}
   frameColor: {fileID: 635221516}
   detailMessage: {fileID: 1135795178}
+<<<<<<< HEAD
   describe: "\u603B\u4EA7\u51FA"
+=======
+  describe: 
+>>>>>>> feature
   color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2143911772
 GameObject:
@@ -10653,6 +10799,8 @@ MeshFilter:
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &2143911780
 BoxCollider:
+<<<<<<< HEAD
+=======
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10695,6 +10843,153 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989523529370743128}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &3550058229328361092
+PrefabInstance:
+>>>>>>> feature
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143911772}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2707225478715940772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989523529370743128}
+  serializedVersion: 2
+<<<<<<< HEAD
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.3400002, z: 37.80002}
+  m_LocalScale: {x: 16.705, y: 16.705, z: 16.705}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 560031882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2787965569074202528
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989523529370743128}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+=======
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1215139717}
+    m_Modifications:
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30.499989
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      propertyPath: m_Name
+      value: Card
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2013306431}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2013306432}
+  m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+>>>>>>> feature
 --- !u!23 &3955706054240539203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10811,4 +11106,7 @@ SceneRoots:
   - {fileID: 317354512}
   - {fileID: 1768005578}
   - {fileID: 560031882}
+<<<<<<< HEAD
   - {fileID: 554465985}
+=======
+>>>>>>> feature
