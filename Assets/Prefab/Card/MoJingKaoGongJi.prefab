@@ -160,7 +160,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753421002813254997}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -224,12 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb88dbcd88f62c47ba8dcf54a1ff9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleDes: {fileID: 0}
-  simpleDesOffset: {x: 20, y: -20}
-  time: 2.5
-  detailedDes: {fileID: 0}
   panelPrefab: {fileID: 3152208700406282981, guid: 40aa73af55272ba4fab13cfbfd87cd8f, type: 3}
-  cardData: {fileID: 11400000, guid: 4f9f934c316947b4b92da0960a4887a5, type: 2}
+  cardData: {fileID: 11400000, guid: dc8a381158607f545b312a3b90308fdf, type: 2}
 --- !u!1 &5503953600784120782
 GameObject:
   m_ObjectHideFlags: 0

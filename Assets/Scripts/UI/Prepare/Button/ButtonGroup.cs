@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ButtonGroup : MonoBehaviour
 {
     #region 朝代按钮
+    [Header("朝代按钮")]
     [SerializeField]
     Button chunQiuZhanGuoBtn;
     [SerializeField]
@@ -49,19 +50,17 @@ public class ButtonGroup : MonoBehaviour
 
     #endregion
 
+
+    [Header("游戏按钮")]
     [SerializeField]
     Button clearHandCardGroupBtn;
 
     [SerializeField]
-    Button backToTitleBtn;
-
-    [SerializeField]
     Button goToGameBtn;
-    [SerializeField]
-    GameObject goToGameTip;
 
+    [Header("系统按钮")]
     [SerializeField]
-    Button confirmStartGameBtn;
+    Button backToTitleBtn;
 
     GameObject currentDy;
 
@@ -115,25 +114,17 @@ public class ButtonGroup : MonoBehaviour
 
         clearHandCardGroupBtn.onClick.AddListener(() =>
         {
-            List<GameObject> slots = HandCardGroupUI.Instance.slots;
-            int handCardCount = HandCardGroup.Instance.handCards.Count;
-            for (int i = 0; i < handCardCount; i++)
-            {
-                slots[0].GetComponent<HandCardUI>().RemoveCard();
-                //Debug.Log(slots[0].GetComponent<HandCardUI>().isContainCard);
-                //Debug.Log(2);
-            }
+            TipPanelManager.Instance.OpenPanel(BtnFunction.clearHandCard, "是否清空手牌");
         });
 
         goToGameBtn.onClick.AddListener(() =>
         {
-            Debug.Log("111");
-            goToGameTip.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>().text = "你现在配置好了" + HandCardGroup.Instance.handCards.Count + "张卡牌,是否要进入游戏";
+            TipPanelManager.Instance.OpenPanel(BtnFunction.goToGame, "你现在配置好了" + HandCardGroup.Instance.handCards.Count + "张卡牌,是否要进入游戏");
         });
 
-        confirmStartGameBtn.onClick.AddListener(() =>
+        backToTitleBtn.onClick.AddListener(() =>
         {
-
+            TipPanelManager.Instance.OpenPanel(BtnFunction.goToTitle, "是否清空手牌并返回标题");
         });
 
     }

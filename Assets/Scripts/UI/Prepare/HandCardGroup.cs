@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class HandCardGroup : MonoBehaviour,ISaveAndLoadGame
+public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
 {
     public static HandCardGroup Instance => instance;
     private static HandCardGroup instance;
@@ -37,14 +37,14 @@ public class HandCardGroup : MonoBehaviour,ISaveAndLoadGame
         mHandCards.Remove(card);
     }
 
-    public void Save(ref GameData gameData)
+    public void Save<T>(ref T gameData)
     {
-        gameData.handCards = mHandCards;
+        (gameData as GameData).handCards = mHandCards;
     }
 
-    public void Load(GameData gameData)
+    public void Load<T>(T gameData)
     {
-        mHandCards= gameData.handCards;
+        mHandCards= (gameData as GameData).handCards;
         foreach(var card in mHandCards)
         {
             Debug.Log(card.name + card.GetDescription().title + card.GetDescription().area + card.GetDescription().effect);

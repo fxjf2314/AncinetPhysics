@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class StartButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        filePanel.SetActive(false);
+        //filePanel.SetActive(false);
         AddListeners();
     }
 
@@ -32,10 +33,21 @@ public class StartButtons : MonoBehaviour
             SceneManager.LoadScene("PrepareScene");
         });
 
-        continueGameBtn.onClick.AddListener(() =>
+        if(GameSettingSave.Instance.isExistSave)
         {
+            continueGameBtn.onClick.AddListener(() =>
+            {
 
-        });
+            });
+        }
+        else
+        {
+            continueGameBtn.interactable = false;
+            TextMeshProUGUI tmp = continueGameBtn.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
+            Color color = tmp.color;
+            color.a = 0.5f;
+            tmp.color = color;
+        }
 
         loadGameBtn.onClick.AddListener(() =>
         {
