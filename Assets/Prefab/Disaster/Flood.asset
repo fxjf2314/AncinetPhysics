@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab19672c617c0304e8d0384cd9fb56a5, type: 3}
+  m_Name: Flood
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  title: "\u6D2A\u6D9D"
+  description: 
+  cardPrefab: {fileID: 0}
+  images:
+  - {fileID: 21300000, guid: e032efea48734574a9094b010a119a67, type: 3}
+  - {fileID: 21300000, guid: ba1c41415d135f34396e09e4c6faea4b, type: 3}
+  - {fileID: 21300000, guid: 46dfff0e3104daf488dc8c31fb5c6c74, type: 3}
+  - {fileID: 21300000, guid: caed10f2874274248b9fe65b24169d02, type: 3}
+  cValue: 0.01
+  pValue: 0.18
+  count: 0
+  probability: 0.5
