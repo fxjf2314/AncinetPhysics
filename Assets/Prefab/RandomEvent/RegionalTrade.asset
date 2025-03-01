@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb1286608c834e41a8a35dc38cd1ea6, type: 3}
+  m_Name: RegionalTrade
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  id: 0
+  cardDes:
+    title: 
+    area: 
+    effect: 
+  cardPrefab: {fileID: 0}
+  areasProbability:
+  - area: {fileID: 0}
+    probability: 0.10000000149011612
+  - area: {fileID: 0}
+    probability: 0.05000000074505806
+  - area: {fileID: 0}
+    probability: 0.05000000074505806
+  - area: {fileID: 0}
+    probability: 0.05000000074505806
+  - area: {fileID: 0}
+    probability: 0.05000000074505806
+  randomEventTips: {fileID: 0}
+  randomEventTipsButton: {fileID: 0}
+  coinChange: 5
+  foodChange: 5
