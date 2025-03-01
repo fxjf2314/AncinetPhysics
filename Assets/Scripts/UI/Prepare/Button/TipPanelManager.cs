@@ -63,6 +63,7 @@ public class TipPanelManager : MonoBehaviour
                     confirmBtn.onClick.AddListener(() =>
                     {
                         Debug.Log("¿ªÊ¼ÓÎÏ·");
+                        SceneManager.LoadScene("wwwww");
                         this.gameObject.SetActive(false);
                     });
                 }break;

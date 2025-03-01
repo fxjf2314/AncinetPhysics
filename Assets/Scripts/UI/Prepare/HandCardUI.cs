@@ -47,8 +47,5 @@ public class HandCardUI : MonoBehaviour,IPointerClickHandler
         }
     }
 
-    private void OnDestroy()
-    {
-        
-    }
+
 }

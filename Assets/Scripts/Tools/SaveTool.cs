@@ -89,6 +89,6 @@ public static class SaveTool
 
 public interface ISaveAndLoadGame
 {
-    void Save<T>(ref T gameData);
-    void Load<T>(T gameData);
+    void Save(ref GameData gameData);
+    void Load(GameData gameData);
 }

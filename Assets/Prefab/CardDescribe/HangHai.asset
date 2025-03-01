@@ -16,6 +16,6 @@ MonoBehaviour:
   id: 0
   cardDes:
     title: "\u822A\u6D77\u672F"
-    area: 
-    effect: 
+    area: "\u6709\u6548\u533A\u57DF\uFF1A\u6240\u653E\u7F6E\u7684\u90A3\u4E2A\u533A\u57DF\u3002"
+    effect: "\u6548\u679C\uFF1A\u8BE5\u533A\u57DF\u603B\u589E\u957F\u6700\u9AD8\u7684\u8D44\u6E90\u589E\u957F\u589E\u52A0\u3002"
   cardPrefab: {fileID: 0}

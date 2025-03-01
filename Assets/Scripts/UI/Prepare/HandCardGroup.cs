@@ -11,7 +11,7 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
     public List<Card> handCards => mHandCards;
     List<Card> mHandCards;
 
-    int cardLimit = 8;
+    const int cardLimit = 8;
 
     
 
@@ -37,12 +37,12 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
         mHandCards.Remove(card);
     }
 
-    public void Save<T>(ref T gameData)
+    public void Save(ref GameData gameData)
     {
         (gameData as GameData).handCards = mHandCards;
     }
 
-    public void Load<T>(T gameData)
+    public void Load(GameData gameData)
     {
         mHandCards= (gameData as GameData).handCards;
         foreach(var card in mHandCards)

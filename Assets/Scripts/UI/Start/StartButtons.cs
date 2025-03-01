@@ -37,7 +37,8 @@ public class StartButtons : MonoBehaviour
         {
             continueGameBtn.onClick.AddListener(() =>
             {
-
+                SceneManager.LoadScene("wwwww");
+                DataPersistence.Instance.LoadGame(GameSettingSave.Instance.setting.currentSave);
             });
         }
         else
