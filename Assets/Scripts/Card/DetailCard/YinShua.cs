@@ -8,8 +8,21 @@ public class YinShua : Card
     public override void Use(AreaScript area)
     {
         base.Use(area);
-        if (area.cards.Count < 3)
-            area.CoinControl(100);
+
+            if (area != null)
+            {
+            if (area.cards.Count < 3)
+            {
+                for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                {
+                    if (HandCard.MyInstance.applicationArea[i] != null)
+                    {
+                        HandCard.MyInstance.applicationArea[i].CoinControl(100);
+                    }
+                }
+            }
+
+        }
         //有造纸术时进一步增多
     }
 }

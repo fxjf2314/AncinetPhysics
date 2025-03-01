@@ -9,11 +9,20 @@ public class SiNan : Card
     {
         Debug.Log("111");
         base.Use(area);
-        if (area.cards.Count < 3)
-        {
-            area.CoinControl(150);
+            if (area != null)
+            {
+            if (area.cards.Count < 3)
+            {
+                for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                {
+                    if (HandCard.MyInstance.applicationArea[i] != null)
+                    {
+                        HandCard.MyInstance.applicationArea[i].CoinControl(150);
+                    }
+                }
+            }
         }
-        
+       
         //ÊÜÉ³³¾±©£¬´óÎíÌìÆøÓ°Ïì½µµÍ£¨È±Ê§£©
     }
 }

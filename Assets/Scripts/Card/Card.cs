@@ -13,6 +13,7 @@ public struct Description
     public string effect;
 }
 
+
 public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌和灾害的初始化
 {
     [SerializeField]
@@ -30,7 +31,6 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
 
 
     public Sprite MyIcon { get => icon; }
-
 
     public Sprite GetSprite()
     {
@@ -50,12 +50,13 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
 
     public virtual void Use(AreaScript area)
     {
-        if (area.cards.Count < 3)
-        {
-        
-            area.cards.Add(this);
-        }
-        
+            if (area != null)
+            {
+                if (area.cards.Count < 3)
+                {
 
+                    area.cards.Add(this);
+                }
+            }
     }
 }
