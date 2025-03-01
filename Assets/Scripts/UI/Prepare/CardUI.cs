@@ -10,9 +10,6 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
     
     bool isInHand;//是否已经加入手牌
     [SerializeField]
-    GameObject panelPrefab;//卡片蒙布预制件
-    GameObject panel;//卡片蒙布
-    [SerializeField]
     Card cardData;//卡牌配置文件
 
 
@@ -47,6 +44,7 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
         {
             if (DescriptionManger.Instance.isCanClick)
             {
+                //Debug.Log("?");
                 DescriptionManger.Instance.OpenDetailDes(cardData);
             }
             else if (!isInHand)
@@ -76,6 +74,7 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     public void RemoveCardFromHandCrad()
     {
+        isInHand = false;
         Image icon = transform.Find("Icon").GetComponent<Image>();
         Color color = icon.color;
         color.a = 1f;

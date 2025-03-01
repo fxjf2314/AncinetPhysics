@@ -1,83 +1,119 @@
-#if UNITY_EDITOR
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
-/// <summary>
-/// 需要指定字体的路径 名字   路径放到Resources文件夹中
-/// </summary>
+using TMPro;
+using System.Collections.Generic;
+using System.IO;
+
 public class FontChange : EditorWindow
 {
-    //替换场景内的所有字体
-    [MenuItem("FontTools/替换场景中所有text字体")]
-    public static void ChangeFont_Scene()
+    [MenuItem("FontTools/替换场景中所有TMP字体")]
+    public static void ChangeTMPFont_Scene()
     {
-        //加载目标字体  "目标字体的名字"      
-        Font targetFont = Resources.Load<Font>("简启体");
-        //获取场景所有激活物体
-        //GameObject[] objs = FindObjectsOfType(typeof(GameObject)) as GameObject[];
-        //获取场景所有物体
-        GameObject[] allObj = Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[];
-        Text tmpText;
-        int textCount = 0;
-        for (int i = 0; i < allObj.Length; i++)
+        // 弹出TMP字体选择窗口
+        string fontPath = EditorUtility.OpenFilePanelWithFilters("选择TMP字体文件",
+            Application.dataPath,
+            new[] { "TMP Font", "asset" });
+
+        if (string.IsNullOrEmpty(fontPath))
         {
-            //带有Text组件的GameObject，替换字体
-            tmpText = allObj[i].GetComponent<Text>();
-            if (tmpText != null)
-            {
-                textCount++;
-                tmpText.font = targetFont;
-                //在此扩展，可以给添加外边框，也可以根据需求进行其他操作
-                //allObj[i].AddComponent<Outline>();
-            }
+            Debug.LogWarning("字体选择已取消");
+            return;
         }
-        Debug.Log("<color=yellow> 当前场景共有：物体 </color>" + allObj.Length + "<color=yellow> 个，Text组件 </color>" + textCount + "<color=green> 个 </color>");
-    }
-    //替换资源文件夹中全部Prefab的字体
-    [MenuItem("FontTools/替换预设物中所有text字体")]
-    public static void ChangeFont_Prefab()
-    {
-        Font targetFont = Resources.Load<Font>("简启体");
-        List<Text[]> textList = new List<Text[]>();
-        //获取Asset文件夹下所有Prefab的GUID
-        string[] ids = AssetDatabase.FindAssets("t:Prefab");
-        string tmpPath;
-        GameObject tmpObj;
-        Text[] tmpArr;
-        for (int i = 0; i < ids.Length; i++)
+
+        // 转换为相对路径
+        if (!fontPath.StartsWith(Application.dataPath))
         {
-            tmpObj = null;
-            tmpArr = null;
-            //根据GUID获取路径
-            tmpPath = AssetDatabase.GUIDToAssetPath(ids[i]);
-            if (!string.IsNullOrEmpty(tmpPath))
+            Debug.LogError("请选择项目Assets目录内的字体文件！");
+            return;
+        }
+        string relativePath = "Assets" + fontPath.Substring(Application.dataPath.Length);
+
+        // 加载TMP字体
+        TMP_FontAsset targetFont = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(relativePath);
+        if (targetFont == null)
+        {
+            Debug.LogError($"TMP字体加载失败，请确认路径有效：{relativePath}");
+            return;
+        }
+
+        // 获取场景中所有TMP组件
+        TMP_Text[] allTexts = GameObject.FindObjectsOfType<TMP_Text>(true);
+        int replacedCount = 0;
+
+        foreach (TMP_Text text in allTexts)
+        {
+            // 排除Prefab实例中的对象
+            if (PrefabUtility.IsPartOfPrefabAsset(text.gameObject)) continue;
+
+            Undo.RecordObject(text, "Change TMP Font");
+            text.font = targetFont;
+            replacedCount++;
+
+            // 标记对象已修改
+            EditorUtility.SetDirty(text);
+        }
+
+        // 标记场景需要保存
+        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(
+            UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+
+        Debug.Log($"<color=green>成功替换 {replacedCount} 个TMP文本组件的字体</color>");
+    }
+
+    [MenuItem("FontTools/替换预设物中所有TMP字体")]
+    public static void ChangeTMPFont_Prefab()
+    {
+        string fontPath = EditorUtility.OpenFilePanelWithFilters("选择TMP字体文件",
+            Application.dataPath,
+            new[] { "TMP Font", "asset" });
+
+        if (string.IsNullOrEmpty(fontPath))
+        {
+            Debug.LogWarning("字体选择已取消");
+            return;
+        }
+
+        string relativePath = "Assets" + fontPath.Substring(Application.dataPath.Length);
+        TMP_FontAsset targetFont = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(relativePath);
+
+        if (targetFont == null)
+        {
+            Debug.LogError($"TMP字体加载失败：{relativePath}");
+            return;
+        }
+
+        // 获取所有预制体
+        string[] guids = AssetDatabase.FindAssets("t:Prefab");
+        int modifiedPrefabs = 0;
+        int totalModified = 0;
+
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
+            bool modified = false;
+            TMP_Text[] texts = prefab.GetComponentsInChildren<TMP_Text>(true);
+
+            foreach (TMP_Text text in texts)
             {
-                //根据路径获取Prefab(GameObject)
-                tmpObj = AssetDatabase.LoadAssetAtPath(tmpPath, typeof(GameObject)) as GameObject;
-                if (tmpObj != null)
+                if (text.font != targetFont)
                 {
-                    //获取Prefab及其子物体孙物体.......的所有Text组件
-                    tmpArr = tmpObj.GetComponentsInChildren<Text>();
-                    if (tmpArr != null && tmpArr.Length > 0)
-                        textList.Add(tmpArr);
+                    text.font = targetFont;
+                    modified = true;
+                    totalModified++;
                 }
             }
-        }
-        //替换所有Text组件的字体
-        int textCount = 0;
-        for (int i = 0; i < textList.Count; i++)
-        {
-            for (int j = 0; j < textList[i].Length; j++)
+
+            if (modified)
             {
-                textCount++;
-                textList[i][j].font = targetFont;
+                PrefabUtility.SavePrefabAsset(prefab);
+                modifiedPrefabs++;
             }
         }
+
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        Debug.Log("<color=yellow> 当前ProJect共有：Prefab </color>" + ids.Length + "<color=yellow> 个，带有Text组件Prefab </color>" + textList.Count + "<color=green> 个，Text组件 </color>" + textCount + "<color=green> 个 </color>");
+        Debug.Log($"<color=green>修改了 {modifiedPrefabs} 个预制体，共更新 {totalModified} 个TMP组件</color>");
     }
 }
-#endif 
