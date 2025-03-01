@@ -2342,7 +2342,7 @@ PrefabInstance:
     - target: {fileID: 1269033849783497232, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 4b5637fe6caa3494db8608eef5db38ed, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1269033849783497232, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_fontSizeBase
       value: 6
@@ -2350,7 +2350,7 @@ PrefabInstance:
     - target: {fileID: 1269033849783497232, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -7358883666240660367, guid: 4b5637fe6caa3494db8608eef5db38ed, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1269033849783497232, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -2381,11 +2381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 28.4559
+      value: 48.2011
       objectReference: {fileID: 0}
     - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 38.9294
+      value: 67.3734
       objectReference: {fileID: 0}
     - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2417,11 +2417,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.75
+      value: 19.1683
       objectReference: {fileID: 0}
     - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.475
+      value: -22.4107
       objectReference: {fileID: 0}
     - target: {fileID: 4376509222479679350, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2441,7 +2441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6256381337133210711, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 16.0329
+      value: 29.5645
       objectReference: {fileID: 0}
     - target: {fileID: 6256381337133210711, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2449,11 +2449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6256381337133210711, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000002861
+      value: -0.000060081
       objectReference: {fileID: 0}
     - target: {fileID: 6256381337133210711, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.9485
+      value: 21.3
       objectReference: {fileID: 0}
     - target: {fileID: 7258761434027553702, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_IsActive
@@ -2465,19 +2465,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222501371438580526, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 24.4916
+      value: 36.3771
       objectReference: {fileID: 0}
     - target: {fileID: 9222501371438580526, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25.0913
+      value: 37.2678
       objectReference: {fileID: 0}
     - target: {fileID: 9222501371438580526, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000032902
+      value: -0.000026703
       objectReference: {fileID: 0}
     - target: {fileID: 9222501371438580526, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.9
+      value: -11.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4491731205317757904, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
@@ -9123,6 +9123,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1801994482}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1801994484}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!224 &1801994479 stripped
 RectTransform:
@@ -9152,6 +9155,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1801994484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79851154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 0}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 0}
+  cancelButtonPrefab: {fileID: 0}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 0}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 10, z: -10}
+  cameraTargetRotation: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &1809666767
 GameObject:
   m_ObjectHideFlags: 0
@@ -10258,6 +10292,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2045291669}
+    - targetCorrespondingSourceObject: {fileID: 9021409294428599368, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045291671}
   m_SourcePrefab: {fileID: 100100000, guid: 8c2e487113fe6f94fa6a37933f3679a8, type: 3}
 --- !u!224 &2045291666 stripped
 RectTransform:
@@ -10287,6 +10324,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2525cd6730009974d98c284a8036a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2045291671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236319879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193eacb3be633b846a3961cf5a079e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 0}
+  riseHeight: 10
+  riseDuration: 0.3
+  planeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  buttonXOffset: 250
+  buttonYOffset: 0
+  planeTag: Area
+  highlightMaterial: {fileID: 0}
+  cancelButtonPrefab: {fileID: 0}
+  cardDetailSceneName: CardDetailScene
+  cardInfoPanelPrefab: {fileID: 0}
+  hoverDelay: 1
+  cardArea: Area
+  cardEffect: Effect
+  cameraTargetPosition: {x: 0, y: 10, z: -10}
+  cameraTargetRotation: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  cameraMoveDuration: 0.5
 --- !u!1 &2066617087
 GameObject:
   m_ObjectHideFlags: 0

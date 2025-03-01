@@ -50,6 +50,7 @@ public class DataPersistence : MonoBehaviour
     {
         //场景加载后寻找继承了IDataPersistence的脚本
         dataPersistenceObjs = FindAllDataPersistenceObjs();
+        GameSettingSave.Instance.setting.currentSave = FileName;
         foreach (ISaveAndLoadGame dataPersistenceObj in dataPersistenceObjs)
         {
             //调用每个类的SaveData方法
@@ -65,8 +66,8 @@ public class DataPersistence : MonoBehaviour
         gameData = SaveTool.Load<GameData>(FileName);
         if (gameData == null)
         {
-            Debug.Log("没有找到存档，自动开始新游戏");
-            NewGame();
+            //Debug.Log("没有找到存档，自动开始新游戏");
+            //NewGame();
         }
 
         Debug.Log(dataPersistenceObjs.Count);
