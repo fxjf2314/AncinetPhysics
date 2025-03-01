@@ -11,6 +11,7 @@ public static class SaveTool
     public const string File_Name_01 = "Save01";
     public const string File_Name_02 = "Save02";
     public const string File_Name_03 = "Save03";
+    public const string GameSetting_Name = "Setting";
 
     private static string mSavePath;
 
@@ -88,6 +89,6 @@ public static class SaveTool
 
 public interface ISaveAndLoadGame
 {
-    void Save(ref GameData gameData);
-    void Load(GameData gameData);
+    void Save<T>(ref T gameData);
+    void Load<T>(T gameData);
 }

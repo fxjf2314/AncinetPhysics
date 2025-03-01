@@ -68,21 +68,18 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
     
     void AddPanelOnCard()
     {
-        panel = Instantiate(panelPrefab, transform.position, Quaternion.identity);
-        panel.transform.SetParent(transform);
-        var rect = GetComponent<RectTransform>();
-        panel.GetComponent<RectTransform>().sizeDelta = new Vector2(rect.rect.width, rect.rect.height);
-        panel.GetComponent<RectTransform>().localPosition = Vector3.zero;
-        //panel.GetComponent<RectTransform>()
+        Image icon = transform.Find("Icon").GetComponent<Image>();
+        Color color = icon.color;
+        color.a = 0.5f;
+        icon.color = color;
     }
 
     public void RemoveCardFromHandCrad()
     {
-        if(panel != null)
-        {
-            Destroy(panel);
-            isInHand = false;
-        }
+        Image icon = transform.Find("Icon").GetComponent<Image>();
+        Color color = icon.color;
+        color.a = 1f;
+        icon.color = color;
     }
 
 }
