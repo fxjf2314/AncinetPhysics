@@ -9,6 +9,9 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
     private static HandCardGroup instance;
 
     public List<Card> handCards => mHandCards;
+
+    //public GameObject gameObject;
+
     List<Card> mHandCards;
 
     int cardLimit = 8;
@@ -17,6 +20,7 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         instance = this;
         mHandCards = new List<Card>();
     }
