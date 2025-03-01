@@ -80,6 +80,7 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
         Color color = icon.color;
         color.a = 1f;
         icon.color = color;
+        isInHand = false;
     }
 
 }

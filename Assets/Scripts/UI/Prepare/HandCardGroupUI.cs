@@ -49,6 +49,7 @@ public class HandCardGroupUI : MonoBehaviour
         HandCardGroup.Instance.RemoveCardFromGroup(cardData);
         GameObject obj = Instantiate(slotPrefab, transform.position, Quaternion.identity);
         obj.transform.SetParent(transform);
+        obj.transform.localScale = Vector3.one;
         mSlots.Add(obj);
         Image icon = obj.transform.Find("Icon").GetComponent<Image>();
         
