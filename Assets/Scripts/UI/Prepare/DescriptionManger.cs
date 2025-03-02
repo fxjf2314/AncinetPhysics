@@ -16,6 +16,7 @@ public class DescriptionManger : MonoBehaviour
 
     [SerializeField]
     Vector2 simpleDesOffset;//介绍悬浮窗口与鼠标的偏移值
+
     Coroutine timer;//用于计时的协程
     Image progressBar;
     [SerializeField]
@@ -76,7 +77,7 @@ public class DescriptionManger : MonoBehaviour
         if (simpleDes.activeSelf)
         {
             Vector3 mousePos = Input.mousePosition;
-            simpleDes.transform.position = new Vector3(mousePos.x + simpleDesOffset.x, mousePos.y + simpleDesOffset.y, 0);
+            simpleDes.transform.position = new Vector3(mousePos.x , mousePos.y , 0);
         }
     }
 
