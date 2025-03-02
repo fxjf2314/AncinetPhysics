@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler
@@ -15,7 +17,10 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     void Start()
     {
-        InitCard();
+        if(SceneManager.GetActiveScene().name != "wwwww")
+        {
+            InitCard();
+        }
     }
 
     void InitCard()
@@ -40,7 +45,8 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.button == PointerEventData.InputButton.Left)
+        if (SceneManager.GetActiveScene().name == "wwwww") return;
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
             if (DescriptionManger.Instance.isCanClick)
             {
@@ -82,4 +88,8 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
         isInHand = false;
     }
 
+    public void ChangeCardData(Card card)
+    {
+        cardData = card;
+    }
 }
