@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     }
 
     #region ±äÁ¿
-    
+    public TextMeshProUGUI disasterName;
     
     public int foodBaseNumber;
 
@@ -44,6 +44,9 @@ public class UIManager : MonoBehaviour
     private GameObject areaTip;
 
     [SerializeField]
+    private GameObject settingPanel;
+
+    [SerializeField]
     private TextMeshProUGUI roundText;
 
     [SerializeField]
@@ -54,6 +57,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI populationText;
+
+    [SerializeField]
+    private UnityEngine.UI.Button setting;
 
     #endregion
 
@@ -66,7 +72,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+        setting.onClick.AddListener(()=>OpenSettingPanel());
         totalRound = 1;
         roundText.text = $"{totalRound}/10";
         
@@ -141,4 +147,8 @@ public class UIManager : MonoBehaviour
         ButtonsManager.MyInstance.stepButtons[1].transform.gameObject.SetActive(true);
     }
 
+    private void OpenSettingPanel()
+    {
+        settingPanel.SetActive(!settingPanel.activeSelf);
+    }
 }
