@@ -40,6 +40,8 @@ public class HandCard : MonoBehaviour
     
     private void Start()
     {
+        cards = HandCardGroup.Instance.handCards;
+        
         foreach(Card card in cards)
         {
             if (card != null)
@@ -49,15 +51,30 @@ public class HandCard : MonoBehaviour
         }
         
         int count = 0;
-        while(indexes.Count < 4)
+        if(totalCardNum >= 4)
         {
-            int index = UnityEngine.Random.Range(0, totalCardNum);
-            if (cards[index] != null)
+            while (indexes.Count < 4)
             {
-                indexes.Add(index);
+                int index = UnityEngine.Random.Range(0, totalCardNum);
+                if (cards[index] != null)
+                {
+                    indexes.Add(index);
+                }
+
             }
-            
         }
+        else
+        {
+            while (indexes.Count < (int)totalCardNum)
+            {
+                int index = UnityEngine.Random.Range(0, totalCardNum);
+                if (cards[index] != null)
+                {
+                    indexes.Add(index);
+                }
+            }
+        }
+        
         foreach(int index in indexes)
         {
 

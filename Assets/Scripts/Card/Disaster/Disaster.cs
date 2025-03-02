@@ -13,11 +13,17 @@ public class Disaster : Card
     private double pValue;
     [SerializeField]
     private int count;
+    public double pEffectiveness;
+    public double fEffectiveness;
+    public double cEffectiveness;
 
     private void OnEnable()
     {
         count = 0;
         pValue = 0;
+        pEffectiveness = 1;
+        fEffectiveness = 1;
+        cEffectiveness = 1;
     }
     public void Judge()
     {
@@ -41,6 +47,7 @@ public class Disaster : Card
     {
         if (Random.Range(0f, 1f) <= probability)
         {
+
             if (area.GetComponent<AreaScript>().areaDetail.population > 1)
             {
                 area.GetComponent<AreaScript>().areaDetail.population -= 1;

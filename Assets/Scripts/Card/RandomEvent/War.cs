@@ -12,6 +12,9 @@ public class War : RandomEvent
     public float probabilityChange;
     [Header("双方失去人口的概率")]
     public float probability;
+    public double pEffectiveness;
+    public double fEffectiveness;
+    public double cEffectiveness;
     public override void Use(GameObject area)
     {
         GameObject[] surroundingAreas = area.GetComponent<AreaScript>().areaDetail.surroundingAreas;
@@ -39,8 +42,16 @@ public class War : RandomEvent
         {
             if (area.GetComponent<AreaScript>().areaDetail.population > 1)
             {
-                area.GetComponent<AreaScript>().areaDetail.population -= 1;
-                randomEventTips.text += GetAreaName(area) + "人口减少一点"+"\n";
+                int pChange = Convert.ToInt16(1 * pEffectiveness);
+                area.GetComponent<AreaScript>().areaDetail.population-= pChange;
+                if (pChange > 0)
+                {
+                    randomEventTips.text = GetAreaName(area) + "减少" + pChange + "点人口" + "\n";
+                } 
+                else if(pChange < 0)
+                {
+                    randomEventTips.text = GetAreaName(area) + "增加" + pChange + "点人口" + "\n";
+                }
             }
         }
     }
