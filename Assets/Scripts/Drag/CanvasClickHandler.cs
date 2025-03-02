@@ -31,6 +31,9 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     public float hoverDelay = 1.0f; // 悬浮延迟时间
     public string cardArea = "Area"; // 卡牌区域
     public string cardEffect = "Effect"; // 卡牌效果简述
+    public AudioSource house;//建筑声音
+    public AudioSource gun;//枪炮声音
+    public AudioSource book;//书籍声音
 
     private GameObject cardInfoPanelInstance; // 卡牌信息面板实例
     private bool isHovering = false; // 是否正在悬浮
@@ -288,75 +291,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 else
                 {
                     // 如果不在 Area 平面上，销毁预制体（2）
-                    #region 按图索骥--复原模型
-                    if (isdragone)
-                    {
-                        switch (cardtext.text)
-                        {
-                            case "《崇祯历书》":
-                                model[0].position = new Vector3(124, -500, -82);
-                                break;
-                            case "地动仪":
-                                model[1].position = new Vector3(124, -500, -82);
-                                break;
-                            case "都江堰":
-                                model[2].position = new Vector3(124, -500, -82);
-                                break;
-                            case "烽火":
-                                model[3].position = new Vector3(124, -500, -82);
-                                break;
-                            case "航海术":
-                                model[4].position = new Vector3(124, -500, -82);
-                                break;
-                            case "虎蹲炮":
-                                model[5].position = new Vector3(124, -500, -82);
-                                break;
-                            case "浑天仪":
-                                model[6].position = new Vector3(124, -500, -82);
-                                break;
-                            case "火铳":
-                                model[7].position = new Vector3(124, -500, -82);
-                                break;
-                            case "火药":
-                                model[8].position = new Vector3(124, -500, -82);
-                                break;
-                            case "秦朝军事力学":
-                                model[9].position = new Vector3(124, -500, -82);
-                                break;
-                            case "《墨经》《考工记》":
-                                model[10].position = new Vector3(124, -500, -82);
-                                break;
-                            case "《木经》":
-                                model[11].position = new Vector3(124, -500, -82);
-                                break;
-                            case "《农桑辑要》":
-                                model[12].position = new Vector3(124, -500, -82);
-                                break;
-                            case "简单机械组":
-                                model[13].position = new Vector3(124, -500, -82);
-                                break;
-                            case "司南":
-                                model[14].position = new Vector3(124, -500, -82);
-                                break;
-                            case "唐三彩":
-                                model[15].position = new Vector3(124, -500, -82);
-                                break;
-                            case "活字印刷术":
-                                model[16].position = new Vector3(124, -500, -82);
-                                break;
-                            case "云梯":
-                                model[17].position = new Vector3(124, -500, -82);
-                                break;
-                            case "造纸术":
-                                model[18].position = new Vector3(124, -500, -82);
-                                break;
-                            case "子母炮":
-                                model[19].position = new Vector3(124, -500, -82);
-                                break;
-                        }
-                        isdragone = false;
-                    }
-                    #endregion
+                    Resetmodel();
                     Destroy(spawnedPrefab);
                     spawnedPrefab = null;
                     isDragging = false;
@@ -367,75 +302,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             else
             {
                 // 如果没有碰到任何物体，销毁预制体（2）
-                #region 按图索骥--复原模型
-                if (isdragone)
-                {
-                    switch (cardtext.text)
-                    {
-                        case "《崇祯历书》":
-                            model[0].position = new Vector3(124, -500, -82);
-                            break;
-                        case "地动仪":
-                            model[1].position = new Vector3(124, -500, -82);
-                            break;
-                        case "都江堰":
-                            model[2].position = new Vector3(124, -500, -82);
-                            break;
-                        case "烽火":
-                            model[3].position = new Vector3(124, -500, -82);
-                            break;
-                        case "航海术":
-                            model[4].position = new Vector3(124, -500, -82);
-                            break;
-                        case "虎蹲炮":
-                            model[5].position = new Vector3(124, -500, -82);
-                            break;
-                        case "浑天仪":
-                            model[6].position = new Vector3(124, -500, -82);
-                            break;
-                        case "火铳":
-                            model[7].position = new Vector3(124, -500, -82);
-                            break;
-                        case "火药":
-                            model[8].position = new Vector3(124, -500, -82);
-                            break;
-                        case "秦朝军事力学":
-                            model[9].position = new Vector3(124, -500, -82);
-                            break;
-                        case "《墨经》《考工记》":
-                            model[10].position = new Vector3(124, -500, -82);
-                            break;
-                        case "《木经》":
-                            model[11].position = new Vector3(124, -500, -82);
-                            break;
-                        case "《农桑辑要》":
-                            model[12].position = new Vector3(124, -500, -82);
-                            break;
-                        case "简单机械组":
-                            model[13].position = new Vector3(124, -500, -82);
-                            break;
-                        case "司南":
-                            model[14].position = new Vector3(124, -500, -82);
-                            break;
-                        case "唐三彩":
-                            model[15].position = new Vector3(124, -500, -82);
-                            break;
-                        case "活字印刷术":
-                            model[16].position = new Vector3(124, -500, -82);
-                            break;
-                        case "云梯":
-                            model[17].position = new Vector3(124, -500, -82);
-                            break;
-                        case "造纸术":
-                            model[18].position = new Vector3(124, -500, -82);
-                            break;
-                        case "子母炮":
-                            model[19].position = new Vector3(124, -500, -82);
-                            break;
-                    }
-                    isdragone = false;
-                }
-                #endregion
+                Resetmodel();
                 Destroy(spawnedPrefab);
                 spawnedPrefab = null;
                 isDragging = false;
@@ -784,7 +651,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                     model[15].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 20, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "活字印刷术":
-                    model[16].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
+                    model[16].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 6, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "云梯":
                     model[17].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
@@ -984,6 +851,143 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     public void CancelPlacement()
     {
         ischoose = false;
+        Resetmodel();
+        HandCard.MyInstance.targetArea = null;
+        for(int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++) 
+        {
+            if (HandCard.MyInstance.applicationArea[i] != null)
+            {
+                HandCard.MyInstance.applicationArea[i] = null;
+            }
+        }
+        AreaTips.MyInstance.FadeOut();
+        ResetPlacement();
+        Debug.Log("CanvasClickHandler: Placement canceled.");
+    }
+
+    //确认放置
+    public void ApplicationPlacement()
+    {
+        //放置声音
+        #region 按图索骥--声音
+        if (isdragone)
+        {
+            switch (cardtext.text)
+            {
+                case "《崇祯历书》":
+                    house.Play();
+                    break;
+                case "地动仪":
+                    house.Play();
+                    break;
+                case "都江堰":
+                    house.Play();
+                    break;
+                case "烽火":
+                    house.Play();     
+                    break;
+                case "航海术":
+                    house.Play();
+                    break;
+                case "虎蹲炮":
+                    house.Play();
+                    break;
+                case "浑天仪":
+                    house.Play();
+                    break;
+                case "火铳":
+                    house.Play();
+                    break;
+                case "火药":
+                    house.Play();
+                    break;
+                case "秦朝军事力学":
+                    house.Play();
+                    break;
+                case "《墨经》《考工记》":
+                    house.Play();
+                    break;
+                case "《木经》":
+                    house.Play();
+                    break;
+                case "《农桑辑要》":
+                    house.Play();
+                    break;
+                case "简单机械组":
+                    house.Play();
+                    break;
+                case "司南":
+                    house.Play();
+                    break;
+                case "唐三彩":
+                    house.Play();
+                    break;
+                case "活字印刷术":
+                    house.Play();
+                    break;
+                case "云梯":
+                    house.Play();
+                    break;
+                case "造纸术":
+                    house.Play();
+                    break;
+                case "子母炮":
+                    house.Play();
+                    break;
+            }
+            isdragone = false;
+        }
+        #endregion
+        ischoose = false;
+        if (ifapplication == false)
+        {
+            Invoke("resettargetcard", 0.5f);
+            ifapplication = true;
+            ResetPlacement();
+        }
+        
+    }
+
+    //复原目标区域
+    void resettargetcard()
+    {
+        HandCard.MyInstance.targetArea = null;
+        for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+        {
+            if (HandCard.MyInstance.applicationArea[i] != null)
+            {
+                HandCard.MyInstance.applicationArea[i] = null;
+            }
+        }
+    }
+
+    // 平滑移动摄像机
+    private IEnumerator MoveCamera(Vector3 targetPosition, Quaternion targetRotation)
+    {
+        if (mainCamera == null)
+        {
+            Debug.LogError("Main camera is null.");
+            yield break;
+        }
+
+        Vector3 startPosition = mainCamera.transform.position;
+        Quaternion startRotation = mainCamera.transform.rotation;
+        float elapsed = 0f;
+
+        while (elapsed < cameraMoveDuration)
+        {
+            mainCamera.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / cameraMoveDuration);
+            mainCamera.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / cameraMoveDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        mainCamera.transform.position = targetPosition;
+        mainCamera.transform.rotation = targetRotation;
+    }
+
+    public void Resetmodel()
+    {
         #region 按图索骥--复原模型
         if (isdragone)
         {
@@ -1053,67 +1057,5 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             isdragone = false;
         }
         #endregion
-        HandCard.MyInstance.targetArea = null;
-        for(int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++) 
-        {
-            if (HandCard.MyInstance.applicationArea[i] != null)
-            {
-                HandCard.MyInstance.applicationArea[i] = null;
-            }
-        }
-        AreaTips.MyInstance.FadeOut();
-        ResetPlacement();
-        Debug.Log("CanvasClickHandler: Placement canceled.");
-    }
-
-    //确认放置
-    public void ApplicationPlacement()
-    {
-        ischoose = false;
-        if (ifapplication == false)
-        {
-            Invoke("resettargetcard", 0.5f);
-            ifapplication = true;
-            ResetPlacement();
-        }
-        
-    }
-
-    //复原目标区域
-    void resettargetcard()
-    {
-        HandCard.MyInstance.targetArea = null;
-        for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
-        {
-            if (HandCard.MyInstance.applicationArea[i] != null)
-            {
-                HandCard.MyInstance.applicationArea[i] = null;
-            }
-        }
-    }
-
-    // 平滑移动摄像机
-    private IEnumerator MoveCamera(Vector3 targetPosition, Quaternion targetRotation)
-    {
-        if (mainCamera == null)
-        {
-            Debug.LogError("Main camera is null.");
-            yield break;
-        }
-
-        Vector3 startPosition = mainCamera.transform.position;
-        Quaternion startRotation = mainCamera.transform.rotation;
-        float elapsed = 0f;
-
-        while (elapsed < cameraMoveDuration)
-        {
-            mainCamera.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / cameraMoveDuration);
-            mainCamera.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / cameraMoveDuration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        mainCamera.transform.position = targetPosition;
-        mainCamera.transform.rotation = targetRotation;
     }
 }
