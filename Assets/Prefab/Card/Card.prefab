@@ -142,8 +142,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5492fd504e7b0d445ba78216432cab48, type: 2}
-  m_sharedMaterial: {fileID: 7812799883696267868, guid: 5492fd504e7b0d445ba78216432cab48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fe2f97a40ab6d843a8a3599555aca76, type: 2}
+  m_sharedMaterial: {fileID: -5189036728561540058, guid: 2fe2f97a40ab6d843a8a3599555aca76, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -299,9 +299,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb88dbcd88f62c47ba8dcf54a1ff9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleDes: {fileID: 0}
-  simpleDesOffset: {x: 20, y: -20}
-  time: 2.5
-  detailedDes: {fileID: 0}
-  panelPrefab: {fileID: 3152208700406282981, guid: 40aa73af55272ba4fab13cfbfd87cd8f, type: 3}
   cardData: {fileID: 11400000, guid: 2514c57a9fe073945a4d2dbcefb627b1, type: 2}

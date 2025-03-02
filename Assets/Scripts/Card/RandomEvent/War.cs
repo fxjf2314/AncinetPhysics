@@ -7,14 +7,26 @@ using Random = UnityEngine.Random;
 [CreateAssetMenu(fileName = "War", menuName = "Card/RandomEvent/War")]
 public class War : RandomEvent
 {
-    public int population;
+    [Header("战胜方减少人口数")]
+    public int wPopulation;
+    [Header("战胜方减少收成的人口系数")]
+    public float wFoodRatio;
+    [Header("战胜方减少产出的人口系数")]
+    public float wCoinRatio;
+    [Header("战败方减少人口数")]
+    public int dPopulation;
+    [Header("战败方减少收成的人口系数")]
+    public float dFoodRatio;
+    [Header("战败方少产出的人口系数")]
+    public float dCoinRatio;
     [Header("人口多的一方多出一个population的值所增加获胜概率的量")]
     public float probabilityChange;
     [Header("双方失去人口的概率")]
     public float probability;
-    public double pEffectiveness;
-    public double fEffectiveness;
-    public double cEffectiveness;
+    public float pEffectiveness;
+    public float fEffectiveness;
+    public float cEffectiveness;
+
     public override void Use(GameObject area)
     {
         GameObject[] surroundingAreas = area.GetComponent<AreaScript>().areaDetail.surroundingAreas;
@@ -28,31 +40,39 @@ public class War : RandomEvent
         if (Random.Range(0f, 1f) <= winProbability)
         {
             randomEventTips.text += GetAreaName(area) + "战胜" + GetAreaName(surroundingArea)+"\n";
+            depopulation(area, probability,wPopulation);
+            depopulation(surroundingArea, probability,dPopulation);
+            deFoodCoin(area, surroundingArea);
         }
         else
         {
             randomEventTips.text += GetAreaName(surroundingArea) + "战胜" + GetAreaName(area) + "\n";
+            depopulation(surroundingArea, probability, wPopulation);
+            depopulation(area,probability,dPopulation);
+            deFoodCoin(surroundingArea, area);
         }
-        depopulation(area, probability);
-        depopulation(surroundingArea, probability);
+
     }
-    private void depopulation(GameObject area, double probability)
+    private void depopulation(GameObject area, double probability,int population)
     {
         if (Random.Range(0f, 1f) <= probability)
         {
-            if (area.GetComponent<AreaScript>().areaDetail.population > 1)
-            {
-                int pChange = Convert.ToInt16(1 * pEffectiveness);
-                area.GetComponent<AreaScript>().areaDetail.population-= pChange;
-                if (pChange > 0)
-                {
-                    randomEventTips.text = GetAreaName(area) + "减少" + pChange + "点人口" + "\n";
-                } 
-                else if(pChange < 0)
-                {
-                    randomEventTips.text = GetAreaName(area) + "增加" + pChange + "点人口" + "\n";
-                }
-            }
+            AreaDetail areaDetail = area.GetComponent<AreaScript>().areaDetail;
+            int pChange = Convert.ToInt16(population*pEffectiveness);
+            areaDetail.population -= pChange;
+            if(areaDetail.population < 1)
+                areaDetail.population = 1;
         }
+    }
+    private void deFoodCoin(GameObject winArea,GameObject defeatArea)
+    {
+        AreaDetail wAreaDetail=winArea.GetComponent<AreaScript>().areaDetail;
+        int wAreaPopulation=wAreaDetail.population;
+        AreaDetail dAreaDetail=defeatArea.GetComponent<AreaScript>().areaDetail;
+        int dAreaPopulation =dAreaDetail.population;
+        wAreaDetail.food -= wAreaPopulation * wFoodRatio;
+        wAreaDetail.coin -= wAreaPopulation * wCoinRatio;
+        dAreaDetail.food -= (dAreaPopulation+wAreaPopulation) * dFoodRatio;
+        dAreaDetail.coin -= (dAreaPopulation + wAreaPopulation) * dCoinRatio;
     }
 }

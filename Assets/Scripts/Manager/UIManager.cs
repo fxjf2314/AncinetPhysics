@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
 
             ButtonsManager.MyInstance.isPlaceCard = false;
             ButtonsManager.MyInstance.SearchEvent();
-            ButtonsManager.MyInstance.stepButtons[2].transform.gameObject.SetActive(false);
+            ButtonsManager.MyInstance.waitIcon.transform.gameObject.SetActive(false);
             
         }
 

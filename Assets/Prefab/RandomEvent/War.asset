@@ -32,6 +32,14 @@ MonoBehaviour:
     probability: 0.05000000074505806
   randomEventTips: {fileID: 0}
   randomEventTipsButton: {fileID: 0}
-  population: 1
+  wPopulation: 1
+  wFoodRatio: 5
+  wCoinRatio: 1
+  dPopulation: 1
+  dFoodRatio: 10
+  dCoinRatio: 10
   probabilityChange: 0.1
   probability: 0.7
+  pEffectiveness: 1
+  fEffectiveness: 1
+  cEffectiveness: 1

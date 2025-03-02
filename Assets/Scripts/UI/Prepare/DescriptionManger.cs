@@ -26,8 +26,8 @@ public class DescriptionManger : MonoBehaviour
     private void Start()
     {
         instance = this;
-        simpleDes.SetActive(false);
-        detailDes.SetActive(false);
+        //simpleDes.SetActive(false);
+        //detailDes.SetActive(false);
         progressBar = simpleDes.transform.Find("ProgressBar").GetComponent<Image>();
     }
 
@@ -64,7 +64,6 @@ public class DescriptionManger : MonoBehaviour
         }
         mIsCanClick = false;
         progressBar.fillAmount = 0;
-        Debug.Log(0);
     }
 
     public void CloseDetailedDes()

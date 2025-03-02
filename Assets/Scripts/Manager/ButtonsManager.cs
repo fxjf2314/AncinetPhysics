@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class ButtonsManager : MonoBehaviour
@@ -37,6 +38,7 @@ public class ButtonsManager : MonoBehaviour
 
     private void Start()
     {
+        //WaitRound();
         for (int i = 0; i < stepButtons.Length; i++)
         {
             int index = i; // 保存当前索引
@@ -44,7 +46,7 @@ public class ButtonsManager : MonoBehaviour
         }
         AddEvent(SearchEventNext);
         AddEvent(RemindCardNext);
-        AddEvent(UIManager.MyInstance.NextRound);
+        AddEvent(WaitRound);
         RemindCard();
     }
 
@@ -140,5 +142,49 @@ public class ButtonsManager : MonoBehaviour
             yield return null;
         }
     }
+    #endregion
+
+    #region 等待代码块
+
+   
+    public Image waitIcon;
+
+    public float rotationInterval;
+
+    private float rotationDuration = 1.5f;
+
+    private Quaternion targetRotation;
+    
+    public void WaitRound()
+    {
+        stepButtons[2].transform.gameObject.SetActive(false);
+        waitIcon.transform.gameObject.SetActive(true);
+        StartCoroutine(IconRotation());
+    }
+
+    private IEnumerator IconRotation()
+    {
+        float elapsedTimeFirst = 0.0f; 
+        while (elapsedTimeFirst < 3.0f)
+        {
+            targetRotation = waitIcon.transform.rotation * Quaternion.Euler(0,0, 180);
+
+            // 平滑旋转到目标角度
+            float elapsedTime = 0.0f;
+            while (elapsedTime < rotationDuration)
+            {
+                waitIcon.transform.rotation = Quaternion.Slerp(waitIcon.transform.rotation, targetRotation, elapsedTime / rotationDuration);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            elapsedTimeFirst += rotationInterval;
+            // 等待间隔时间
+            yield return new WaitForSeconds(rotationInterval);
+        }
+         UIManager.MyInstance.NextRound();
+    }
+
+    
     #endregion
 }

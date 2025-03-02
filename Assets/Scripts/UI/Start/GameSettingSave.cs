@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettingSave : MonoBehaviour,ISaveAndLoadGame
+public class GameSettingSave : MonoBehaviour,ISaveAndLoadSetting
 {
     public static GameSettingSave Instance => instance;
     static GameSettingSave instance;
@@ -22,20 +22,30 @@ public class GameSettingSave : MonoBehaviour,ISaveAndLoadGame
         }
         else
         {
-            isExistSave = true;
+            if(setting.currentSave != null)
+            {
+                isExistSave=true;
+            }
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
-
-    public void Load<T>(T gameData)
+    public void SaveSetting(ref GameSettingData gameSettingData)
     {
-        
+        gameSettingData = setting;
     }
 
-    public void Save<T>(ref T gameData)
+    public void LoadSetting(GameSettingData gameSettingData)
     {
-        SaveTool.Save(SaveTool.GameSetting_Name, setting);
+        setting = gameSettingData;
     }
+
+    //public void UpdateGameSettingData(string saveName)
+    //{
+    //    setting.currentSave = saveName;
+    //    DataPersistence.Instance.SaveGameSetting(SaveTool.GameSetting_Name);
+    //}
 }
 
 [System.Serializable]
