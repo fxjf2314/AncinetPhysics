@@ -21,7 +21,7 @@ public struct AreaProbability
 }
 public class RandomEvent : Card
 {
-    [Header("地区和地区发生概率,顺序为中北东西南")]
+    [Header("地区和地区发生概率,顺序为中 北 西南 西 南")]
     public AreaProbability[] areasProbability;
     public TextMeshProUGUI randomEventTips;
     public GameObject randomEventTipsButton;

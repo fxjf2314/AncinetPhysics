@@ -32,3 +32,4 @@ MonoBehaviour:
     probability: 0.05000000074505806
   randomEventTips: {fileID: 0}
   randomEventTipsButton: {fileID: 0}
+  population: 1

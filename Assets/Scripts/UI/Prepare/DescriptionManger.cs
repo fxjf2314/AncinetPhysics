@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DescriptionManger : MonoBehaviour
@@ -16,6 +17,7 @@ public class DescriptionManger : MonoBehaviour
 
     [SerializeField]
     Vector2 simpleDesOffset;//介绍悬浮窗口与鼠标的偏移值
+
     Coroutine timer;//用于计时的协程
     Image progressBar;
     [SerializeField]
@@ -47,6 +49,7 @@ public class DescriptionManger : MonoBehaviour
 
     public void OpenDetailDes(Card cardData)
     {
+        if (SceneManager.GetActiveScene().name == "wwwww") return;
         detailDes.SetActive(true);
         TransformFind.TransformFindChild(detailDes.transform,"Icon").GetComponent<Image>().sprite = cardData.GetSprite();
         TransformFind.TransformFindChild(detailDes.transform, "Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;
@@ -76,7 +79,7 @@ public class DescriptionManger : MonoBehaviour
         if (simpleDes.activeSelf)
         {
             Vector3 mousePos = Input.mousePosition;
-            simpleDes.transform.position = new Vector3(mousePos.x + simpleDesOffset.x, mousePos.y + simpleDesOffset.y, 0);
+            simpleDes.transform.position = new Vector3(mousePos.x , mousePos.y , 0);
         }
     }
 
