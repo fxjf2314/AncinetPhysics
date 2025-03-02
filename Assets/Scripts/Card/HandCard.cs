@@ -87,6 +87,11 @@ public class HandCard : MonoBehaviour
             if (slot.MyCard == null)
             {
                 slot.MyCard = handCards[count];
+                if (slot.MyCard!=null)
+                {
+                    CardUI cardUI = slot.gameObject.AddComponent<CardUI>();
+                    cardUI.ChangeCardData(slot.MyCard);
+                }
                 count++;
             }
         }

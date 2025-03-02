@@ -61,7 +61,7 @@ public class Transition : MonoBehaviour
         {
             // 替换为你的场景名称
             SceneManager.LoadScene(nextSceneName);
-            if(nextSceneName == "wwwww")
+            if(saveName != null)
             {
                 DataPersistence.Instance.LoadGame(saveName);
             }
