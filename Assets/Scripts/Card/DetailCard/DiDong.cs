@@ -16,7 +16,9 @@ public class DiDong : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-
+                        area.transform.parent.GetComponent<DisasterOccurs>().earthQuake.population = 0;
+                        area.transform.parent.GetComponent<DisasterOccurs>().earthQuake.coinRatio -= 0.2f;
+                        area.transform.parent.GetComponent<DisasterOccurs>().earthQuake.foodRatio -= 0.2f;
                     }
                 }
             }

@@ -15,6 +15,7 @@ public struct AreaDetail
     public float food;
     public Sprite areaIcon;
     public GameObject[] surroundingAreas;
+    public Dictionary<string,float> Effectiveness;
 
     public AreaDetail(string name, int population, bool YinShua,float coin, float food, Sprite icon, GameObject[] surroundingAreas = null)
     {
@@ -24,7 +25,17 @@ public struct AreaDetail
         this.food = food;
         this.areaIcon = icon;
         this.surroundingAreas = surroundingAreas ?? new GameObject[0];
-        this.isCoin = YinShua;
-    }
 
+        this.isCoin = YinShua;
+
+        this.Effectiveness = new Dictionary<string, float>()
+            {
+            {"War", 1f },
+            {"EarthQuake",1f },
+            {"Flood",1f },
+            {"DustStorm",1f },
+            {"Fog",1f }
+        };
+
+    }
 }

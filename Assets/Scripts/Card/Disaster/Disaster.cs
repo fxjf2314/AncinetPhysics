@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Disaster : Card
 {
+    public string title;
     public Sprite[] images; // 存储所有图片
     public double cValue;
     private double pValue;
@@ -18,17 +19,11 @@ public class Disaster : Card
     public float coinRatio;
     [Tooltip("失去收成的系数")]
     public float foodRatio;
-    public double pEffectiveness;
-    public double fEffectiveness;
-    public double cEffectiveness;
 
     private void OnEnable()
     {
         count = 0;
         pValue = 0;
-        pEffectiveness = 1;
-        fEffectiveness = 1;
-        cEffectiveness = 1;
     }
     public void Judge()
     {
@@ -48,25 +43,22 @@ public class Disaster : Card
     {
 
     }
-    public void depopulation(GameObject area)
+    public void Depopulation(GameObject area)
     {
         if (Random.Range(0f, 1f) <= probability)
         {
-            AreaDetail areaDetail = area.GetComponent<AreaScript>().areaDetail;
-            int pChange = Convert.ToInt16(population * pEffectiveness);
-            areaDetail.population -= pChange;
-            if (areaDetail.population < 1)
-                areaDetail.population = 1;
+            int pChange = Convert.ToInt16(population * area.GetComponent<AreaScript>().areaDetail.Effectiveness[name]);
+            area.GetComponent<AreaScript>().areaDetail.population -= pChange;
+            if (area.GetComponent<AreaScript>().areaDetail.population < 1)
+                area.GetComponent<AreaScript>().areaDetail.population = 1;
         }
     }
-    public void deFood(GameObject area)
+    public void DeFood(GameObject area)
     {
-        AreaDetail areaDetail = area.GetComponent<AreaScript>().areaDetail;
-        areaDetail.food -= areaDetail.food*foodRatio;
+        area.GetComponent<AreaScript>().areaDetail.food -= area.GetComponent<AreaScript>().areaDetail.food*foodRatio* area.GetComponent<AreaScript>().areaDetail.Effectiveness[name];
     }
-    public void deCoin(GameObject area)
+    public void DeCoin(GameObject area)
     {
-        AreaDetail areaDetail = area.GetComponent<AreaScript>().areaDetail;
-        areaDetail.coin -= areaDetail.coin * coinRatio;
+        area.GetComponent<AreaScript>().areaDetail.coin -= area.GetComponent<AreaScript>().areaDetail.coin * coinRatio * area.GetComponent<AreaScript>().areaDetail.Effectiveness[name];
     }
 }

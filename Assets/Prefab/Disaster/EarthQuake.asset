@@ -15,20 +15,19 @@ MonoBehaviour:
   icon: {fileID: 0}
   id: 0
   cardDes:
-    title: 
+    title: "\u5730\u9707"
     area: 
     effect: 
   cardPrefab: {fileID: 0}
+  title: "\u5730\u9707"
   images:
   - {fileID: 21300000, guid: 0f09a89e70515bc449ccb024f1ae20f9, type: 3}
   - {fileID: 21300000, guid: cbb86c658a5eb794480f4aab97975e24, type: 3}
   - {fileID: 21300000, guid: 41aa281bfbddafa4cb23da1b213894e2, type: 3}
   - {fileID: 21300000, guid: cbb86c658a5eb794480f4aab97975e24, type: 3}
+  - {fileID: 21300000, guid: 0f09a89e70515bc449ccb024f1ae20f9, type: 3}
   cValue: 0.001
   population: 1
   probability: 1
   coinRatio: 0.5
   foodRatio: 0.5
-  pEffectiveness: 1
-  fEffectiveness: 1
-  cEffectiveness: 1

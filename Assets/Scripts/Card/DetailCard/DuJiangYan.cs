@@ -17,6 +17,7 @@ public class DuJiangYan : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].FoodControl(200);
+                        area.areaDetail.Effectiveness["Flood"] = 0;
                     }
                 }
             }

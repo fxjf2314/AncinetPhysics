@@ -16,12 +16,12 @@ public class FengHuo : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-
+                        if(area.areaDetail.Effectiveness["War"]>0)
+                            area.areaDetail.Effectiveness["War"] -= area.areaDetail.Effectiveness["War"] < 0.3f ? area.areaDetail.Effectiveness["War"] : 0.3f;
+                        //受战争效果降低0.3
                     }
                 }
             }
         }
-        
-        //受战争效果降低
     }
 }

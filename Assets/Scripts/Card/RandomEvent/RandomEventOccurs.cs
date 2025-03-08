@@ -17,7 +17,7 @@ public class RandomEventOccurs : MonoBehaviour
         {
             for (int i = 0; i < randomEvent.areasProbability.Length; i++)
             {
-                randomEvent.areasProbability[i] = new AreaProbability(transform.GetChild(i).gameObject, randomEvent.areasProbability[i].probability);
+                randomEvent.areasProbability[i] = new AreaProbability(transform.GetChild(i).gameObject, randomEvent.areasProbability[i].Probability);
                 randomEvent.randomEventTips = RandomEventTips;
                 randomEvent.randomEventTipsButton = RandomEventTipsButton;
             }

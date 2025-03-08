@@ -17,12 +17,14 @@ public class SimpleMachine : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].CoinControl(180);
+                        if (area.areaDetail.Effectiveness["War"] > 0)
+                            area.areaDetail.Effectiveness["War"] -= area.areaDetail.Effectiveness["War"] < 0.2f ? area.areaDetail.Effectiveness["War"] : 0.2f;
                     }
                 }
             }
 
         }
         
-        //受战争影响降低。
+        //受战争影响降低0.2。
     }
 }

@@ -8,8 +8,8 @@ public class HunTian : Card
     public override void Use(AreaScript area)
     {
         base.Use(area);
-            if (area != null)
-            {
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -17,6 +17,13 @@ public class HunTian : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].FoodControl(120);
+                        var keys = new List<string>(area.areaDetail.Effectiveness.Keys);
+                        foreach (var key in keys)
+                        {
+                            if (key == "War")
+                                continue;
+                            area.areaDetail.Effectiveness[key] = -1;
+                        }
                     }
                 }
             }
