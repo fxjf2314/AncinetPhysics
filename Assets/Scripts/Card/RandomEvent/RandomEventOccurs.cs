@@ -8,6 +8,8 @@ public class RandomEventOccurs : MonoBehaviour
     public GameObject RandomEventTipsButton;
     public TextMeshProUGUI RandomEventTips;
     public RandomEvent[] randomEvents;
+    public GameObject wait;
+    private bool waitOver;
 
     private void Awake()
     {
@@ -23,17 +25,27 @@ public class RandomEventOccurs : MonoBehaviour
     }
     private void Start()
     {
-        RoundStart();
+        StartCoroutine(RoundStart());
     }
-    public void RoundStart()
+    public void NextRound()
+    {
+        StartCoroutine(RoundStart());
+    }
+    IEnumerator RoundStart()
     {
         RandomEventTips.gameObject.SetActive(false);
         RandomEventTips.text = "";
         RandomEventTipsButton.SetActive(false);
         ButtonsManager.MyInstance.isHappenEvent = false;
+        yield return null;
+        while (wait.activeSelf)
+        {
+            yield return null;
+        }
         foreach (RandomEvent randomEvent in randomEvents)
         {
             randomEvent.Use();
         }
+        yield break;
     }
 }

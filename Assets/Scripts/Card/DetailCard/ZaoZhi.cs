@@ -17,12 +17,20 @@ public class ZaoZhi : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].CoinControl(100);
+                        if (area.areaDetail.isCoin == true)
+                        {
+                            HandCard.MyInstance.applicationArea[i].CoinControl(200);
+                        }
+                        else
+                        {
+                            area.areaDetail.isCoin = true;
+                        }
                     }
                 }
             }
             
         }
-        //有印刷术时进一步增多
+        
     }
     
 }

@@ -27,8 +27,8 @@ public class HandCard : MonoBehaviour
 
     private int totalCardNum;
 
-    [SerializeField]
-    private List<Card> cards;//从选牌阶段获取卡组
+    
+    public List<Card> cards;//从选牌阶段获取卡组
 
     [SerializeField]
     private Card[] handCards;//手牌
@@ -37,21 +37,26 @@ public class HandCard : MonoBehaviour
     private HandCardSlot[] slots;
 
     private HashSet<int> indexes = new HashSet<int>();
+
     
+
     private void Start()
     {
         cards = HandCardGroup.Instance.handCards;
-        
+ 
         foreach(Card card in cards)
         {
             if (card != null)
             {
+                card.MyId = totalCardNum;
                 totalCardNum++;
             }
         }
+
+        GameSeed.MyInstance.InitSeed();
         
         int count = 0;
-        if(totalCardNum >= 4)
+        /*if(totalCardNum >= 4)
         {
             while (indexes.Count < 4)
             {
@@ -73,13 +78,18 @@ public class HandCard : MonoBehaviour
                     indexes.Add(index);
                 }
             }
-        }
+        }*/
         
-        foreach(int index in indexes)
+        foreach(int index in GameSeed.MyInstance.cardSeed)
         {
-
-            handCards[count] = cards[index];
-            count++;
+            if (count < 4)
+            {
+                handCards[count] = cards[index];
+                count++;
+            }
+            else
+                break;
+            
         }
         count = 0;
         foreach (HandCardSlot slot in slots)
@@ -87,6 +97,15 @@ public class HandCard : MonoBehaviour
             if (slot.MyCard == null)
             {
                 slot.MyCard = handCards[count];
+
+                //Debug.Log(handCards[count].GetId());
+                
+                
+                if (slot.MyCard!=null)
+                {
+                    CardUI cardUI = slot.gameObject.AddComponent<CardUI>();
+                    cardUI.ChangeCardData(slot.MyCard);
+                }
                 count++;
             }
         }
@@ -94,7 +113,6 @@ public class HandCard : MonoBehaviour
 
     private void Update()
     {
-        
         if(Input.GetKeyDown(KeyCode.M))
         {
             handCards[0] = cards[0];
@@ -112,15 +130,37 @@ public class HandCard : MonoBehaviour
 
     public void NextCard(HandCardSlot slot)
     {
-        Debug.Log("2222");
-
+        
         slot.MyCard = handCards[3];
-        int totalCount = indexes.Count;
+        if(GameSeed.MyInstance.cardSeed.Count > 3)
+        {
+            
+            if (cards[GameSeed.MyInstance.cardSeed[3]] != null || GameSeed.MyInstance.cardSeed.Count > 3)
+            { 
+                handCards[3] = cards[GameSeed.MyInstance.cardSeed[3]];
+                slots[3].MyCard = cards[GameSeed.MyInstance.cardSeed[3]];
+            }
+        }
+        else
+        {
+            handCards[3] = null;
+            slots[3].MyCard = null;
+            Color color = slots[3].handCardBack.color;
+            color.a = 0;
+            slots[3].handCardBack.color = color;
+
+            slots[3].handCardIcon.color = color;
+            slots[3].handcardTitle.text = "";
+        }
+
+
+
+        /*int totalCount = indexes.Count;
         if(indexes.Count != totalCardNum)
         {
             while (indexes.Count < (totalCount + 1))
             {
-                int index = UnityEngine.Random.Range(0, totalCardNum);
+                int index = UnityEngine.Rand    om.Range(0, totalCardNum);
                 if (cards[index] != null)
                 {
                     indexes.Add(index);
@@ -141,7 +181,7 @@ public class HandCard : MonoBehaviour
 
             slots[3].handCardIcon.color = color;
             slots[3].handcardTitle.text = "";
-        }
-        
+        }*/
+
     }
 }

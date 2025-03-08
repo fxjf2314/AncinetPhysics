@@ -8,8 +8,8 @@ public class HuDun : Card
     public override void Use(AreaScript area)
     {
         base.Use(area);
-            if (area != null)
-            {
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)

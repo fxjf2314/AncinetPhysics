@@ -9,8 +9,8 @@ public class YinShua : Card
     {
         base.Use(area);
 
-            if (area != null)
-            {
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -18,11 +18,19 @@ public class YinShua : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].CoinControl(100);
+                        if(area.areaDetail.isCoin == true)
+                        {
+                            HandCard.MyInstance.applicationArea[i].CoinControl(200);
+                        }
+                        else
+                        {
+                            area.areaDetail.isCoin = true;
+                        }
                     }
                 }
             }
 
         }
-        //有造纸术时进一步增多
+        
     }
 }

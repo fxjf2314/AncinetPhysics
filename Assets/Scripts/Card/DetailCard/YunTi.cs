@@ -16,7 +16,7 @@ public class YunTi : Card
                     {
                         if (HandCard.MyInstance.applicationArea[i] != null)
                         {
-                            //战争概率增大
+                            
                         }
                     }
                 }

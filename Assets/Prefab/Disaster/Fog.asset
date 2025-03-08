@@ -25,6 +25,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 27d08544f16626143bbebafc68d7281c, type: 3}
   - {fileID: 21300000, guid: 450f73d814204ef4f9f31b91b837a041, type: 3}
   cValue: 0.05
-  pValue: 0.05
-  count: 1
+  population: 1
   probability: 0.3
+  coinRatio: 0.1
+  foodRatio: 0.1
+  pEffectiveness: 1
+  fEffectiveness: 1
+  cEffectiveness: 1
