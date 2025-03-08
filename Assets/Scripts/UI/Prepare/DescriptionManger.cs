@@ -52,8 +52,7 @@ public class DescriptionManger : MonoBehaviour
         detailDes.SetActive(true);
         TransformFind.TransformFindChild(detailDes.transform,"Icon").GetComponent<Image>().sprite = cardData.GetSprite();
         TransformFind.TransformFindChild(detailDes.transform, "Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;
-        TransformFind.TransformFindChild(detailDes.transform, "Area").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().area;
-        TransformFind.TransformFindChild(detailDes.transform, "Effect").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().effect;
+        TransformFind.TransformFindChild(detailDes.transform, "DetailDes").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().detailDes;
         LayoutRebuilder.ForceRebuildLayoutImmediate(detailDes.GetComponent<RectTransform>());
     }
 

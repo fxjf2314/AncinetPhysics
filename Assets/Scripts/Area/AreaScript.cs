@@ -10,6 +10,17 @@ public class AreaScript : MonoBehaviour,ISaveAndLoadArea
 
     public List<Card> cards;
 
+    private void Awake()
+    {
+        areaDetail.Effectiveness = new Dictionary<string, float>()
+        {
+            {"War", 1f },
+            {"EarthQuake",1f },
+            {"Flood",1f },
+            {"DustStorm",1f },
+            {"Fog",1f }
+        };
+    }
     public string GetName()
     {
         return areaDetail.areaName;

@@ -15,16 +15,19 @@ MonoBehaviour:
   icon: {fileID: 0}
   id: 0
   cardDes:
-    title: 
+    title: "\u6C99\u5C18\u66B4"
     area: 
     effect: 
   cardPrefab: {fileID: 0}
+  title: "\u6C99\u5C18\u66B4"
   images:
-  - {fileID: 21300000, guid: 6784af0dceee96b4da87f7d744292b20, type: 3}
+  - {fileID: 21300000, guid: 77e7a0a5ca46c8e4fb27a0875c59c9b0, type: 3}
   - {fileID: 21300000, guid: 26e1dea92af24124891dbf6e6b4d5263, type: 3}
   - {fileID: 21300000, guid: a6f5f86ed37524e4a960361bfc47b09e, type: 3}
   - {fileID: 21300000, guid: 26e1dea92af24124891dbf6e6b4d5263, type: 3}
+  - {fileID: 21300000, guid: 77e7a0a5ca46c8e4fb27a0875c59c9b0, type: 3}
   cValue: 0.03
-  pValue: 0.09
-  count: 3
+  population: 1
   probability: 0.3
+  coinRatio: 0.2
+  foodRatio: 0.2

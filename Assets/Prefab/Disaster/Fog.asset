@@ -15,16 +15,20 @@ MonoBehaviour:
   icon: {fileID: 0}
   id: 0
   cardDes:
-    title: 
+    title: "\u5927\u96FE"
     area: 
     effect: 
+    detailDes: 
   cardPrefab: {fileID: 0}
+  title: "\u5927\u96FE"
   images:
-  - {fileID: 21300000, guid: 3f93e07a8bd6d4a4c83a37e38c4c7577, type: 3}
-  - {fileID: 21300000, guid: 450f73d814204ef4f9f31b91b837a041, type: 3}
-  - {fileID: 21300000, guid: 27d08544f16626143bbebafc68d7281c, type: 3}
-  - {fileID: 21300000, guid: 450f73d814204ef4f9f31b91b837a041, type: 3}
+  - {fileID: 21300000, guid: 324c01a93e08e1c44b1056fbca9c9937, type: 3}
+  - {fileID: 21300000, guid: a8b68d9dc84f800489804143f308521c, type: 3}
+  - {fileID: 21300000, guid: e1b8034dce8fe8e4782a6415d2c10b65, type: 3}
+  - {fileID: 21300000, guid: a8b68d9dc84f800489804143f308521c, type: 3}
+  - {fileID: 21300000, guid: 324c01a93e08e1c44b1056fbca9c9937, type: 3}
   cValue: 0.05
-  pValue: 0.05
-  count: 1
+  population: 1
   probability: 0.3
+  coinRatio: 0.1
+  foodRatio: 0.1

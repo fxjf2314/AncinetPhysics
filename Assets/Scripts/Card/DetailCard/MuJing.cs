@@ -16,7 +16,7 @@ public class MuJing : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].PopulationControl(1);//œ‡¡⁄
+                        HandCard.MyInstance.applicationArea[i].PopulationControl(1);
                     }
                 }
             }

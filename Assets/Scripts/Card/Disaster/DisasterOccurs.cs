@@ -31,6 +31,8 @@ public class DisasterOccurs : MonoBehaviour
     private float fadeTimer = 0f;
     private bool canFading=false;
     private bool isFadingIn;
+    public GameObject wait;
+    public GameObject tip;
 
     private void Start()
     {
@@ -41,7 +43,7 @@ public class DisasterOccurs : MonoBehaviour
             { "DustStorm", DustStormForcast },
             { "Fog", FogForcast }
         };
-        RoundStart();
+        StartCoroutine(RoundStart());
     }
     private void Update()
     {
@@ -63,17 +65,29 @@ public class DisasterOccurs : MonoBehaviour
             black.color = color;
         }
     }
-    public void RoundStart()
+    public void NextRound()
+    {
+        StartCoroutine(RoundStart());
+    }
+    public IEnumerator RoundStart()
     {
         button.SetActive(false);
         tmpText.gameObject.SetActive(false);
+        yield return null;
+        while (wait.activeSelf)
+        {
+            yield return null;
+        }
         fadeTimer = 0f;
         canFading = false;
         DisasterManager.canOccur = true;
         DisasterManager.nextDisaster = null;
         if (DisasterManager.thisDisaster != null)
         {
-            images=DisasterManager.thisDisaster.images;
+            tip.GetComponent<TextMeshProUGUI>().text = DisasterManager.thisDisaster.title;
+            tip.SetActive(false);
+            tip.SetActive(true);
+            images = DisasterManager.thisDisaster.images;
             StartCoroutine(PlayImageSequence());
             DisasterManager.thisDisaster.Use(area);
         }

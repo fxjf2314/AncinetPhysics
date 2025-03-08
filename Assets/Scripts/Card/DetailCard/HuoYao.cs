@@ -19,6 +19,10 @@ public class HuoYao : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].PopulationControl(1);
+                        int index = area.transform.parent.GetComponent<RandomEventOccurs>().randomEvents[2].GetAreaIndex(area.gameObject);
+                        area.transform.parent.GetComponent<RandomEventOccurs>().randomEvents[2].areasProbability[index].Probability += 0.1;
+                        if (area.areaDetail.Effectiveness["War"] > 0)
+                            area.areaDetail.Effectiveness["War"] -= area.areaDetail.Effectiveness["War"] < 0.2f ? area.areaDetail.Effectiveness["War"] : 0.2f;
                     }
                 }
             }

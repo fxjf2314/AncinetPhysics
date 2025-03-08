@@ -6,8 +6,19 @@ using UnityEngine.EventSystems;
 
 public class AreaManager : MonoBehaviour
 {
+    [SerializeField]
+    AreaScript[] areas;
     
 
+    private void Start()
+    {
+        foreach (AreaScript area in areas)
+        {
+            area.areaDetail.population = 1;
+            area.areaDetail.food = Random.Range(-30, 51);
+            area.areaDetail.coin = Random.Range(0, 70);
+        }
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

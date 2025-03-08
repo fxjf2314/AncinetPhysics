@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: Flood
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  title: "\u6D2A\u6D9D"
-  description: 
+  id: 0
+  cardDes:
+    title: "\u6D2A\u6D9D"
+    area: 
+    effect: 
   cardPrefab: {fileID: 0}
+  title: "\u6D2A\u6D9D"
   images:
   - {fileID: 21300000, guid: e032efea48734574a9094b010a119a67, type: 3}
   - {fileID: 21300000, guid: ba1c41415d135f34396e09e4c6faea4b, type: 3}
   - {fileID: 21300000, guid: 46dfff0e3104daf488dc8c31fb5c6c74, type: 3}
   - {fileID: 21300000, guid: caed10f2874274248b9fe65b24169d02, type: 3}
+  - {fileID: 21300000, guid: 46dfff0e3104daf488dc8c31fb5c6c74, type: 3}
   cValue: 0.01
-  pValue: 0.18
-  count: 0
+  population: 1
   probability: 0.5
+  coinRatio: 0.3
+  foodRatio: 0.3
