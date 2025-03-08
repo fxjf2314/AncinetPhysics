@@ -32,6 +32,7 @@ public class DisasterOccurs : MonoBehaviour
     private bool canFading=false;
     private bool isFadingIn;
     public GameObject wait;
+    public GameObject tip;
 
     private void Start()
     {
@@ -83,6 +84,9 @@ public class DisasterOccurs : MonoBehaviour
         DisasterManager.nextDisaster = null;
         if (DisasterManager.thisDisaster != null)
         {
+            tip.GetComponent<TextMeshProUGUI>().text = DisasterManager.thisDisaster.title;
+            tip.SetActive(false);
+            tip.SetActive(true);
             images = DisasterManager.thisDisaster.images;
             StartCoroutine(PlayImageSequence());
             DisasterManager.thisDisaster.Use(area);

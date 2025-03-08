@@ -23,9 +23,6 @@ public class War : RandomEvent
     public float probabilityChange;
     [Header("双方失去人口的概率")]
     public float probability;
-    public float pEffectiveness;
-    public float fEffectiveness;
-    public float cEffectiveness;
 
     public override void Use(GameObject area)
     {
@@ -40,39 +37,34 @@ public class War : RandomEvent
         if (Random.Range(0f, 1f) <= winProbability)
         {
             randomEventTips.text += GetAreaName(area) + "战胜" + GetAreaName(surroundingArea)+"\n";
-            depopulation(area, probability,wPopulation);
-            depopulation(surroundingArea, probability,dPopulation);
-            deFoodCoin(area, surroundingArea);
+            Depopulation(area, probability,wPopulation);
+            Depopulation(surroundingArea, probability,dPopulation);
+            DeFoodCoin(area, surroundingArea);
         }
         else
         {
             randomEventTips.text += GetAreaName(surroundingArea) + "战胜" + GetAreaName(area) + "\n";
-            depopulation(surroundingArea, probability, wPopulation);
-            depopulation(area,probability,dPopulation);
-            deFoodCoin(surroundingArea, area);
+            Depopulation(surroundingArea, probability, wPopulation);
+            Depopulation(area,probability,dPopulation);
+            DeFoodCoin(surroundingArea, area);
         }
 
     }
-    private void depopulation(GameObject area, double probability,int population)
+    private void Depopulation(GameObject area, double probability,int population)
     {
         if (Random.Range(0f, 1f) <= probability)
         {
-            AreaDetail areaDetail = area.GetComponent<AreaScript>().areaDetail;
-            int pChange = Convert.ToInt16(population*pEffectiveness);
-            areaDetail.population -= pChange;
-            if(areaDetail.population < 1)
-                areaDetail.population = 1;
+            int pChange = Convert.ToInt16(population * area.GetComponent<AreaScript>().areaDetail.Effectiveness["War"]);
+            area.GetComponent<AreaScript>().areaDetail.population -= pChange;
+            if(area.GetComponent<AreaScript>().areaDetail.population < 1)
+                area.GetComponent<AreaScript>().areaDetail.population = 1;
         }
     }
-    private void deFoodCoin(GameObject winArea,GameObject defeatArea)
+    private void DeFoodCoin(GameObject winArea,GameObject defeatArea)
     {
-        AreaDetail wAreaDetail=winArea.GetComponent<AreaScript>().areaDetail;
-        int wAreaPopulation=wAreaDetail.population;
-        AreaDetail dAreaDetail=defeatArea.GetComponent<AreaScript>().areaDetail;
-        int dAreaPopulation =dAreaDetail.population;
-        wAreaDetail.food -= wAreaPopulation * wFoodRatio;
-        wAreaDetail.coin -= wAreaPopulation * wCoinRatio;
-        dAreaDetail.food -= (dAreaPopulation+wAreaPopulation) * dFoodRatio;
-        dAreaDetail.coin -= (dAreaPopulation + wAreaPopulation) * dCoinRatio;
+        winArea.GetComponent<AreaScript>().areaDetail.food -= winArea.GetComponent<AreaScript>().areaDetail.population * wFoodRatio* winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        winArea.GetComponent<AreaScript>().areaDetail.coin -= winArea.GetComponent<AreaScript>().areaDetail.population * wCoinRatio* winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        defeatArea.GetComponent<AreaScript>().areaDetail.food -= (defeatArea.GetComponent<AreaScript>().areaDetail.population+ winArea.GetComponent<AreaScript>().areaDetail.population) * dFoodRatio* defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        defeatArea.GetComponent<AreaScript>().areaDetail.coin -= (defeatArea.GetComponent<AreaScript>().areaDetail.population + winArea.GetComponent<AreaScript>().areaDetail.population) * dCoinRatio * defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
     }
 }

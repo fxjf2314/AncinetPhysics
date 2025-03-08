@@ -50,13 +50,13 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
 
     public virtual void Use(AreaScript area)
     {
-            if (area != null)
+        if (area != null)
+        {
+            if (area.cards.Count < 3)
             {
-                if (area.cards.Count < 3)
-                {
 
-                    area.cards.Add(this);
-                }
+                area.cards.Add(this);
             }
+        }
     }
 }

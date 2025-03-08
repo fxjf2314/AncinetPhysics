@@ -16,7 +16,7 @@ public class HuoChong : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-
+                        area.areaDetail.Effectiveness["War"] = -1;
                     }
                 }
             }

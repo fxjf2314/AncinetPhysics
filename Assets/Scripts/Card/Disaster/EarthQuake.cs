@@ -8,10 +8,14 @@ public class EarthQuake : Disaster
     public override void Use(GameObject area)
     {
         GameObject[] surroundingAreas = area.GetComponent<AreaScript>().areaDetail.surroundingAreas;
-        depopulation(area);
+        Depopulation(area);
+        DeCoin(area);
+        DeFood(area);
         foreach (GameObject surroundingArea in surroundingAreas)
         {
-            depopulation(surroundingArea);
+            Depopulation(surroundingArea);
+            DeFood(surroundingArea);
+            DeCoin(surroundingArea);
         }
     }
 }
