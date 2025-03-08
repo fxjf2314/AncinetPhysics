@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 
-public class HandCard : MonoBehaviour
+public class HandCard : MonoBehaviour,ISaveAndLoadGame
 {
     private static HandCard instance;
 
@@ -40,7 +40,8 @@ public class HandCard : MonoBehaviour
     
     private void Start()
     {
-        cards = HandCardGroup.Instance.handCards;
+        if (HandCardGroup.Instance != null)
+            cards = HandCardGroup.Instance.handCards;
         
         foreach(Card card in cards)
         {
@@ -120,6 +121,8 @@ public class HandCard : MonoBehaviour
         Debug.Log("2222");
 
         slot.MyCard = handCards[3];
+        CardUI cardUI = slot.GetComponent<CardUI>();
+        cardUI.ChangeCardData(slot.MyCard);
         int totalCount = indexes.Count;
         if(indexes.Count != totalCardNum)
         {
@@ -148,5 +151,21 @@ public class HandCard : MonoBehaviour
             slots[3].handcardTitle.text = "";
         }
         
+    }
+
+    public void Save(ref GameData gameData)
+    {
+        gameData.handCards = cards;
+        gameData.hashset = indexes.ToArray();
+    }
+
+    public void Load(GameData gameData)
+    {
+        cards = gameData.handCards;
+        indexes = new HashSet<int>(gameData.hashset);
+        foreach (int index in indexes)
+        {
+            //Debug.Log(index);
+        }
     }
 }

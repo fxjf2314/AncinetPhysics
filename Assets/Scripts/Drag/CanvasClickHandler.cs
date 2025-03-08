@@ -103,7 +103,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         cameraOriginalPosition = Camera.main.transform.position;
         cameraOriginalRotation = Camera.main.transform.rotation;
 
-        Debug.Log("CanvasClickHandler: Script initialized.");
+        //Debug.Log("CanvasClickHandler: Script initialized.");
     }
 
     // 点击预制体（1）时生成预制体（2）

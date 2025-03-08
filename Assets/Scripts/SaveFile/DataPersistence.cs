@@ -8,7 +8,7 @@ public class DataPersistence : MonoBehaviour
     public static bool isExist = false;
     public static DataPersistence Instance { get; private set; }
     GameData gameData;
-    public GameData GameData { get { return gameData; } }
+    public GameData mGameData { get { return gameData; } }
     GameSettingData gameSettingData;
     public GameSettingData GameSettingData { get {return gameSettingData; } }
     //存储实现了接口的类
@@ -28,9 +28,7 @@ public class DataPersistence : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-        gameData = new GameData();
-        gameSettingData = new GameSettingData();
+        }        
         //gameData = SaveTool.Load<GameData>(SaveTool.File_Name_01);
         //if(Instance != null)
         //{
@@ -41,13 +39,14 @@ public class DataPersistence : MonoBehaviour
     public void NewGame()
     {
         gameData = new GameData();
+        gameSettingData = new GameSettingData();
         //场景加载后寻找继承了IDataPersistence的脚本
-        dataPersistenceObjs = FindAllDataPersistenceObjs();
-        foreach (ISaveAndLoadGame dataPersistenceObj in dataPersistenceObjs)
-        {
-            //调用每个类的LoadData方法
-            dataPersistenceObj.Load(gameData);
-        }
+        //dataPersistenceObjs = FindAllDataPersistenceObjs();
+        //foreach (ISaveAndLoadGame dataPersistenceObj in dataPersistenceObjs)
+        //{
+        //    //调用每个类的LoadData方法
+        //    dataPersistenceObj.Load(gameData);
+        //}
     }
 
     public void SaveGame(string FileName)
@@ -55,6 +54,7 @@ public class DataPersistence : MonoBehaviour
         //场景加载后寻找继承了IDataPersistence的脚本
         dataPersistenceObjs = FindAllDataPersistenceObjs();
         gameSettingData.currentSave = FileName;
+        //Debug.Log(gameData.areas.Length);
         foreach (ISaveAndLoadGame dataPersistenceObj in dataPersistenceObjs)
         {
             //调用每个类的SaveData方法
@@ -75,7 +75,7 @@ public class DataPersistence : MonoBehaviour
             //NewGame();
         }
 
-        Debug.Log(dataPersistenceObjs.Count);
+        //Debug.Log(dataPersistenceObjs.Count);
         foreach (ISaveAndLoadGame dataPersistenceObj in dataPersistenceObjs)
         {
             //Debug.Log("345");

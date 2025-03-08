@@ -16,17 +16,17 @@ public class SavePanelManager : LoadPanelManger
         save1.onClick.AddListener(() =>
         {
             DataPersistence.Instance.SaveGame(SaveTool.File_Name_01);
-            //GameSettingSave.Instance.UpdateGameSettingData(SaveTool.File_Name_01);
+            UpdataPanel();
         });
         save2.onClick.AddListener(() =>
         {
             DataPersistence.Instance.SaveGame(SaveTool.File_Name_02);
-            //GameSettingSave.Instance.UpdateGameSettingData(SaveTool.File_Name_02);
+            UpdataPanel();
         });
         save3.onClick.AddListener(() =>
         {
             DataPersistence.Instance.SaveGame(SaveTool.File_Name_03);
-            //GameSettingSave.Instance.UpdateGameSettingData(SaveTool.File_Name_03);
+            UpdataPanel();
         });
     }
 }

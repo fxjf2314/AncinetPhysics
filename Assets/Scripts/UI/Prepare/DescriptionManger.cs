@@ -49,7 +49,6 @@ public class DescriptionManger : MonoBehaviour
 
     public void OpenDetailDes(Card cardData)
     {
-        if (SceneManager.GetActiveScene().name == "wwwww") return;
         detailDes.SetActive(true);
         TransformFind.TransformFindChild(detailDes.transform,"Icon").GetComponent<Image>().sprite = cardData.GetSprite();
         TransformFind.TransformFindChild(detailDes.transform, "Title").GetComponent<TextMeshProUGUI>().text = cardData.GetDescription().title;

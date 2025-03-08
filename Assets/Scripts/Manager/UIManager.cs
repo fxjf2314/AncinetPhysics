@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoBehaviour,ISaveAndLoadGame
 {
     private static UIManager instance;
     public static UIManager MyInstance
@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     public int coinIncraese;
 
-    public int totalRound;
+    public int totalRound = 1;
 
     private float totalCoin;
 
@@ -67,9 +67,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         
-        totalRound = 1;
         roundText.text = $"{totalRound}/10";
-        
+        //Debug.Log("Start函数");
     }
 
     #region 下一回合按钮代码块
@@ -141,4 +140,41 @@ public class UIManager : MonoBehaviour
         ButtonsManager.MyInstance.stepButtons[1].transform.gameObject.SetActive(true);
     }
 
+    public void UpdataUI()
+    {
+        roundText.text = $"{totalRound}/10";
+        coinText.text = totalCoin.ToString();
+        foodText.text = totalFood.ToString();
+        populationText.text = totalPopulation.ToString();
+    }
+
+    public void Save(ref GameData gameData)
+    {
+        gameData.people = totalPopulation;
+        gameData.harvest = (int)totalFood;
+        gameData.output = (int)totalCoin;
+        gameData.round = totalRound;
+        if (areas == null) Debug.Log("AreaScripts[]");
+        for (int i = 0; i < areas.Length; i++)
+        {
+            if (areas[i] == null) Debug.Log("AreaScripts");
+            if (gameData.areas[i] == null) Debug.Log("这不对吧？");
+            areas[i].SaveArea(ref gameData.areas[i]);
+            
+        }
+    }
+
+    public void Load(GameData gameData)
+    {
+        totalPopulation = gameData.people;
+        totalFood = gameData.harvest;
+        totalCoin = gameData.output;
+        totalRound = gameData.round;
+        UpdataUI();
+        //Debug.Log("执行读档功能");
+        for (int i = 0; i < areas.Length; i++)
+        {
+            areas[i].LoadArea(gameData.areas[i]);
+        }
+    }
 }

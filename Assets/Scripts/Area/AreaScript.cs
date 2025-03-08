@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AreaScript : MonoBehaviour
+[System.Serializable]
+public class AreaScript : MonoBehaviour,ISaveAndLoadArea
 {
     public AreaDetail areaDetail;
 
@@ -46,5 +47,17 @@ public class AreaScript : MonoBehaviour
     public void FoodControl(int count)
     {
         areaDetail.food += count;
+    }
+
+    public void SaveArea(ref AreasJson area)
+    {
+        area.cards = cards;
+        area.areaDetail = areaDetail;
+    }
+
+    public void LoadArea(AreasJson area)
+    {
+        cards = area.cards;
+        areaDetail = area.areaDetail;
     }
 }

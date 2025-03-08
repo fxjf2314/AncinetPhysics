@@ -12,7 +12,7 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
 
     //public GameObject gameObject;
 
-    List<Card> mHandCards;
+    List<Card> mHandCards = new List<Card>();
 
     const int cardLimit = 8;
 
@@ -22,7 +22,6 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
     {
         DontDestroyOnLoad(this.gameObject);
         instance = this;
-        mHandCards = new List<Card>();
     }
 
     

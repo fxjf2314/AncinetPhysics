@@ -5,6 +5,7 @@ using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public static class SaveTool
 {
     public const string Game_Name = "天工";
@@ -20,7 +21,7 @@ public static class SaveTool
     {
         ChangeSavePath(FileName);
         //将存储数据转变为json格式
-        string json = JsonUtility.ToJson(data, true);
+        string json = JsonUtility.ToJson(data,true);
         try
         {
             string directory = Path.GetDirectoryName(mSavePath);
