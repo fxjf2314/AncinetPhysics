@@ -31,11 +31,17 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
 
     public int totalRound = 1;
 
-    private float totalCoin;
+    public float totalCoin;
 
-    private float totalFood;
+    public float lastCoin;
 
-    private int totalPopulation;
+    public float totalFood;
+
+    public float lastFood;
+
+    public int totalPopulation;
+
+    public int lastPopulation;
 
     [SerializeField]
     private GameObject nextRoundButtton;
@@ -83,12 +89,14 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     {
         if (totalRound < 10)
         {
+            lastCoin = totalCoin;
+            lastFood = totalFood;
+            lastPopulation = totalPopulation;
             totalPopulation = 0;
-            PopulationNatural();
-            FoodNatural();
-            CoinNatural();
+            
             totalRound++;
             roundText.text = $"{totalRound}/10";
+            
             foreach (AreaScript area in areas)
             {
                 totalPopulation += area.areaDetail.population;
@@ -98,6 +106,9 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             coinText.text = totalCoin.ToString();
             foodText.text = totalFood.ToString();
             populationText.text = totalPopulation.ToString();
+            PopulationNatural();
+            FoodNatural();
+            CoinNatural();
             AreaTips.MyInstance.FadeOut();
 
             ButtonsManager.MyInstance.isPlaceCard = false;
@@ -109,11 +120,13 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     }
     
 
+
     //人口自然增长
     public void PopulationNatural()
     {
         foreach (AreaScript area in areas)
         {
+            area.areaDetail.oPopulation = area.areaDetail.population;
             area.PopulationControl((int)(area.areaDetail.food / (area.areaDetail.population * foodBaseNumber)));
             area.PopulationControl(1);
 
@@ -125,6 +138,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     {
         foreach (AreaScript area in areas)
         {
+            area.areaDetail.oFood = area.areaDetail.food;
             area.FoodControl((int)(area.areaDetail.population * foodIncrease));
 
         }
@@ -134,7 +148,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     {
         foreach (AreaScript area in areas)
         {
-
+            area.areaDetail.oCoin = area.areaDetail.coin;
             area.CoinControl((int)(area.areaDetail.population * coinIncraese));
         }
     }

@@ -6,8 +6,23 @@ using UnityEngine.EventSystems;
 
 public class AreaManager : MonoBehaviour
 {
-    [SerializeField]
-    AreaScript[] areas;
+    private static AreaManager instance;
+
+    public static AreaManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<AreaManager>();
+            }
+            return instance;
+        }
+    }
+
+
+   
+    public AreaScript[] areas;
     
 
     private void Start()
