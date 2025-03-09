@@ -116,6 +116,7 @@ public class DisasterOccurs : MonoBehaviour
     {
         canFading = true;
         isFadingIn = true;
+        EventVisualization.Instance.isEffecting = true;
         for (int i = 0; i < images.Length; i++)
         {
             GameObject theImage = Instantiate(disasterEffect, canvas);
@@ -126,6 +127,7 @@ public class DisasterOccurs : MonoBehaviour
         }
         fadeTimer = 0f;
         isFadingIn = false;
+        EventVisualization.Instance.isEffecting = false;
     }
     public void Inform()
     {
