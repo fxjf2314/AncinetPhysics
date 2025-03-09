@@ -4569,6 +4569,7 @@ GameObject:
   - component: {fileID: 645768026}
   - component: {fileID: 645768028}
   - component: {fileID: 645768027}
+  - component: {fileID: 645768029}
   m_Layer: 0
   m_Name: Area
   m_TagString: Untagged
@@ -4663,6 +4664,24 @@ MonoBehaviour:
   targetAlpha: 0.6
   wait: {fileID: 408058504}
   tip: {fileID: 1204337370}
+--- !u!114 &645768029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645768025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbf170a0d1e6bd4d954b1e4ba9ed0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4334948227438280049, guid: 17a98ca0285022d42978504795bb449d, type: 3}
+  populationSign: {fileID: 11400000, guid: aa30ceee128102c409d46c6cf7161baa, type: 2}
+  coinSign: {fileID: 11400000, guid: c2952495bbf86374ca7ddbf0fee0fce8, type: 2}
+  foodSign: {fileID: 11400000, guid: f1ad8692c20cbd94394784efe5fff9ea, type: 2}
+  wait: {fileID: 408058504}
+  isEffecting: 0
 --- !u!1 &654141964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11326,7 +11345,7 @@ MonoBehaviour:
   m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 16f4b49f79cf6334389df452c04a1f3d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14637,6 +14656,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 645768028}
         m_TargetAssemblyTypeName: DisasterOccurs, Assembly-CSharp
+        m_MethodName: NextRound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 645768029}
+        m_TargetAssemblyTypeName: EventVisualization, Assembly-CSharp
         m_MethodName: NextRound
         m_Mode: 1
         m_Arguments:

@@ -48,17 +48,24 @@ public class Disaster : Card
         if (Random.Range(0f, 1f) <= probability)
         {
             int pChange = Convert.ToInt16(population * area.GetComponent<AreaScript>().areaDetail.Effectiveness[name]);
+            int oPopulation = area.GetComponent<AreaScript>().areaDetail.population;
             area.GetComponent<AreaScript>().areaDetail.population -= pChange;
             if (area.GetComponent<AreaScript>().areaDetail.population < 1)
                 area.GetComponent<AreaScript>().areaDetail.population = 1;
+            int pRealChange = area.GetComponent<AreaScript>().areaDetail.population-oPopulation;
+            //VisualizeEvent(area.transform, "population", pRealChange);
         }
     }
     public void DeFood(GameObject area)
     {
-        area.GetComponent<AreaScript>().areaDetail.food -= area.GetComponent<AreaScript>().areaDetail.food*foodRatio* area.GetComponent<AreaScript>().areaDetail.Effectiveness[name];
+        float fChange = area.GetComponent<AreaScript>().areaDetail.food * foodRatio * area.GetComponent<AreaScript>().areaDetail.Effectiveness[name];
+        area.GetComponent<AreaScript>().areaDetail.food -= fChange;
+        //VisualizeEvent(area.transform, "food", fChange);
     }
     public void DeCoin(GameObject area)
     {
-        area.GetComponent<AreaScript>().areaDetail.coin -= area.GetComponent<AreaScript>().areaDetail.coin * coinRatio * area.GetComponent<AreaScript>().areaDetail.Effectiveness[name];
+        float cChange = area.GetComponent<AreaScript>().areaDetail.coin * coinRatio * area.GetComponent<AreaScript>().areaDetail.Effectiveness[name];
+        area.GetComponent<AreaScript>().areaDetail.coin -= cChange;
+        //VisualizeEvent(area.transform,"coin",cChange);
     }
 }

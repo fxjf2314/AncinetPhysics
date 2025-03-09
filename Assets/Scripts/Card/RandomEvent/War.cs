@@ -55,16 +55,27 @@ public class War : RandomEvent
         if (Random.Range(0f, 1f) <= probability)
         {
             int pChange = Convert.ToInt16(population * area.GetComponent<AreaScript>().areaDetail.Effectiveness["War"]);
+            int oPopulation = area.GetComponent<AreaScript>().areaDetail.population;
             area.GetComponent<AreaScript>().areaDetail.population -= pChange;
             if(area.GetComponent<AreaScript>().areaDetail.population < 1)
                 area.GetComponent<AreaScript>().areaDetail.population = 1;
+            int pRealChange = area.GetComponent<AreaScript>().areaDetail.population - oPopulation;
+            //VisualizeEvent(area.transform, "population", pRealChange);
         }
     }
     private void DeFoodCoin(GameObject winArea,GameObject defeatArea)
     {
-        winArea.GetComponent<AreaScript>().areaDetail.food -= winArea.GetComponent<AreaScript>().areaDetail.population * wFoodRatio* winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
-        winArea.GetComponent<AreaScript>().areaDetail.coin -= winArea.GetComponent<AreaScript>().areaDetail.population * wCoinRatio* winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
-        defeatArea.GetComponent<AreaScript>().areaDetail.food -= (defeatArea.GetComponent<AreaScript>().areaDetail.population+ winArea.GetComponent<AreaScript>().areaDetail.population) * dFoodRatio* defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
-        defeatArea.GetComponent<AreaScript>().areaDetail.coin -= (defeatArea.GetComponent<AreaScript>().areaDetail.population + winArea.GetComponent<AreaScript>().areaDetail.population) * dCoinRatio * defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        float wFChange = winArea.GetComponent<AreaScript>().areaDetail.population * wFoodRatio * winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        winArea.GetComponent<AreaScript>().areaDetail.food -= wFChange;
+        //VisualizeEvent(winArea.transform, "food", wFChange);
+        float wCChange = winArea.GetComponent<AreaScript>().areaDetail.population * wCoinRatio * winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        winArea.GetComponent<AreaScript>().areaDetail.coin -= wCChange;
+        //VisualizeEvent(winArea.transform, "coin", wCChange);
+        float dFChange = (defeatArea.GetComponent<AreaScript>().areaDetail.population + winArea.GetComponent<AreaScript>().areaDetail.population) * dFoodRatio * defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        defeatArea.GetComponent<AreaScript>().areaDetail.food -= dFChange;
+       //VisualizeEvent(defeatArea.transform, "food", dFChange);
+        float dCChange = (defeatArea.GetComponent<AreaScript>().areaDetail.population + winArea.GetComponent<AreaScript>().areaDetail.population) * dCoinRatio * defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
+        defeatArea.GetComponent<AreaScript>().areaDetail.coin -= dCChange;
+        //VisualizeEvent(defeatArea.transform,"coin",dCChange);
     }
 }

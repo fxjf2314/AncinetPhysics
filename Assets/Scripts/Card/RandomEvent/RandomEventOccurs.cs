@@ -9,7 +9,6 @@ public class RandomEventOccurs : MonoBehaviour
     public TextMeshProUGUI RandomEventTips;
     public RandomEvent[] randomEvents;
     public GameObject wait;
-    private bool waitOver;
 
     private void Awake()
     {
