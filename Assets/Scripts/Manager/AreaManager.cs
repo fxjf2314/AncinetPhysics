@@ -6,8 +6,23 @@ using UnityEngine.EventSystems;
 
 public class AreaManager : MonoBehaviour
 {
-    [SerializeField]
-    AreaScript[] areas;
+    private static AreaManager instance;
+
+    public static AreaManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<AreaManager>();
+            }
+            return instance;
+        }
+    }
+
+
+   
+    public AreaScript[] areas;
     
 
     private void Start()
@@ -19,6 +34,7 @@ public class AreaManager : MonoBehaviour
             area.areaDetail.food = Random.Range(-30, 51);
             area.areaDetail.coin = Random.Range(0, 70);
         }
+        EventVisualization.Instance.InitVisual();
     }
     private void Update()
     {

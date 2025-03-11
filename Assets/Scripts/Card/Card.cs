@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -31,7 +32,6 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
 
     [SerializeField]
     private GameObject cardPrefab;
-
 
     public Sprite MyIcon { get => icon; }
     public int MyId { get => id; set => id = value; }

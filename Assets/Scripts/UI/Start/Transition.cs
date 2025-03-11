@@ -76,7 +76,7 @@ public class Transition : MonoBehaviour
             }
             // 替换为你的场景名称
             SceneManager.LoadScene(nextSceneName);
-            DataPersistence.Instance.NewGame();
+            //DataPersistence.Instance.NewGame();
         }
         blackScreen.raycastTarget = false;
     }

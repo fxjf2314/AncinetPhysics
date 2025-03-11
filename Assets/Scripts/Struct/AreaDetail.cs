@@ -8,16 +8,20 @@ using UnityEngine.UI;
 [Serializable]
 public struct AreaDetail 
 {
+    
     public string areaName;
+    public int oPopulation;
     public int population;
     public bool isCoin;
+    public float oCoin;
     public float coin;
+    public float oFood;
     public float food;
     public Sprite areaIcon;
     public GameObject[] surroundingAreas;
     public Dictionary<string,float> Effectiveness;
 
-    public AreaDetail(string name, int population, bool YinShua,float coin, float food, Sprite icon, GameObject[] surroundingAreas = null)
+    /*public AreaDetail(string name, int population, bool YinShua,float coin, float food, Sprite icon, GameObject[] surroundingAreas = null)
     {
         this.areaName = name;
         this.population = population;
@@ -37,5 +41,5 @@ public struct AreaDetail
             {"Fog",1f }
         };
 
-    }
+    }*/
 }

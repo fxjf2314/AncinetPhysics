@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Area
+  - DragArea
+  - DynastyPanel
+  - ResourceIcon
   layers:
   - Default
   - TransparentFX

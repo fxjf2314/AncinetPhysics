@@ -11,7 +11,9 @@ public class RegionalMarriage : RandomEvent
         GameObject[] surroundingAreas = area.GetComponent<AreaScript>().areaDetail.surroundingAreas;
         GameObject surroundingArea = surroundingAreas[Random.Range(0, surroundingAreas.Length)];
         area.GetComponent<AreaScript>().areaDetail.population += population;
+        //VisualizeEvent(area.transform, "population", population);
         surroundingArea.GetComponent<AreaScript>().areaDetail.population += population;
+        //VisualizeEvent(surroundingArea.transform, "population", population);
         randomEventTips.text += GetAreaName(area) + "与" + GetAreaName(surroundingArea) + "联姻"+"\n";
         randomEventTips.text += GetAreaName(area) +"和"+ GetAreaName(surroundingArea) + "人口各增加"+population+"点" + "\n";
     }
