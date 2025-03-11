@@ -53,7 +53,9 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
             }
         }
 
+        if(!GameSeed.MyInstance.isCardSeedInit)
         GameSeed.MyInstance.InitSeed();
+        
         
         int count = 0;
         /*if(totalCardNum >= 4)
@@ -191,16 +193,14 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
     public void Save(ref GameData gameData)
     {
         gameData.handCards = cards;
-        gameData.hashset = indexes.ToArray();
+        gameData.cardSeed = GameSeed.MyInstance.cardSeed;
+        gameData.isCardSeedInit = GameSeed.MyInstance.isCardSeedInit;
     }
 
     public void Load(GameData gameData)
     {
         cards = gameData.handCards;
-        indexes = new HashSet<int>(gameData.hashset);
-        foreach (int index in indexes)
-        {
-            //Debug.Log(index);
-        }
+        GameSeed.MyInstance.cardSeed = gameData.cardSeed;
+        GameSeed.MyInstance.isCardSeedInit = gameData.isCardSeedInit;
     }
 }

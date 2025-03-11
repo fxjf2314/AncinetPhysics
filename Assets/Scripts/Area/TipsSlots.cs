@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TipsSlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerClickHandler
+public class TipsSlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     Image icon;
 
@@ -31,8 +31,5 @@ public class TipsSlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
 
   
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

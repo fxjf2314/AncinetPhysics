@@ -15,13 +15,21 @@ public class TangSanCai : Card
         {
             if (area.cards.Count < 3)
             {
+                
                 foreach (AreaScript everyArea in HandCard.MyInstance.applicationArea)
                 {
-                    if(everyArea.areaDetail.population > popu)
+                    
+                    if(everyArea)
                     {
-                        targetArea = everyArea;
-                        popu = everyArea.areaDetail.population;
+                        if (everyArea.areaDetail.population > popu)
+                        {
+                            targetArea = everyArea;
+                            popu = everyArea.areaDetail.population;
+                        }
+                        
                     }
+                    
+                    
                 }
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
                 {

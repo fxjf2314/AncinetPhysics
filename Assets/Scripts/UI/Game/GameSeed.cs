@@ -19,6 +19,8 @@ public class GameSeed : MonoBehaviour
         }
     }
 
+    public bool isCardSeedInit = false;
+
     public List<int> cardSeed;
 
     private HashSet<int> cardSeeds = new HashSet<int>();
@@ -34,5 +36,6 @@ public class GameSeed : MonoBehaviour
 
         }
         cardSeed = cardSeeds.ToList();
+        isCardSeedInit = true;
     }
 }
