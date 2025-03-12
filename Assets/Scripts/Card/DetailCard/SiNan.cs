@@ -18,6 +18,10 @@ public class SiNan : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].CoinControl(150);
+                        if (area.areaDetail.Effectiveness["DustStorm"] > 0)
+                            area.areaDetail.Effectiveness["DustStorm"] -= 0.1f;
+                        if (area.areaDetail.Effectiveness["Fog"] > 0)
+                            area.areaDetail.Effectiveness["Fog"] -= 0.1f;
                     }
                 }
             }

@@ -6,8 +6,35 @@ using UnityEngine.EventSystems;
 
 public class AreaManager : MonoBehaviour
 {
+    private static AreaManager instance;
+
+    public static AreaManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<AreaManager>();
+            }
+            return instance;
+        }
+    }
+
+
+   
+    public AreaScript[] areas;
     
 
+    private void Start()
+    {
+        foreach (AreaScript area in areas)
+        {
+            area.areaDetail.population = 1;
+            area.areaDetail.food = Random.Range(-30, 51);
+            area.areaDetail.coin = Random.Range(0, 70);
+        }
+        EventVisualization.Instance.InitVisual();
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

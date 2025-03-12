@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AreaScript : MonoBehaviour
+[System.Serializable]
+public class AreaScript : MonoBehaviour,ISaveAndLoadArea
 {
     public AreaDetail areaDetail;
 
     public List<Card> cards;
 
+    private void Awake()
+    {
+        areaDetail.Effectiveness = new Dictionary<string, float>()
+        {
+            {"War", 1f },
+            {"EarthQuake",1f },
+            {"Flood",1f },
+            {"DustStorm",1f },
+            {"Fog",1f }
+        };
+    }
     public string GetName()
     {
         return areaDetail.areaName;
@@ -46,5 +58,17 @@ public class AreaScript : MonoBehaviour
     public void FoodControl(int count)
     {
         areaDetail.food += count;
+    }
+
+    public void SaveArea(ref AreasJson area)
+    {
+        area.cards = cards;
+        area.areaDetail = areaDetail;
+    }
+
+    public void LoadArea(AreasJson area)
+    {
+        cards = area.cards;
+        areaDetail = area.areaDetail;
     }
 }

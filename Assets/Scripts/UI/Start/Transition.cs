@@ -59,12 +59,16 @@ public class Transition : MonoBehaviour
         // 切换场景时，黑屏完全不透明，加载新场景
         if (blackScreenColor.a == 1)
         {
+            if (saveName != null)
+            {
+                Debug.Log(saveName);
+                SceneManager.sceneLoaded += OnSceneLoaded;
+
+
+            }
             // 替换为你的场景名称
             SceneManager.LoadScene(nextSceneName);
-            if(saveName != null)
-            {
-                DataPersistence.Instance.LoadGame(saveName);
-            }
+            //DataPersistence.Instance.NewGame();
         }
         blackScreen.raycastTarget = false;
     }
@@ -83,5 +87,11 @@ public class Transition : MonoBehaviour
         nextSceneName = sceneName;
         // 先淡入黑屏
         FadeIn();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        DataPersistence.Instance.LoadGame(saveName);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

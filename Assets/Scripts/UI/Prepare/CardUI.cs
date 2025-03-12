@@ -45,7 +45,6 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (SceneManager.GetActiveScene().name == "wwwww") return;
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             if (DescriptionManger.Instance.isCanClick)
@@ -55,6 +54,7 @@ public class CardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
             }
             else if (!isInHand)
             {
+                if (SceneManager.GetActiveScene().name == "wwwww") return;
                 if (HandCardGroup.Instance.handCards.Count < 8)
                 {
                     //Ìí¼Óµ½ÊÖÅÆ                 

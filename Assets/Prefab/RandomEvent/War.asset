@@ -40,6 +40,3 @@ MonoBehaviour:
   dCoinRatio: 10
   probabilityChange: 0.1
   probability: 0.7
-  pEffectiveness: 1
-  fEffectiveness: 1
-  cEffectiveness: 1

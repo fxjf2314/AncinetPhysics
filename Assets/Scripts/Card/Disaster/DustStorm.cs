@@ -7,6 +7,7 @@ public class DustStorm : Disaster
 {
     public override void Use(GameObject area)
     {
-        depopulation(area);
+        Depopulation(area);
+        DeFood(area);
     }
 }

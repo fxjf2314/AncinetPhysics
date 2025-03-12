@@ -14,7 +14,7 @@ public class LoadPanelManger : MonoBehaviour
 
     protected void Awake()
     {
-        Debug.Log(1345534);
+        //Debug.Log(1345534);
         saves.Add(save1, noSave1);
         saves.Add(save2, noSave2);
         saves.Add(save3, noSave3);
@@ -32,19 +32,22 @@ public class LoadPanelManger : MonoBehaviour
         save1.onClick.AddListener(() =>
         {
             Debug.Log("跳转到存档1");
-            DataPersistence.Instance.LoadGame(SaveTool.File_Name_01);
+            Transition.Instance.LoadSceneWithTransition("wwwww", SaveTool.File_Name_01);
+            //DataPersistence.Instance.LoadGame(SaveTool.File_Name_01);
         });
 
         save2.onClick.AddListener(() =>
         {
             Debug.Log("跳转到存档2");
-            DataPersistence.Instance.LoadGame(SaveTool.File_Name_02);
+            Transition.Instance.LoadSceneWithTransition("wwwww", SaveTool.File_Name_02);
+            //DataPersistence.Instance.LoadGame(SaveTool.File_Name_02);
         });
 
         save3.onClick.AddListener(() =>
         {
             Debug.Log("跳转到存档3");
-            DataPersistence.Instance.LoadGame(SaveTool.File_Name_03);
+            Transition.Instance.LoadSceneWithTransition("wwwww", SaveTool.File_Name_03);
+            //DataPersistence.Instance.LoadGame(SaveTool.File_Name_03);
         });
     }
 
@@ -53,11 +56,11 @@ public class LoadPanelManger : MonoBehaviour
         TextMeshProUGUI round = saveGrid.Find("Round").GetComponent<TextMeshProUGUI>();
         round.text = "回合数：" + gameData.round;
         TextMeshProUGUI people = saveGrid.Find("People").GetComponent<TextMeshProUGUI>();
-        round.text = "总人口：" + gameData.people;
+        people.text = "总人口：" + gameData.people;
         TextMeshProUGUI harvest = saveGrid.Find("Harvest").GetComponent<TextMeshProUGUI>();
-        round.text = "总收成：" + gameData.harvest;
+        harvest.text = "总收成：" + gameData.harvest;
         TextMeshProUGUI output = saveGrid.Find("Output").GetComponent<TextMeshProUGUI>();
-        round.text = "总产出：" + gameData.output;
+        output.text = "总产出：" + gameData.output;
     }
 
     protected void UpdateSaveShow(Button save, GameData gameData)
@@ -69,7 +72,7 @@ public class LoadPanelManger : MonoBehaviour
         else
         {
             saves[save].SetActive(false);
-            UpdateText(save1.transform, gameData);
+            UpdateText(save.transform, gameData);
         }
     }
 

@@ -63,12 +63,22 @@ public class ButtonGroup : MonoBehaviour
     [SerializeField]
     Button backToTitleBtn;
 
+    [SerializeField]
+    GameObject voiceBtn;
+
     GameObject currentDy;
 
     private void Start()
     {
         currentDy = chunQiuZhanGuo;
         AddButtonListener();
+
+        /*if (AudioMixerManager.Instance.GetAudioVolume("vMaster") == -50.0f)
+        {
+            Image image = voiceBtn.GetComponent<Image>();
+            image.sprite = AudioMixerManager.Instance.closeVoice;
+        }*/
+
     }
 
     void AddButtonListener()

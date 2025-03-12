@@ -21,7 +21,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     public GameObject cancelButtonPrefab; // 取消按钮预制体
     public GameObject applicationButtonPrefab; // 确认按钮预制体
     public GameObject panel;//禁止拖拽卡牌挡板
-    public TextMeshProUGUI cardtext;//卡牌名称
+    public TextMeshProUGUI cardtext;//卡牌名称 
 
     public Transform[] model=new Transform[20];//卡牌模型
 
@@ -53,6 +53,9 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     private bool isDestroyed = false;
     private bool isRising = false;
     private bool ischoose=false;//是否可以选择区域
+
+    public bool ifban = false;//是否禁用
+
     public bool isdragone = false;//是否是抬起的那张卡牌
 
     public bool ifapplication = false;//是否确认放置
@@ -98,6 +101,13 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             circle = GameObject.Find("Circle");
         }*/
 
+        foreach(GameObject draghigh in drageffect.Instance.dragtipob)
+        {
+            if (draghigh != null)
+            {
+                draghigh.SetActive(false);
+            }
+        }
 
         originalPosition = transform.position;
         targetPlane = new Plane(Vector3.up, Vector3.zero); // 假设平面是水平的
@@ -106,7 +116,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         cameraOriginalPosition = Camera.main.transform.position;
         cameraOriginalRotation = Camera.main.transform.rotation;
 
-        Debug.Log("CanvasClickHandler: Script initialized.");
+        //Debug.Log("CanvasClickHandler: Script initialized.");
     }
 
     // 点击预制体（1）时生成预制体（2）
@@ -443,10 +453,18 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         // 恢复材质
         for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
         {
-            if (currentAreaCollider[i] != null)
+            //if (currentAreaCollider[i] != null)
+            // {
+            //var renderer = currentAreaCollider[i].GetComponent<Renderer>();
+            // if (renderer)
+            // {
+            //  renderer.material = originalMaterial[i];
+            // renderer.gameObject.SetActive(true);
+            //}
+            // }
+            if (HandCard.MyInstance.applicationArea[i] != null)
             {
-                var renderer = currentAreaCollider[i].GetComponent<Renderer>();
-                if (renderer) renderer.material = originalMaterial[i];
+                HandCard.MyInstance.applicationArea[i].gameObject.SetActive(true);
             }
         }
     }
@@ -454,28 +472,103 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     private void highmat()//高亮材质
     {
         //卡牌作用范围高亮
-        Renderer[] renderer = new Renderer[5];
+       // Renderer[] renderer = new Renderer[5];
         for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
         {
             if (HandCard.MyInstance.applicationArea[i] != null)
             {
-                currentAreaCollider[i] = HandCard.MyInstance.applicationArea[i].gameObject.GetComponent<Collider>();
-                renderer[i] = currentAreaCollider[i].GetComponent<Renderer>();
-                if (renderer[i] != null)
-                {
-                    originalMaterial[i] = renderer[i].material;
-                    renderer[i].material = highlightMaterial; // 设置高亮材质
-                }
+                //   currentAreaCollider[i] = HandCard.MyInstance.applicationArea[i].gameObject.GetComponent<Collider>();
+                //  renderer[i] = currentAreaCollider[i].GetComponent<Renderer>();
+                //  if (renderer[i] != null)
+                // {
+                //     originalMaterial[i] = renderer[i].material;
+                //     renderer[i].material = highlightMaterial; // 设置高亮材质
+                //      renderer[i].gameObject.SetActive(false);
+                //  }
+                HandCard.MyInstance.applicationArea[i].gameObject.SetActive(false);
             }
         }
     }
 
+    private void Ban()
+    {
+        ifban = true;
+    }
+
+    private void Resetban()
+    {
+        ifban = false;
+    }
+
     private void Update()
     {
+        #region 换上新物体作为提示
+        if (!GameObject.Find("North"))
+        {
+            drageffect.Instance.dragtipob[0].SetActive(true);
+        }
+        else
+        {
+            drageffect.Instance.dragtipob[0].SetActive(false);
+        }
+
+        if (!GameObject.Find("West"))
+        {
+            drageffect.Instance.dragtipob[1].SetActive(true);
+        }
+        else
+        {
+            drageffect.Instance.dragtipob[1].SetActive(false);
+        }
+
+        if (!GameObject.Find("Center"))
+        {
+            drageffect.Instance.dragtipob[2].SetActive(true);
+        }
+        else
+        {
+            drageffect.Instance.dragtipob[2].SetActive(false);
+        }
+
+        if (!GameObject.Find("WestSouth"))
+        {
+            drageffect.Instance.dragtipob[3].SetActive(true);
+        }
+        else
+        {
+            drageffect.Instance.dragtipob[3].SetActive(false);
+        }
+
+        if (!GameObject.Find("South"))
+        {
+            drageffect.Instance.dragtipob[4].SetActive(true);
+        }
+        else
+        {
+            drageffect.Instance.dragtipob[4].SetActive(false);
+        }
+        #endregion
         if (isPlaced)
         {
             // 新逻辑：通过拖拽直接处理材质
             HandleDragSelection();
+        }
+
+        if (ifban)
+        {
+            gameObject.GetComponent<Image>().color = Color.gray;//变灰
+            panel.gameObject.SetActive(true);//禁用
+        }
+        else
+        {
+            panel.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().color = Color.white;
+        }
+
+        //放一张卡牌后全体禁用
+        if (drageffect.Instance.allban&&!ifban)
+        {
+            Ban();
         }
 
         if (mabutton != null)
@@ -490,25 +583,22 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         }
 
         //选中一张卡牌的时候其他卡牌变灰且禁用
-        if(drageffect.Instance.state!=drageffect.State.normal)
+        if(drageffect.Instance.state!=drageffect.State.normal && !ifban)
         {
             if (!isDragging)
             {
-                gameObject.GetComponent<Image>().color = Color.gray;//变灰
-                panel.gameObject.SetActive(true);//禁用
+                Ban();
             }
         }
-        else
+        else if(drageffect.Instance.state == drageffect.State.normal && ifban&&!drageffect.Instance.allban)
         {
-            panel.gameObject.SetActive(false);
-            gameObject.GetComponent<Image>().color = Color.white;
+            Resetban();
         }
 
         //没有卡牌时无法选中
-        if (cardtext.text == "")
+        if (cardtext.text == "" && !ifban)
         {
-            gameObject.GetComponent<Image>().color = Color.gray;//变灰
-            panel.gameObject.SetActive(true);//禁用
+            Ban();
         }
 
         if (abutton != null)
@@ -736,13 +826,13 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             // 设置锚点为左下角（保证Y轴基准一致）
             rt.anchorMin = new Vector2(0, 0.5f);
             rt.anchorMax = new Vector2(0, 0.5f);
-            rt.pivot = new Vector2(6f, 1f); // 轴心对齐左下角
+            rt.pivot = new Vector2(0f, 1f); // 轴心对齐左下角
 
             rt.anchoredPosition = GetButtonCanvasPosition();
 
             rt1.anchorMin = new Vector2(0, 0.5f);
             rt1.anchorMax = new Vector2(0, 0.5f);
-            rt1.pivot = new Vector2(6f, 0.3f); // 轴心对齐左下角
+            rt1.pivot = new Vector2(0f, 0.3f); // 轴心对齐左下角
 
             rt1.anchoredPosition = GetButtonCanvasPosition();
 
@@ -852,6 +942,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         ischoose = false;
         Resetmodel();
+        returnmat();
         HandCard.MyInstance.targetArea = null;
         for(int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++) 
         {
@@ -938,6 +1029,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             isdragone = false;
         }
         #endregion
+
         ischoose = false;
         if (ifapplication == false)
         {

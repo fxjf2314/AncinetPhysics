@@ -16,7 +16,7 @@ public class ZiMu : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-
+                        area.areaDetail.Effectiveness["War"] = -1;
                     }
                 }
             }
