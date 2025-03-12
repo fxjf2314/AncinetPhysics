@@ -75,75 +75,7 @@ public class HandCardSlot : MonoBehaviour//,IPointerClickHandler
                 }
                 else if(HandCard.MyInstance.targetArea.cards.Count >= 3)
                 {
-                    #region 按图索骥--复原模型
-                    if (application.isdragone)
-                    {
-                        switch (application.cardtext.text)
-                        {
-                            case "《崇祯历书》":
-                                application.model[0].position = new Vector3(124, -500, -82);
-                                break;
-                            case "地动仪":
-                                application.model[1].position = new Vector3(124, -500, -82);
-                                break;
-                            case "都江堰":
-                                application.model[2].position = new Vector3(124, -500, -82);
-                                break;
-                            case "烽火":
-                                application.model[3].position = new Vector3(124, -500, -82);
-                                break;
-                            case "航海术":
-                                application.model[4].position = new Vector3(124, -500, -82);
-                                break;
-                            case "虎蹲炮":
-                                application.model[5].position = new Vector3(124, -500, -82);
-                                break;
-                            case "浑天仪":
-                                application.model[6].position = new Vector3(124, -500, -82);
-                                break;
-                            case "火铳":
-                                application.model[7].position = new Vector3(124, -500, -82);
-                                break;
-                            case "火药":
-                                application.model[8].position = new Vector3(124, -500, -82);
-                                break;
-                            case "秦朝军事力学":
-                                application.model[9].position = new Vector3(124, -500, -82);
-                                break;
-                            case "《墨经》《考工记》":
-                                application.model[10].position = new Vector3(124, -500, -82);
-                                break;
-                            case "《木经》":
-                                application.model[11].position = new Vector3(124, -500, -82);
-                                break;
-                            case "《农桑辑要》":
-                                application.model[12].position = new Vector3(124, -500, -82);
-                                break;
-                            case "简单机械组":
-                                application.model[13].position = new Vector3(124, -500, -82);
-                                break;
-                            case "司南":
-                                application.model[14].position = new Vector3(124, -500, -82);
-                                break;
-                            case "唐三彩":
-                                application.model[15].position = new Vector3(124, -500, -82);
-                                break;
-                            case "活字印刷术":
-                                application.model[16].position = new Vector3(124, -500, -82);
-                                break;
-                            case "云梯":
-                                application.model[17].position = new Vector3(124, -500, -82);
-                                break;
-                            case "造纸术":
-                                application.model[18].position = new Vector3(124, -500, -82);
-                                break;
-                            case "子母炮":
-                                application.model[19].position = new Vector3(124, -500, -82);
-                                break;
-                        }
-                        application.isdragone = false;
-                    }
-                    #endregion
+                    application.Resetmodel();
                 }
             }
         }

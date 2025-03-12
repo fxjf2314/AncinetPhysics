@@ -12,13 +12,20 @@ public class Transition : MonoBehaviour
     [SerializeField]
     public float transitionTime = 1f; // 转场持续时间
     private Coroutine transitionCoroutine; // 控制协程
+    [SerializeField]
+    bool isFadeOutWhenOpen = true;
     string nextSceneName, saveName;
 
     private void Start()
     {
         instance = this;
         blackScreen = GetComponent<Image>();
-        FadeOut();
+        if(isFadeOutWhenOpen)
+        {
+            FadeOut();
+            blackScreen.raycastTarget = false;
+        }
+        
     }
 
     // 淡入黑屏（从透明到不透明）
@@ -44,6 +51,7 @@ public class Transition : MonoBehaviour
     // 控制黑屏渐变的协程
     private IEnumerator FadeToBlack(float startAlpha, float targetAlpha)
     {
+        blackScreen.raycastTarget = true;
         float elapsedTime = 0f;
         Color blackScreenColor = blackScreen.color;
 
@@ -61,7 +69,7 @@ public class Transition : MonoBehaviour
         {
             if (saveName != null)
             {
-                Debug.Log(saveName);
+                //Debug.Log(saveName);
                 SceneManager.sceneLoaded += OnSceneLoaded;
 
 

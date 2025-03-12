@@ -14,13 +14,16 @@ public class ProfitVisual : MonoBehaviour
     // 是否启用协程
     public bool startCoroutineOnStart = true;
 
+
     private void OnEnable()
+
     {
         if (startCoroutineOnStart)
         {
             StartCoroutine(MoveAndFadeCoroutine());
         }
     }
+
     // 调用此方法可以手动启动协程
     public void StartMoveAndFade()
     {
@@ -32,7 +35,9 @@ public class ProfitVisual : MonoBehaviour
         // 获取初始位置
         Vector3 startPosition = transform.position;
         // 获取初始透明度
+
         float startAlpha = GetComponent<TextMeshPro>().color.a;
+
 
         // 计算每帧的时间比例
         float elapsedTime = 0.0f;
@@ -53,9 +58,11 @@ public class ProfitVisual : MonoBehaviour
             float currentAlpha = Mathf.Lerp(startAlpha, 0.0f, t);
 
             // 更新透明度
+
             Color color = GetComponent<TextMeshPro>().color;
             color.a = currentAlpha;
             GetComponent<TextMeshPro>().color = color;
+
 
             // 累加时间
             elapsedTime += Time.deltaTime;
@@ -70,6 +77,7 @@ public class ProfitVisual : MonoBehaviour
             startPosition.y + moveDistance,
             startPosition.z
         );
+
         Destroy(gameObject);
     }
 }

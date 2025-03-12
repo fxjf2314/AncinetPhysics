@@ -182,10 +182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4334948227438280049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89848becbdd66ea46aac37a0771ee1d6, type: 3}
+  m_Script: {fileID: 11500000, guid: f3e1e3898a7656d4791143ebbfca540a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 60
+  moveDistance: 50
   duration: 1.5
   startCoroutineOnStart: 1
 --- !u!1 &8915406652022783952

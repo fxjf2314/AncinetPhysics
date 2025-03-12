@@ -81,19 +81,19 @@ public class EventVisualization : MonoBehaviour
         if (areas[i].areaDetail.population != oPopulation[i])
         {
             int Change = areas[i].areaDetail.population - oPopulation[i];
-            CreateText(prefab, areas[i].transform, "population", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(0).transform, "population", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         if (areas[i].areaDetail.food != oFood[i])
         {
             float Change = areas[i].areaDetail.food - oFood[i];
-            CreateText(prefab, areas[i].transform, "food", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(0).transform, "food", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
-        if (areas[i].areaDetail.population != oPopulation[i])
+        if (areas[i].areaDetail.coin != oCoin[i])
         {
             float Change = areas[i].areaDetail.coin - oCoin[i];
-            CreateText(prefab, areas[i].transform, "coin", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(0).transform, "coin", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         oPopulation[i] = areas[i].areaDetail.population;
@@ -102,7 +102,7 @@ public class EventVisualization : MonoBehaviour
     }
     private void CreateText(GameObject prefab, Transform area, string type, float change, Dictionary<string, Sprite> signs)
     {
-        GameObject textObject = Instantiate(prefab,area.position, prefab.transform.rotation);
+        GameObject textObject = Instantiate(prefab, area.position, prefab.transform.rotation);
         TextMeshPro textMeshPro = textObject.GetComponent<TextMeshPro>();
         if (change < 0)
         {

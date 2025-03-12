@@ -90,3 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 0}
   transitionTime: 1
+  isFadeOutWhenOpen: 1

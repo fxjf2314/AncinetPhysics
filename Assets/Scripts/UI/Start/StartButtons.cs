@@ -43,7 +43,7 @@ public class StartButtons : MonoBehaviour
         else
         {
             continueGameBtn.interactable = false;
-            TextMeshProUGUI tmp = continueGameBtn.transform.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
+            Image tmp = continueGameBtn.transform.Find("text").GetComponent<Image>();
             Color color = tmp.color;
             color.a = 0.5f;
             tmp.color = color;

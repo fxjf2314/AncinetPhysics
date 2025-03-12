@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     }
 
     #region 变量
+    public float coinmessage;
+    public float foodmessage;
+    public float populationmessage;
     public TextMeshProUGUI disasterName;
     
     public int foodBaseNumber;
@@ -31,11 +34,17 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
 
     public int totalRound = 1;
 
-    private float totalCoin;
+    public float totalCoin;
 
-    private float totalFood;
+    public float lastCoin;
 
-    private int totalPopulation;
+    public float totalFood;
+
+    public float lastFood;
+
+    public int totalPopulation;
+
+    public int lastPopulation;
 
     [SerializeField]
     private GameObject nextRoundButtton;
@@ -83,17 +92,51 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     {
         if (totalRound < 10)
         {
+            lastCoin = totalCoin;
+            lastFood = totalFood;
+            lastPopulation = totalPopulation;
             totalPopulation = 0;
-            PopulationNatural();
-            FoodNatural();
-            CoinNatural();
+            
             totalRound++;
             roundText.text = $"{totalRound}/10";
+            
             foreach (AreaScript area in areas)
             {
                 totalPopulation += area.areaDetail.population;
                 totalCoin += area.areaDetail.coin;
                 totalFood += area.areaDetail.food;
+                populationmessage = totalPopulation;
+                coinmessage = totalCoin;
+                foodmessage = totalFood;
+            }
+            coinText.text = totalCoin.ToString();
+            foodText.text = totalFood.ToString();
+            populationText.text = totalPopulation.ToString();
+            PopulationNatural();
+            FoodNatural();
+            CoinNatural();
+            AreaTips.MyInstance.FadeOut();
+
+            ButtonsManager.MyInstance.isPlaceCard = false;
+            ButtonsManager.MyInstance.SearchEvent();
+            ButtonsManager.MyInstance.waitIcon.transform.gameObject.SetActive(false);
+            
+        }
+        else if (totalRound == 10)
+        {
+            totalPopulation = 0;
+            PopulationNatural();
+            FoodNatural();
+            CoinNatural();
+            totalRound++;
+            foreach (AreaScript area in areas)
+            {
+                totalPopulation += area.areaDetail.population;
+                totalCoin += area.areaDetail.coin;
+                totalFood += area.areaDetail.food;
+                populationmessage = totalPopulation;
+                coinmessage = totalCoin;
+                foodmessage = totalFood;
             }
             coinText.text = totalCoin.ToString();
             foodText.text = totalFood.ToString();
@@ -103,17 +146,18 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             ButtonsManager.MyInstance.isPlaceCard = false;
             ButtonsManager.MyInstance.SearchEvent();
             ButtonsManager.MyInstance.waitIcon.transform.gameObject.SetActive(false);
-            
         }
 
     }
     
+
 
     //人口自然增长
     public void PopulationNatural()
     {
         foreach (AreaScript area in areas)
         {
+            area.areaDetail.oPopulation = area.areaDetail.population;
             area.PopulationControl((int)(area.areaDetail.food / (area.areaDetail.population * foodBaseNumber)));
             area.PopulationControl(1);
 
@@ -125,6 +169,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     {
         foreach (AreaScript area in areas)
         {
+            area.areaDetail.oFood = area.areaDetail.food;
             area.FoodControl((int)(area.areaDetail.population * foodIncrease));
 
         }
@@ -134,7 +179,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     {
         foreach (AreaScript area in areas)
         {
-
+            area.areaDetail.oCoin = area.areaDetail.coin;
             area.CoinControl((int)(area.areaDetail.population * coinIncraese));
         }
     }

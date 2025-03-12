@@ -63,12 +63,16 @@ public class AreaScript : MonoBehaviour,ISaveAndLoadArea
     public void SaveArea(ref AreasJson area)
     {
         area.cards = cards;
-        area.areaDetail = areaDetail;
+        area.population = areaDetail.population;
+        area.coin = areaDetail.coin;
+        area.food = areaDetail.food;
     }
 
     public void LoadArea(AreasJson area)
     {
         cards = area.cards;
-        areaDetail = area.areaDetail;
+        areaDetail.population = area.population;
+        areaDetail.food = area.food;
+        areaDetail.coin = area.coin;
     }
 }
