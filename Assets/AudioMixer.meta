@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Audio.meta
+guid: a6deb3090d0d1134c842628e06778cf0
+========
 guid: ad0e28416da02794cb5744ce5fb6c67d
+>>>>>>>> 171e7581055d570a414e58e25575d40415650ce2:Assets/AudioMixer.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

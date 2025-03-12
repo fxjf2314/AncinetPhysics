@@ -10,7 +10,6 @@ public enum BtnFunction
     clearHandCard,
     goToGame,
     goToTitle,
-    
 }
 
 public class TipPanelManager : MonoBehaviour

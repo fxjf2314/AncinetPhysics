@@ -27,6 +27,7 @@ public class AreaManager : MonoBehaviour
 
     private void Start()
     {
+        if(!GameSeed.MyInstance.isCardSeedInit)
         foreach (AreaScript area in areas)
         {
             area.areaDetail.population = 1;

@@ -118,7 +118,7 @@ public class EventVisualization : MonoBehaviour
         textMeshPro.SetAllDirty();
         textMeshPro.ForceMeshUpdate();
         textMeshPro.ForceMeshUpdate();
-        //Transform sign = textMeshPro.transform.GetChild(0);
-        //sign.localPosition = new Vector3(4, 3, 0);
+        Transform sign = textMeshPro.transform.GetChild(0);
+        sign.localPosition = new Vector3(4, 3, 0);
     }
 }

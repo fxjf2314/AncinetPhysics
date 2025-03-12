@@ -1,12 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class TutorialManager : MonoBehaviour
 {
+    public static TutorialManager Instance 
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new TutorialManager();
+            }
+            return instance;
+        }
+    }
+    static TutorialManager instance;
+
     VideoPlayer videoPlayer;
     [SerializeField]
     SerializableDictionary<int, string> textDic;

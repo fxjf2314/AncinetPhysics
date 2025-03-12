@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4604866227824846181}
   - component: {fileID: 1671072837078021573}
   - component: {fileID: 4475315710646113030}
-  - component: {fileID: 2380614721332924455}
+  - component: {fileID: 8577921781892552978}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190236
+    rgba: 4294967295
   m_fontColor: {r: 0.61006284, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1671072837078021573}
   m_maskType: 0
---- !u!114 &2380614721332924455
+--- !u!114 &8577921781892552978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,12 +181,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4334948227438280049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbf170a0d1e6bd4d954b1e4ba9ed0c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 89848becbdd66ea46aac37a0771ee1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  populationSign: {fileID: 0}
-  coinSign: {fileID: 0}
-  foodSign: {fileID: 0}
-  wait: {fileID: 0}
-  isEffecting: 0
+  moveDistance: 60
+  duration: 1.5
+  startCoroutineOnStart: 1
