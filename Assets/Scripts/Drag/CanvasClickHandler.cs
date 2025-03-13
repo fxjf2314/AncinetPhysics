@@ -454,12 +454,12 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
         {
             //if (currentAreaCollider[i] != null)
-            // {
+            //{
             //var renderer = currentAreaCollider[i].GetComponent<Renderer>();
             // if (renderer)
             // {
-            //  renderer.material = originalMaterial[i];
-            // renderer.gameObject.SetActive(true);
+             // renderer.material = originalMaterial[i];
+             //renderer.gameObject.SetActive(true);
             //}
             // }
             if (HandCard.MyInstance.applicationArea[i] != null)
@@ -621,14 +621,15 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 {
                     if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[2])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[3];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[3];
+
                         highmat();
                     }
                     else if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[3])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[2];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[2];
                         highmat();
                     }
                 }
@@ -636,20 +637,20 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 {
                     if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[0])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[4];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[4];
                         highmat();
                     }
                     else if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[1])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[0];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[0];
                         highmat();
                     }
                     else if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[4])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[1];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[1];
                         highmat();
                     }
                 }
@@ -657,14 +658,14 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 {
                     if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[1])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[4];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[4];
                         highmat();
                     }
                     else if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[4])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[1];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[1];
                         highmat();
                     }
                 }
@@ -672,14 +673,14 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 {
                     if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[2])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[3];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[3];
                         highmat();
                     }
                     else if (HandCard.MyInstance.applicationArea[1] == HandCard.MyInstance.allarea[3])
                     {
-                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[2];
                         returnmat();
+                        HandCard.MyInstance.applicationArea[1] = HandCard.MyInstance.allarea[2];
                         highmat();
                     }
                 }
@@ -717,7 +718,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                     model[7].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "火药":
-                    model[8].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
+                    model[8].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 30, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "秦朝军事力学":
                     model[9].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
@@ -826,13 +827,13 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             // 设置锚点为左下角（保证Y轴基准一致）
             rt.anchorMin = new Vector2(0, 0.5f);
             rt.anchorMax = new Vector2(0, 0.5f);
-            rt.pivot = new Vector2(0f, 1f); // 轴心对齐左下角
+            rt.pivot = new Vector2(-11.6f, 1f); // 轴心对齐左下角
 
             rt.anchoredPosition = GetButtonCanvasPosition();
 
             rt1.anchorMin = new Vector2(0, 0.5f);
             rt1.anchorMax = new Vector2(0, 0.5f);
-            rt1.pivot = new Vector2(0f, 0.3f); // 轴心对齐左下角
+            rt1.pivot = new Vector2(-11.8f, 0.3f); // 轴心对齐左下角
 
             rt1.anchoredPosition = GetButtonCanvasPosition();
 

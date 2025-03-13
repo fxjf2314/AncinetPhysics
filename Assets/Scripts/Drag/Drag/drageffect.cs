@@ -14,6 +14,7 @@ public class drageffect : MonoBehaviour
     public State state = new State { };
 
     public bool allban = false;
+    public GameObject globalpanel;
 
     //单例化状态，控制全局
     static drageffect mInstance;
@@ -39,6 +40,7 @@ public class drageffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        globalpanel.SetActive(false);
         allban = false;
         Instance.state=State.normal;//初始化状态
         panel4.SetActive(false);
@@ -73,6 +75,15 @@ public class drageffect : MonoBehaviour
         else
         {
             panel4.SetActive(true);
+        }
+
+        if(Instance.state == State.choose)
+        {
+            globalpanel.SetActive(true);
+        }
+        else
+        {
+            globalpanel.SetActive(false);
         }
     }
 

@@ -58,7 +58,7 @@ public class Gameover : MonoBehaviour
     void Update()
     {
 
-        finalscore = (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)/100);
+        finalscore = (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage));
 
         if (UIManager.MyInstance.totalRound == 11)
         {
@@ -75,7 +75,7 @@ public class Gameover : MonoBehaviour
         if (ifshader&&colora<225)
         {
             colora += 100f*Time.deltaTime;
-            shader.color=new Color(0/255f,0/255f,0/255f,colora/255f);
+            shader.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, colora / 255f);
         }
         else if(ifshader&&colora>=225)
         {
@@ -167,7 +167,10 @@ public class Gameover : MonoBehaviour
             else if (title4 >= finalscore)
             {
                 title4 = finalscore;
-                backhome.SetActive(true);
+                if (backhome != null)
+                {
+                    backhome.SetActive(true);
+                }
             }
         }
         #endregion
@@ -204,20 +207,29 @@ public class Gameover : MonoBehaviour
 
     void Start2() 
     {
-        coin.gameObject.SetActive(true);
-        title2start = true;
+        if (coin != null)
+        {
+            coin.gameObject.SetActive(true);
+            title2start = true;
+        }
     }
 
     void Start3()
-    { 
-        food.gameObject.SetActive(true);
-        title3start = true;
+    {
+        if (food != null)
+        {
+            food.gameObject.SetActive(true);
+            title3start = true;
+        }
     }
 
     void Start4() 
     {
-        score.gameObject.SetActive(true);
-        title4start = true;
+        if (score != null)
+        {
+            score.gameObject.SetActive(true);
+            title4start = true;
+        }
     }
         
         
