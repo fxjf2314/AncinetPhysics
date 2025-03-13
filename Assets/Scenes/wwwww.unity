@@ -1318,8 +1318,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1204337371}
   - {fileID: 5623877805912010002}
+  - {fileID: 1204337371}
   m_Father: {fileID: 1202395601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6528,7 +6528,7 @@ MonoBehaviour:
   button: {fileID: 2283147080042292638}
   black: {fileID: 6000324388693464781}
   fadeDuration: 1
-  targetAlpha: 0.6
+  targetAlpha: 0.7
   wait: {fileID: 408058504}
   tip: {fileID: 1204337370}
 --- !u!114 &645768029
@@ -6544,9 +6544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4334948227438280049, guid: 17a98ca0285022d42978504795bb449d, type: 3}
-  populationSign: {fileID: 11400000, guid: aa30ceee128102c409d46c6cf7161baa, type: 2}
-  coinSign: {fileID: 11400000, guid: c2952495bbf86374ca7ddbf0fee0fce8, type: 2}
-  foodSign: {fileID: 11400000, guid: f1ad8692c20cbd94394784efe5fff9ea, type: 2}
+  populationSign: {fileID: 21300000, guid: 4dfbd542b50dad64193968b61bc95356, type: 3}
+  coinSign: {fileID: 21300000, guid: a5ec0a8cefb778a46a74624c12e3ee19, type: 3}
+  foodSign: {fileID: 21300000, guid: 0e0aea06c50c854408ce39b0e8d13f93, type: 3}
   wait: {fileID: 408058504}
   isEffecting: 0
 --- !u!1 &654141964
@@ -13167,9 +13167,9 @@ RectTransform:
   - {fileID: 635221515}
   - {fileID: 1551721920}
   - {fileID: 1349557595853518263}
-  - {fileID: 154103439}
   - {fileID: 1135892204}
   - {fileID: 1610453425}
+  - {fileID: 154103439}
   - {fileID: 1658015095}
   - {fileID: 861904602}
   - {fileID: 901424947}

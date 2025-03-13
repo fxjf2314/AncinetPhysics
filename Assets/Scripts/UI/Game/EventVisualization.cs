@@ -7,17 +7,17 @@ using UnityEngine;
 public class EventVisualization : MonoBehaviour
 {
     public GameObject prefab;
-    public Dictionary<string, TMP_SpriteAsset> signs;
+    public Dictionary<string, Sprite> signs;
     private int[] oPopulation;
     private float[] oFood;
     private float[] oCoin;
     private AreaScript[] areas;
     [SerializeField]
-    private TMP_SpriteAsset populationSign;
+    private Sprite populationSign;
     [SerializeField]
-    private TMP_SpriteAsset coinSign;
+    private Sprite coinSign;
     [SerializeField]
-    private TMP_SpriteAsset foodSign;
+    private Sprite foodSign;
     public GameObject wait;
     public bool isEffecting;
     public static EventVisualization Instance;
@@ -36,7 +36,7 @@ public class EventVisualization : MonoBehaviour
     }
     public void InitVisual()
     {
-        signs = new Dictionary<string, TMP_SpriteAsset>()
+        signs = new Dictionary<string, Sprite>()
         {
             {"population",populationSign},
             {"food",foodSign },
@@ -81,44 +81,44 @@ public class EventVisualization : MonoBehaviour
         if (areas[i].areaDetail.population != oPopulation[i])
         {
             int Change = areas[i].areaDetail.population - oPopulation[i];
-            CreateText(prefab, areas[i].transform, "population", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(0).transform, "population", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         if (areas[i].areaDetail.food != oFood[i])
         {
             float Change = areas[i].areaDetail.food - oFood[i];
-            CreateText(prefab, areas[i].transform, "food", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(0).transform, "food", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
-        if (areas[i].areaDetail.population != oPopulation[i])
+        if (areas[i].areaDetail.coin != oCoin[i])
         {
             float Change = areas[i].areaDetail.coin - oCoin[i];
-            CreateText(prefab, areas[i].transform, "coin", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(0).transform, "coin", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         oPopulation[i] = areas[i].areaDetail.population;
         oFood[i] = areas[i].areaDetail.food;
         oCoin[i] = areas[i].areaDetail.coin;
     }
-    private void CreateText(GameObject prefab, Transform area, string type, float change, Dictionary<string, TMP_SpriteAsset> signs)
+    private void CreateText(GameObject prefab, Transform area, string type, float change, Dictionary<string, Sprite> signs)
     {
-        GameObject textObject = Instantiate(prefab,area.position, prefab.transform.rotation);
+        GameObject textObject = Instantiate(prefab, area.position, prefab.transform.rotation);
         TextMeshPro textMeshPro = textObject.GetComponent<TextMeshPro>();
         if (change < 0)
         {
             textMeshPro.color = new Color(0.6f,0f,0f);
-            textMeshPro.text = "<sprite=0>" + Convert.ToInt16(change);
+            textMeshPro.text =Convert.ToInt16(change).ToString();
         }
         else
         {
             textMeshPro.color = new Color(0f, 0.5f, 0f);
-            textMeshPro.text = "<sprite=0>+" + Convert.ToInt16(change);
+            textMeshPro.text = "+" + Convert.ToInt16(change);
         }
-        textMeshPro.spriteAsset = signs[type];
+        Transform sign = textMeshPro.transform.GetChild(0);
+        sign.GetComponent<SpriteRenderer>().sprite=signs[type];
+        //sign.localPosition = new Vector3(4, 3, 0);
         textMeshPro.SetAllDirty();
         textMeshPro.ForceMeshUpdate();
         textMeshPro.ForceMeshUpdate();
-        Transform sign = textMeshPro.transform.GetChild(0);
-        sign.localPosition = new Vector3(4, 3, 0);
     }
 }
