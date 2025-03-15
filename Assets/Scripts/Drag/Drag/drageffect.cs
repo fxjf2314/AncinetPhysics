@@ -15,6 +15,7 @@ public class drageffect : MonoBehaviour
 
     public bool allban = false;
     public GameObject globalpanel;
+    public DragCamera maincamera;
 
     //单例化状态，控制全局
     static drageffect mInstance;
@@ -80,10 +81,19 @@ public class drageffect : MonoBehaviour
         if(Instance.state == State.choose)
         {
             globalpanel.SetActive(true);
+            if (maincamera.enabled == true)
+            {
+                maincamera.enabled = false;
+            }
         }
         else
         {
+            
             globalpanel.SetActive(false);
+            if (maincamera.enabled == false)
+            {
+                maincamera.enabled = true;
+            }
         }
     }
 

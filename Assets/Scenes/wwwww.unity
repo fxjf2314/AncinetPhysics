@@ -2700,6 +2700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shu2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2781,6 +2785,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7e1bbba98e974fc4686c62b870a39d32, type: 3}
       propertyPath: m_Name
       value: fenghuotai
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e1bbba98e974fc4686c62b870a39d32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5692014202493804014, guid: 7e1bbba98e974fc4686c62b870a39d32, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4057,6 +4065,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de719c49d46dd5d47ab356eaf1d1f36d, type: 3}
       propertyPath: m_Name
       value: zimupao
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de719c49d46dd5d47ab356eaf1d1f36d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6226,6 +6238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sinan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9cbb15e67c90cda4eaebf7ba20e4fcc2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8006958694806783865, guid: 9cbb15e67c90cda4eaebf7ba20e4fcc2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6401,6 +6417,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fb6c9e0bda58188479ae3a2b670e7093, type: 3}
       propertyPath: m_Name
       value: huntianyi
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb6c9e0bda58188479ae3a2b670e7093, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4473261402926800456, guid: fb6c9e0bda58188479ae3a2b670e7093, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7147,6 +7167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: huoyao
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9954150858cf7b9499d05a9836d58cfb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4431670454091400558, guid: 9954150858cf7b9499d05a9836d58cfb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7829,6 +7853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: huochong
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 462c4ab15b085e242ad1db622d6b3795, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7906,6 +7934,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Name
       value: shu4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9626,6 +9658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: yunti
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2caab008bf25134c9d008a74fbbb541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9713,6 +9749,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Name
       value: shu1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11356,6 +11396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shu3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -12147,6 +12191,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a15383d7b4bfe6c448b4887985cf9e3c, type: 3}
       propertyPath: m_Name
       value: didongyi
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a15383d7b4bfe6c448b4887985cf9e3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1357218264126807549, guid: a15383d7b4bfe6c448b4887985cf9e3c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14097,6 +14145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shu5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 30de835340b8e2447a08aa415e10006b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -14892,6 +14944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dujiangyan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43ed7506329f6024880ff404737a38d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15658,6 +15714,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b68133498a37fda4d9e0c34ddcdc10e2, type: 3}
       propertyPath: m_Name
       value: hudunpao
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b68133498a37fda4d9e0c34ddcdc10e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1357218264126807549, guid: b68133498a37fda4d9e0c34ddcdc10e2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17305,6 +17365,7 @@ MonoBehaviour:
   state: 0
   allban: 0
   globalpanel: {fileID: 2022672706}
+  maincamera: {fileID: 995013535}
   dragtipob:
   - {fileID: 1088185622}
   - {fileID: 908796106}
@@ -17970,6 +18031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tangsancai
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b29e381c405951a4cb49099fe098c178, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18295,6 +18360,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e601224e71d48844eae1b21efb3d103e, type: 3}
       propertyPath: m_Name
       value: zaozhishu
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e601224e71d48844eae1b21efb3d103e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3424080921843605372, guid: e601224e71d48844eae1b21efb3d103e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -20034,6 +20103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hanghaichuan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 82d9a4f5ce362cf4196a3755ae28534f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 82d9a4f5ce362cf4196a3755ae28534f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -20298,6 +20371,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 20bf06f807da93943aab64fad27a154d, type: 3}
       propertyPath: m_Name
       value: huoziyinshuashu
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20bf06f807da93943aab64fad27a154d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 20bf06f807da93943aab64fad27a154d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -22743,6 +22820,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cc12ce993754f6a45bf0b113cac48d45, type: 3}
       propertyPath: m_Name
       value: chilun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc12ce993754f6a45bf0b113cac48d45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: cc12ce993754f6a45bf0b113cac48d45, type: 3}
       propertyPath: m_Materials.Array.data[0]

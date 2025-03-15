@@ -694,63 +694,83 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             switch (cardtext.text)
             {
                 case "《崇祯历书》":
+                    model[0].gameObject.SetActive(true);
                     model[0].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y+10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "地动仪":
+                    model[1].gameObject.SetActive(true);
                     model[1].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+20, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "都江堰":
+                    model[2].gameObject.SetActive(true);
                     model[2].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "烽火":
+                    model[3].gameObject.SetActive(true);
                     model[3].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x-20, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z+20);
                     break;
                 case "航海术":
+                    model[4].gameObject.SetActive(true);
                     model[4].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 16, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "虎蹲炮":
+                    model[5].gameObject.SetActive(true);
                     model[5].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x-70, GameObject.Find("Sphere(Clone)").transform.position.y + 2, GameObject.Find("Sphere(Clone)").transform.position.z+10);
                     break;
                 case "浑天仪":
+                    model[6].gameObject.SetActive(true);
                     model[6].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "火铳":
+                    model[7].gameObject.SetActive(true);
                     model[7].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "火药":
+                    model[8].gameObject.SetActive(true);
                     model[8].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 30, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "秦朝军事力学":
+                    model[9].gameObject.SetActive(true);
                     model[9].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "《墨经》《考工记》":
+                    model[10].gameObject.SetActive(true);
                     model[10].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "《木经》":
+                    model[11].gameObject.SetActive(true);
                     model[11].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "《农桑辑要》":
+                    model[12].gameObject.SetActive(true);
                     model[12].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "简单机械组":
+                    model[13].gameObject.SetActive(true);
                     model[13].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 18, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "司南":
+                    model[14].gameObject.SetActive(true);
                     model[14].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x-40, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z-40);
                     break;
                 case "唐三彩":
+                    model[15].gameObject.SetActive(true);
                     model[15].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 20, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "活字印刷术":
+                    model[16].gameObject.SetActive(true);
                     model[16].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 6, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "云梯":
+                    model[17].gameObject.SetActive(true);
                     model[17].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "造纸术":
+                    model[18].gameObject.SetActive(true);
                     model[18].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 8, GameObject.Find("Sphere(Clone)").transform.position.z+10);
                     break;
                 case "子母炮":
+                    model[19].gameObject.SetActive(true);
                     model[19].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 15, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
             }
@@ -1088,63 +1108,83 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             {
                 case "《崇祯历书》":
                     model[0].position = new Vector3(124, -500, -82);
+                    model[0].gameObject.SetActive(false);
                     break;
                 case "地动仪":
                     model[1].position = new Vector3(124, -500, -82);
+                    model[1].gameObject.SetActive(false);
                     break;
                 case "都江堰":
                     model[2].position = new Vector3(124, -500, -82);
+                    model[2].gameObject.SetActive(false);
                     break;
                 case "烽火":
                     model[3].position = new Vector3(124, -500, -82);
+                    model[3].gameObject.SetActive(false);
                     break;
                 case "航海术":
                     model[4].position = new Vector3(124, -500, -82);
+                    model[4].gameObject.SetActive(false);
                     break;
                 case "虎蹲炮":
                     model[5].position = new Vector3(124, -500, -82);
+                    model[5].gameObject.SetActive(false);
                     break;
                 case "浑天仪":
                     model[6].position = new Vector3(124, -500, -82);
+                    model[6].gameObject.SetActive(false);
                     break;
                 case "火铳":
                     model[7].position = new Vector3(124, -500, -82);
+                    model[7].gameObject.SetActive(false);
                     break;
                 case "火药":
                     model[8].position = new Vector3(124, -500, -82);
+                    model[8].gameObject.SetActive(false);
                     break;
                 case "秦朝军事力学":
                     model[9].position = new Vector3(124, -500, -82);
+                    model[9].gameObject.SetActive(false);
                     break;
                 case "《墨经》《考工记》":
                     model[10].position = new Vector3(124, -500, -82);
+                    model[10].gameObject.SetActive(false);
                     break;
                 case "《木经》":
                     model[11].position = new Vector3(124, -500, -82);
+                    model[11].gameObject.SetActive(false);
                     break;
                 case "《农桑辑要》":
                     model[12].position = new Vector3(124, -500, -82);
+                    model[12].gameObject.SetActive(false);
                     break;
                 case "简单机械组":
                     model[13].position = new Vector3(124, -500, -82);
+                    model[13].gameObject.SetActive(false);
                     break;
                 case "司南":
                     model[14].position = new Vector3(124, -500, -82);
+                    model[14].gameObject.SetActive(false);
                     break;
                 case "唐三彩":
                     model[15].position = new Vector3(124, -500, -82);
+                    model[15].gameObject.SetActive(false);
                     break;
                 case "活字印刷术":
                     model[16].position = new Vector3(124, -500, -82);
+                    model[16].gameObject.SetActive(false);
                     break;
                 case "云梯":
                     model[17].position = new Vector3(124, -500, -82);
+                    model[17].gameObject.SetActive(false);
                     break;
                 case "造纸术":
                     model[18].position = new Vector3(124, -500, -82);
+                    model[18].gameObject.SetActive(false);
                     break;
                 case "子母炮":
                     model[19].position = new Vector3(124, -500, -82);
+                    model[19].gameObject.SetActive(false);
                     break;
             }
             isdragone = false;
