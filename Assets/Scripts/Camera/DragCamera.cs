@@ -40,9 +40,27 @@ public class DragCamera : MonoBehaviour
             {
                 // 如果击中了目标物体，调整摄像机的位置
                 Vector3 targetPosition = hit.collider.gameObject.transform.position;
-
+                Vector3 cameraPosition=new Vector3(0,0,0);
                 // 计算摄像机的新位置
-                Vector3 cameraPosition = targetPosition - mainCamera.transform.forward * focusDistance;
+                switch (hit.collider.gameObject.name)
+                {
+                    case "North":
+                        cameraPosition = new Vector3(-20, 0, -10);
+                        break;
+                    case "West":
+                        cameraPosition = new Vector3(-150, 0, -140);
+                        break;
+                    case "South":
+                        cameraPosition = new Vector3(-20, 0, -270);
+                        break;
+                    case "Center":
+                        cameraPosition = new Vector3(-20, 0, -140);
+                        break;
+                    case "WestSouth":
+                        cameraPosition = new Vector3(-150, 0, -270);
+                        break;
+                }
+                
                 cameraPosition.y = currentYPosition; // 保持当前 Y 轴位置
 
                 // 应用新的位置

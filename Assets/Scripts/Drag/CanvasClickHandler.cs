@@ -40,7 +40,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     private Coroutine hoverCoroutine; // 悬浮协程
 
     //-----
-    public Vector3 cameraTargetPosition = new Vector3(-50, 10, -10); // 摄像机目标位置
+    public Vector3 cameraTargetPosition = new Vector3(-30, 10, -10); // 摄像机目标位置
     public Quaternion cameraTargetRotation = Quaternion.Euler(1, 0, 0); // 摄像机目标旋转角度
     public float cameraMoveDuration = 0.5f; // 摄像机移动持续时间
 

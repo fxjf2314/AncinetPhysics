@@ -12,6 +12,14 @@ public class LockMouse : MonoBehaviour
     {
         lockedMousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Cursor.visible = false;
+
+        if (GameObject.Find("Gameover") != null)
+        {
+            if (UIManager.MyInstance.totalRound == 11 && GameObject.Find("Gameover").GetComponent<Gameover>().ifgameover == true)
+            {
+                GameObject.Find("Gameover").GetComponent<Gameover>().ifgameover = false;
+            }
+        }
     }
 
     void Update()
@@ -27,5 +35,12 @@ public class LockMouse : MonoBehaviour
     private void OnDisable()
     {
         Cursor.visible = true;
+
+        if (GameObject.Find("Gameover") != null) {
+            if (UIManager.MyInstance.totalRound == 11 && GameObject.Find("Gameover").GetComponent<Gameover>().ifgameover == false)
+            {
+                GameObject.Find("Gameover").GetComponent<Gameover>().ifgameover = true;
+            }
+                }
     }
 }

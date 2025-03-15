@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,10 +13,14 @@ public class Gameover : MonoBehaviour
    // public GameObject finalscoretip;
     public GameObject backhome;
     public Animator downappear;
+    public Animator endscore;
+    public GameObject endscore4;
+    public GameObject tip;
     public TextMeshProUGUI population;
     public TextMeshProUGUI coin;
     public TextMeshProUGUI food;
     public TextMeshProUGUI score;
+    public bool ifgameover;
 
     private float title1;
     private float title2;
@@ -39,6 +44,10 @@ public class Gameover : MonoBehaviour
     {
         //finalscoremes.SetActive(false);
         //finalscoretip.SetActive(false);
+        ifgameover = true;
+        endscore4.SetActive(false);
+        tip.SetActive(false);
+        endscore.SetBool("startend", false);
         backhome.SetActive(false);
         shader.gameObject.SetActive(false);
         population.gameObject.SetActive(false);
@@ -53,8 +62,7 @@ public class Gameover : MonoBehaviour
         colora= 0;
         downappear.SetBool("ifdown",false);
     }
-
-    // Update is called once per frame
+   
     void Update()
     {
 
@@ -68,16 +76,16 @@ public class Gameover : MonoBehaviour
             if (!ifover)
             {
                 shader.gameObject.SetActive(true);
-                Invoke("GameOver", 3);
+                Invoke("Testgameover", 0.1f);
             }
         }
 
-        if (ifshader&&colora<225)
+        if (ifshader&&colora<230)
         {
             colora += 100f*Time.deltaTime;
             shader.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, colora / 255f);
         }
-        else if(ifshader&&colora>=225)
+        else if(ifshader&&colora>=230)
         {
             ifshader = false;
             Appearimage();
@@ -144,7 +152,13 @@ public class Gameover : MonoBehaviour
             else if (title3 >= UIManager.MyInstance.foodmessage)
             {
                 title3 = UIManager.MyInstance.foodmessage;
-                Invoke("Start4", 1f);
+                if (endscore4 != null)
+                {
+                    endscore4.SetActive(true);
+
+                    endscore.SetBool("startend", true);
+                }
+                Invoke("Start4", 2.5f);
             }
         }
 
@@ -169,7 +183,7 @@ public class Gameover : MonoBehaviour
                 title4 = finalscore;
                 if (backhome != null)
                 {
-                    backhome.SetActive(true);
+                    Invoke("UIturnup", 1);
                 }
             }
         }
@@ -184,6 +198,28 @@ public class Gameover : MonoBehaviour
         }
     }
 
+    private void Testgameover()
+    {
+        if (ifgameover)
+        {
+            Invoke("GameOver", 3);
+            CancelInvoke("Testgameover");
+        }
+    }
+
+    private void UIturnup()
+    {
+        if (backhome != null)
+        {
+            backhome.SetActive(true);
+        }
+        if (tip!=null)
+        {
+            tip.SetActive(true);
+        }
+        
+    }
+
     private void GameOver()
     {
         CancelInvoke("GameOver");
@@ -195,7 +231,7 @@ public class Gameover : MonoBehaviour
     {
         downappear.SetBool("ifdown", true);
         getscore=true;
-        Invoke("Start1", 1f);
+        Invoke("Start1", 2f);
         
     }
 
