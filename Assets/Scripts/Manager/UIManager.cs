@@ -81,8 +81,8 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
 
     private void Start()
     {
-        setting.onClick.AddListener(()=>OpenSettingPanel());
-        totalRound = 1;
+        //setting.onClick.AddListener(()=>OpenSettingPanel());
+        //totalRound = 1;
         roundText.text = $"{totalRound}/10";
         //Debug.Log("Startº¯Êý");
     }
@@ -229,8 +229,8 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             areas[i].LoadArea(gameData.areas[i]);
         }
     }
-    private void OpenSettingPanel()
+    /*private void OpenSettingPanel()
     {
         settingPanel.SetActive(!settingPanel.activeSelf);
-    }
+    }*/
 }
