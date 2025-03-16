@@ -28,12 +28,13 @@ public class DataPersistence : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }        
+        }
         //gameData = SaveTool.Load<GameData>(SaveTool.File_Name_01);
         //if(Instance != null)
         //{
         //    Debug.LogError("当前场景有多个数据存储管理器");
         //}
+        gameSettingData = SaveTool.Load<GameSettingData>(SaveTool.GameSetting_Name);
     }
 
     public void NewGame()

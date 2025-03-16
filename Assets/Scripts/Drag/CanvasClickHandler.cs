@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEditor.Experimental.GraphView;
 using TMPro;
 using Unity.VisualScripting;
 
@@ -504,7 +503,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         foreach(Transform models in model)
         {
-            models.gameObject.SetActive(true) ;
+            models.gameObject.SetActive(true);
         }
         #region 换上新物体作为提示
         if (!GameObject.Find("North"))
