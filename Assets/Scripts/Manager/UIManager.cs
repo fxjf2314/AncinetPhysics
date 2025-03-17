@@ -200,6 +200,14 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         populationText.text = totalPopulation.ToString();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            settingPanel.SetActive(!settingPanel.activeSelf);
+        }
+    }
+
     public void Save(ref GameData gameData)
     {
         gameData.people = totalPopulation;
