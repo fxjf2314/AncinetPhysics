@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,6 +60,7 @@ public class AreaTips : MonoBehaviour
             Color color = image.color;
             color.a = 0;
             image.color = color;
+            image.transform.AddComponent<CardUI>();
         }
     }
 
@@ -126,6 +128,11 @@ public class AreaTips : MonoBehaviour
         for(int i = 0;i < area.cards.Count ;i++)
         {
             areaAchivements[i].sprite = area.cards[i].GetSprite();
+            CardUI cardUI = areaAchivements[i].transform.GetComponent<CardUI>();
+            if (cardUI != null)
+            {
+                cardUI.ChangeCardData(area.cards[i]);
+            }
             Color color = areaAchivements[i].color;
             color.a = 1;
             areaAchivements[i].color = color;
@@ -138,6 +145,11 @@ public class AreaTips : MonoBehaviour
                 Color color = areaAchivements[i].color;
                 color.a = 0; // …Ë÷√Õ∏√˜
                 areaAchivements[i].color = color;
+                CardUI cardUI = areaAchivements[i].transform.GetComponent<CardUI>();
+                if (cardUI != null)
+                {
+                    cardUI.ChangeCardData(null);
+                }
             }
         }
         if (area.cards.Count == 0)

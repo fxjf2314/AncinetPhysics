@@ -35,6 +35,7 @@ public class DescriptionManger : MonoBehaviour
 
     public void OpenSimpleDes(Card cardData)
     {
+        if(cardData != null)
         if(simpleDes != null)
         {
             simpleDes.SetActive(true);
