@@ -68,8 +68,8 @@ public class War : RandomEvent
         float wFChange = winArea.GetComponent<AreaScript>().areaDetail.population * wFoodRatio * winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
         winArea.GetComponent<AreaScript>().areaDetail.food -= wFChange;
         //VisualizeEvent(winArea.transform, "food", wFChange);
-        float wCChange = winArea.GetComponent<AreaScript>().areaDetail.population * wCoinRatio * winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
-        winArea.GetComponent<AreaScript>().areaDetail.coin -= wCChange;
+        float wCChange = winArea.GetComponent<AreaScript>().areaDetail.population * wCoinRatio * MathF.Abs( winArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"]);
+        winArea.GetComponent<AreaScript>().areaDetail.coin += wCChange;
         //VisualizeEvent(winArea.transform, "coin", wCChange);
         float dFChange = (defeatArea.GetComponent<AreaScript>().areaDetail.population + winArea.GetComponent<AreaScript>().areaDetail.population) * dFoodRatio * defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
         defeatArea.GetComponent<AreaScript>().areaDetail.food -= dFChange;

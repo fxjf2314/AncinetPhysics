@@ -7,7 +7,7 @@ public class HuDun : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
+        
         if (area != null)
         {
             if (area.cards.Count < 3)
@@ -20,6 +20,7 @@ public class HuDun : Card
                             area.areaDetail.Effectiveness["War"] -= area.areaDetail.Effectiveness["War"] < 0.3f ? area.areaDetail.Effectiveness["War"] : 0.3f;
                     }
                 }
+                base.Use(area);
             }
         }
         

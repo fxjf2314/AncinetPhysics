@@ -7,7 +7,7 @@ public class ZaoZhi : Card
 {
     public override void Use(AreaScript area)
     {   
-        base.Use(area);
+        
         if (area != null)
         {
             if (area.cards.Count < 3)
@@ -16,10 +16,11 @@ public class ZaoZhi : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].CoinControl(100);
+
+                        HandCard.MyInstance.applicationArea[i].CoinControl(150);
                         if (area.areaDetail.isCoin == true)
                         {
-                            HandCard.MyInstance.applicationArea[i].CoinControl(200);
+                            HandCard.MyInstance.applicationArea[i].CoinControl(280);
                         }
                         else
                         {
@@ -27,10 +28,12 @@ public class ZaoZhi : Card
                         }
                     }
                 }
+                base.Use(area);
             }
             
         }
-        
+       
+
     }
     
 }

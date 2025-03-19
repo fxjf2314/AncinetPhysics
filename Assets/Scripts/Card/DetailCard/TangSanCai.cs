@@ -9,7 +9,7 @@ public class TangSanCai : Card
     AreaScript targetArea;
     public override void Use(AreaScript area)
     {
-        base.Use(area);
+        
         
         if (area != null)
         {
@@ -41,6 +41,7 @@ public class TangSanCai : Card
 
                     }
                 }
+                base.Use(area);
             }
         }
     }

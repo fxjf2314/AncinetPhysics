@@ -144,12 +144,16 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
             { 
                 handCards[3] = cards[GameSeed.MyInstance.cardSeed[3]];
                 slots[3].MyCard = cards[GameSeed.MyInstance.cardSeed[3]];
+                CardUI card = slots[3].GetComponent<CardUI>();
+                card.ChangeCardData(slots[3].MyCard);
             }
         }
         else
         {
             handCards[3] = null;
             slots[3].MyCard = null;
+            CardUI card = slots[3].GetComponent<CardUI>();
+            Destroy(card);
             Color color = slots[3].handCardBack.color;
             color.a = 0;
             slots[3].handCardBack.color = color;

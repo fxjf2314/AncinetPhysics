@@ -7,7 +7,7 @@ public class HunTian : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
+        
         if (area != null)
         {
             if (area.cards.Count < 3)
@@ -26,6 +26,7 @@ public class HunTian : Card
                         }
                     }
                 }
+                base.Use(area);
             }
 
         }
