@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EventVisualization : MonoBehaviour
 {
+    public AudioSource guzheng;
     public GameObject prefab;
     public Dictionary<string, Sprite> signs;
     private int[] oPopulation;
@@ -73,6 +74,7 @@ public class EventVisualization : MonoBehaviour
         for (int i = 0; i < areas.Length; i++)
         {
             StartCoroutine(VisualizeEvent(i));
+            guzheng.Play();
         }
         yield break;
     }
@@ -99,6 +101,7 @@ public class EventVisualization : MonoBehaviour
         oPopulation[i] = areas[i].areaDetail.population;
         oFood[i] = areas[i].areaDetail.food;
         oCoin[i] = areas[i].areaDetail.coin;
+        
     }
     private void CreateText(GameObject prefab, Transform area, string type, float change, Dictionary<string, Sprite> signs)
     {
@@ -116,6 +119,7 @@ public class EventVisualization : MonoBehaviour
         }
         Transform sign = textMeshPro.transform.GetChild(0);
         sign.GetComponent<SpriteRenderer>().sprite=signs[type];
+        
         //sign.localPosition = new Vector3(4, 3, 0);
         textMeshPro.SetAllDirty();
         textMeshPro.ForceMeshUpdate();
