@@ -17,7 +17,12 @@ public class ClickArea : MonoBehaviour
 
     private void Start()
     {
+
         outline = GetComponent<Outline>();
+        if(outline != null )
+        {
+            Debug.Log("outline");
+        }
     }
 
     

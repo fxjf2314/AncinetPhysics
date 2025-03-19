@@ -7,9 +7,9 @@ public class MuJing : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
-            if (area != null)
-            {
+       
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -19,6 +19,7 @@ public class MuJing : Card
                         HandCard.MyInstance.applicationArea[i].PopulationControl(1);
                     }
                 }
+                base.Use(area);
             }
 
         }

@@ -468,6 +468,8 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         }
     }
 
+    
+
     private void highmat()//高亮材质
     {
         //卡牌作用范围高亮

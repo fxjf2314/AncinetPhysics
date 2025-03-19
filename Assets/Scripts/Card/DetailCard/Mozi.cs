@@ -8,9 +8,9 @@ public class Mozi : Card
     public override void Use(AreaScript area)
     {
         Debug.Log("111");
-        base.Use(area);
-            if (area != null)
-            {
+        
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -20,6 +20,7 @@ public class Mozi : Card
                         HandCard.MyInstance.applicationArea[i].CoinControl(200);
                     }
                 }
+                base.Use(area);
             }
         }
     }

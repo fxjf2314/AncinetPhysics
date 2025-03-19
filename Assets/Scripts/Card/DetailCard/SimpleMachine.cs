@@ -7,9 +7,9 @@ public class SimpleMachine : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
-            if (area != null)
-            {
+        
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -21,6 +21,7 @@ public class SimpleMachine : Card
                             area.areaDetail.Effectiveness["War"] -= area.areaDetail.Effectiveness["War"] < 0.2f ? area.areaDetail.Effectiveness["War"] : 0.2f;
                     }
                 }
+                base.Use(area);
             }
 
         }

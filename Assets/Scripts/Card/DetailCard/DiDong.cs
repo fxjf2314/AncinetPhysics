@@ -7,7 +7,7 @@ public class DiDong : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
+        
         if (area != null)
         {
             if (area.cards.Count < 3)
@@ -21,6 +21,7 @@ public class DiDong : Card
                         area.transform.parent.GetComponent<DisasterOccurs>().earthQuake.foodRatio -= 0.2f;
                     }
                 }
+                base.Use(area);
             }
         }
         
