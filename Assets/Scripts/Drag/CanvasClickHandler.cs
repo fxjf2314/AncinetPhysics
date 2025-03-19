@@ -983,83 +983,91 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     //确认放置
     public void ApplicationPlacement()
     {
-        //放置声音
-        #region 按图索骥--声音
-        if (isdragone)
+        if (drageffect.Instance.iffull)
         {
-            switch (cardtext.text)
-            {
-                case "《崇祯历书》":
-                    house.Play();
-                    break;
-                case "地动仪":
-                    house.Play();
-                    break;
-                case "都江堰":
-                    house.Play();
-                    break;
-                case "烽火":
-                    house.Play();     
-                    break;
-                case "航海术":
-                    house.Play();
-                    break;
-                case "虎蹲炮":
-                    house.Play();
-                    break;
-                case "浑天仪":
-                    house.Play();
-                    break;
-                case "火铳":
-                    house.Play();
-                    break;
-                case "火药":
-                    house.Play();
-                    break;
-                case "秦朝军事力学":
-                    house.Play();
-                    break;
-                case "《墨经》《考工记》":
-                    house.Play();
-                    break;
-                case "《木经》":
-                    house.Play();
-                    break;
-                case "《农桑辑要》":
-                    house.Play();
-                    break;
-                case "简单机械组":
-                    house.Play();
-                    break;
-                case "司南":
-                    house.Play();
-                    break;
-                case "唐三彩":
-                    house.Play();
-                    break;
-                case "活字印刷术":
-                    house.Play();
-                    break;
-                case "云梯":
-                    house.Play();
-                    break;
-                case "造纸术":
-                    house.Play();
-                    break;
-                case "子母炮":
-                    house.Play();
-                    break;
-            }
-            isdragone = false;
+            CancelPlacement();
         }
-        #endregion
-
-        ischoose = false;
-        if (ifapplication == false)
+        else
         {
-            Invoke("resettargetcard", 0.5f);
-            ifapplication = true;
-            ResetPlacement();
+            //放置声音
+            #region 按图索骥--声音
+            if (isdragone)
+            {
+                switch (cardtext.text)
+                {
+                    case "《崇祯历书》":
+                        house.Play();
+                        break;
+                    case "地动仪":
+                        house.Play();
+                        break;
+                    case "都江堰":
+                        house.Play();
+                        break;
+                    case "烽火":
+                        house.Play();
+                        break;
+                    case "航海术":
+                        house.Play();
+                        break;
+                    case "虎蹲炮":
+                        house.Play();
+                        break;
+                    case "浑天仪":
+                        house.Play();
+                        break;
+                    case "火铳":
+                        house.Play();
+                        break;
+                    case "火药":
+                        house.Play();
+                        break;
+                    case "秦朝军事力学":
+                        house.Play();
+                        break;
+                    case "《墨经》《考工记》":
+                        house.Play();
+                        break;
+                    case "《木经》":
+                        house.Play();
+                        break;
+                    case "《农桑辑要》":
+                        house.Play();
+                        break;
+                    case "简单机械组":
+                        house.Play();
+                        break;
+                    case "司南":
+                        house.Play();
+                        break;
+                    case "唐三彩":
+                        house.Play();
+                        break;
+                    case "活字印刷术":
+                        house.Play();
+                        break;
+                    case "云梯":
+                        house.Play();
+                        break;
+                    case "造纸术":
+                        house.Play();
+                        break;
+                    case "子母炮":
+                        house.Play();
+                        break;
+                }
+                isdragone = false;
+            }
+            #endregion
+
+            ischoose = false;
+            drageffect.Instance.Allban();
+            if (ifapplication == false)
+            {
+                Invoke("resettargetcard", 0.5f);
+                ifapplication = true;
+                ResetPlacement();
+            }
         }
         
     }

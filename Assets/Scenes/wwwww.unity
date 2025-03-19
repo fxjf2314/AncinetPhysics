@@ -14630,7 +14630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3147595476058709088, guid: 2a4f4bf4ced411b49bd5fd3c0aa3661c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3147595476058709088, guid: 2a4f4bf4ced411b49bd5fd3c0aa3661c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -17320,6 +17320,8 @@ MonoBehaviour:
   allban: 0
   globalpanel: {fileID: 2022672706}
   maincamera: {fileID: 995013535}
+  card3: {fileID: 117560430}
+  iffull: 0
   dragtipob:
   - {fileID: 1088185622}
   - {fileID: 908796106}
