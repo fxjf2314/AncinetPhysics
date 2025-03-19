@@ -67,7 +67,11 @@ public class DisasterOccurs : MonoBehaviour
     }
     public void NextRound()
     {
-        StartCoroutine(RoundStart());
+        if (UIManager.MyInstance.totalRound<=9)
+        {
+            StartCoroutine(RoundStart());
+        }
+        
     }
     public IEnumerator RoundStart()
     {
