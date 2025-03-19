@@ -154,7 +154,8 @@ public class Gameover : MonoBehaviour
                 title3 = UIManager.MyInstance.foodmessage;
                 if (endscore4 != null)
                 {
-                    endscore4.SetActive(true);
+
+                    Invoke("Turnscore4", 0.1f);
 
                     endscore.SetBool("startend", true);
                 }
@@ -202,7 +203,7 @@ public class Gameover : MonoBehaviour
     {
         if (ifgameover)
         {
-            Invoke("GameOver", 3);
+            Invoke("GameOver", 1);
             CancelInvoke("Testgameover");
         }
     }
@@ -268,5 +269,8 @@ public class Gameover : MonoBehaviour
         }
     }
         
-        
+    void Turnscore4()
+    {
+        endscore4.SetActive(true);
+    }
 }
