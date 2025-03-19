@@ -7,7 +7,7 @@ public class YunTi : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
+        
         if (area != null)
         {
             if (area.cards.Count < 3)
@@ -25,7 +25,10 @@ public class YunTi : Card
 
                     }
                 }
+                base.Use(area);
             }
+            
         }
+        
     }
 }

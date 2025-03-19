@@ -7,9 +7,9 @@ public class ZiMu : Card
 {
     public override void Use(AreaScript area)
     {
-        base.Use(area);
-            if (area != null)
-            {
+        
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -19,8 +19,11 @@ public class ZiMu : Card
                         area.areaDetail.Effectiveness["War"] = -1;
                     }
                 }
+                base.Use(area);
             }
+            
         }
+        
         //受战争影响降低
         //战争提供正面收益
     }

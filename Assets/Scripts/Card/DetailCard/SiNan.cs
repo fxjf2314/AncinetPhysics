@@ -8,9 +8,9 @@ public class SiNan : Card
     public override void Use(AreaScript area)
     {
         Debug.Log("111");
-        base.Use(area);
-            if (area != null)
-            {
+        
+        if (area != null)
+        {
             if (area.cards.Count < 3)
             {
                 for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
@@ -24,6 +24,7 @@ public class SiNan : Card
                             area.areaDetail.Effectiveness["Fog"] -= 0.1f;
                     }
                 }
+                base.Use(area);
             }
         }
        
