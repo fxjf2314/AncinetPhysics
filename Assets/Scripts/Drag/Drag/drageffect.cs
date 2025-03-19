@@ -17,8 +17,6 @@ public class drageffect : MonoBehaviour
     public bool allban = false;
     public GameObject globalpanel;
     public DragCamera maincamera;
-    public Image card3;
-    public bool iffull = false;
 
     //单例化状态，控制全局
     static drageffect mInstance;
@@ -55,14 +53,7 @@ public class drageffect : MonoBehaviour
     void Update()
     {
         //判断区域是否满卡
-        if (card3.sprite != null) 
-        {
-            iffull = true;
-        }
-        else if(card3.sprite==null)
-        {
-            iffull=false;
-        }
+
 
         //实现状态转换
         if (GameObject.Find("Sphere(Clone)"))

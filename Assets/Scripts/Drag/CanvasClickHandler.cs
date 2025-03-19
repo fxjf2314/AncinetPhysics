@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 
 public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -206,96 +207,110 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Area"))
                 {
-                    // 如果放置在 Area 平面上，完成放置
-                    if (eventData.button == PointerEventData.InputButton.Right)
-                    {
-                        isDragging = false;
-                    }
-                    isPlaced = true;
-                    isFinalized = false;
-
-                    //卡牌作用范围
-                    HandCard.MyInstance.targetArea=hit.transform.GetComponent<AreaScript>();
-                    HandCard.MyInstance.applicationArea[0] = hit.transform.GetComponent<AreaScript>();
+                    HandCard.MyInstance.targetArea = hit.transform.GetComponent<AreaScript>();
                     AreaTips.MyInstance.FadeIn(HandCard.MyInstance.targetArea.GetComponent<Collider>());
-
-                    #region 按图索骥
-                    switch (cardtext.text)
+                    if(hit.collider.gameObject.GetComponent<AreaScript>() != null)
                     {
-                        case "《崇祯历书》":
-
-                            break;
-                        case "地动仪":
-                            for(int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                        if (hit.collider.gameObject.GetComponent<AreaScript>().cards.Count == 3)
+                        {
+                            Resetmodel();
+                            Destroy(spawnedPrefab);
+                            spawnedPrefab = null;
+                            isDragging = false;
+                            ResetPlacement();
+                        }
+                        else if(hit.collider.gameObject.GetComponent<AreaScript>().cards.Count<3)
+                        {
+                            // 如果放置在 Area 平面上，完成放置
+                            if (eventData.button == PointerEventData.InputButton.Right)
                             {
-                                HandCard.MyInstance.applicationArea[i] = HandCard.MyInstance.allarea[i];
+                                isDragging = false;
                             }
-                            break;
-                        case "都江堰":
-                            break;
-                        case "烽火":
-                            ischoose = true;
-                            Setarea();
-                            break;
-                        case "航海术":
-                            break;
-                        case "虎蹲炮":
-                            break;
-                        case "浑天仪":
-                            break;
-                        case "火铳":
-                            ischoose = true;
-                            Setarea();
-                            break;
-                        case "火药":
-                            for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                            isPlaced = true;
+                            isFinalized = false;
+
+                            //卡牌作用范围
+                            HandCard.MyInstance.applicationArea[0] = hit.transform.GetComponent<AreaScript>();
+
+                            #region 按图索骥
+                            switch (cardtext.text)
                             {
-                                HandCard.MyInstance.applicationArea[i] = HandCard.MyInstance.allarea[i];
+                                case "《崇祯历书》":
+
+                                    break;
+                                case "地动仪":
+                                    for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                                    {
+                                        HandCard.MyInstance.applicationArea[i] = HandCard.MyInstance.allarea[i];
+                                    }
+                                    break;
+                                case "都江堰":
+                                    break;
+                                case "烽火":
+                                    ischoose = true;
+                                    Setarea();
+                                    break;
+                                case "航海术":
+                                    break;
+                                case "虎蹲炮":
+                                    break;
+                                case "浑天仪":
+                                    break;
+                                case "火铳":
+                                    ischoose = true;
+                                    Setarea();
+                                    break;
+                                case "火药":
+                                    for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
+                                    {
+                                        HandCard.MyInstance.applicationArea[i] = HandCard.MyInstance.allarea[i];
+                                    }
+                                    break;
+                                case "秦朝军事力学":
+
+                                    break;
+                                case "《墨经》《考工记》":
+                                    ischoose = true;
+                                    Setarea();
+                                    break;
+                                case "《木经》":
+                                    ischoose = true;
+                                    Setarea();
+                                    break;
+                                case "《农桑辑要》":
+                                    ischoose = true;
+                                    Setarea();
+                                    break;
+                                case "简单机械组":
+                                    break;
+                                case "司南":
+                                    break;
+                                case "唐三彩":
+                                    ischoose = true;
+                                    Setarea();
+                                    break;
+                                case "活字印刷术":
+                                    break;
+                                case "云梯":
+                                    break;
+                                case "造纸术":
+                                    break;
+                                case "子母炮":
+                                    break;
                             }
-                            break;
-                        case "秦朝军事力学":
-                            
-                            break;
-                        case "《墨经》《考工记》":
-                            ischoose = true;
-                            Setarea();
-                            break;
-                        case "《木经》":
-                            ischoose= true;
-                            Setarea();
-                            break;
-                        case "《农桑辑要》":
-                            ischoose = true;
-                            Setarea();
-                            break;
-                        case "简单机械组":
-                            break;
-                        case "司南":
-                            break;
-                        case "唐三彩":
-                            ischoose=true;
-                            Setarea();
-                            break;
-                        case "活字印刷术":
-                            break;
-                        case "云梯":
-                            break;
-                        case "造纸术":
-                            break;
-                        case "子母炮":
-                            break;
+                            #endregion
+
+                            highmat();//高亮
+
+                            // 显示取消按钮
+                            if (cancelButtonPrefab != null)
+                            {
+                                ShowCancelButton();
+                            }
+
+                            Debug.Log("CanvasClickHandler: Stopped dragging and placed prefab (2) on Area plane.");
+                        }
                     }
-                    #endregion
-
-                    highmat();//高亮
-
-                    // 显示取消按钮
-                    if (cancelButtonPrefab != null)
-                    {
-                        ShowCancelButton();
-                    }
-
-                    Debug.Log("CanvasClickHandler: Stopped dragging and placed prefab (2) on Area plane.");
                 }
                 else
                 {
@@ -985,12 +1000,6 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     //确认放置
     public void ApplicationPlacement()
     {
-        if (drageffect.Instance.iffull)
-        {
-            CancelPlacement();
-        }
-        else
-        {
             //放置声音
             #region 按图索骥--声音
             if (isdragone)
@@ -1070,8 +1079,6 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 ifapplication = true;
                 ResetPlacement();
             }
-        }
-        
     }
 
     //复原目标区域
