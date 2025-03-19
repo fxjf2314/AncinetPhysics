@@ -14334,7 +14334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3147595476058709088, guid: 2a4f4bf4ced411b49bd5fd3c0aa3661c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3147595476058709088, guid: 2a4f4bf4ced411b49bd5fd3c0aa3661c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -16948,6 +16948,8 @@ MonoBehaviour:
   allban: 0
   globalpanel: {fileID: 2022672706}
   maincamera: {fileID: 995013535}
+  card3: {fileID: 117560430}
+  iffull: 0
   dragtipob:
   - {fileID: 1088185622}
   - {fileID: 908796106}
@@ -18462,8 +18464,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.19587176, y: 0.040305912, z: 0.19513783}
-  m_Center: {x: -0.52604055, y: 0.009628762, z: -0.00025093078}
+  m_Size: {x: 0.19170885, y: 0.040305912, z: 0.18957013}
+  m_Center: {x: -0.5239591, y: 0.009628762, z: -0.0010678972}
 --- !u!1 &1712193578
 GameObject:
   m_ObjectHideFlags: 0
@@ -20731,8 +20733,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.19587176, y: 0.040305912, z: 0.19513783}
-  m_Center: {x: -0.52604055, y: 0.009628762, z: -0.00025093078}
+  m_Size: {x: 0.19400181, y: 0.040305912, z: 0.19513783}
+  m_Center: {x: -0.5269755, y: 0.009628762, z: -0.00025093078}
 --- !u!114 &1920897696
 MonoBehaviour:
   m_ObjectHideFlags: 0
