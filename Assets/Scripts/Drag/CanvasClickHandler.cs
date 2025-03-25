@@ -5,8 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+
 
 public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {

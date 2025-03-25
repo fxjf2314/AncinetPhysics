@@ -192,10 +192,15 @@ public class Gameover : MonoBehaviour
 
         if (getscore)
         {
-            population.text = title1.ToString();
-            coin.text = title2.ToString();
-            food.text = title3.ToString();
-            score.text = title4.ToString();
+            if (population != null&&coin!=null&&food!=null&&score!=null)
+            {
+
+
+                population.text = title1.ToString();
+                coin.text = title2.ToString();
+                food.text = title3.ToString();
+                score.text = title4.ToString();
+            }
         }
     }
 
@@ -271,6 +276,9 @@ public class Gameover : MonoBehaviour
         
     void Turnscore4()
     {
-        endscore4.SetActive(true);
+        if (endscore4 != null)
+        {
+            endscore4.SetActive(true);
+        }
     }
 }

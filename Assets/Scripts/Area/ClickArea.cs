@@ -25,22 +25,28 @@ public class ClickArea : MonoBehaviour
         }
     }
 
-    
+
 
     private void OnMouseEnter()
     {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
             outline.enabled = true;
             areaTitle.enabled = true;
             areaPopu.text = transform.GetComponent<AreaScript>().areaDetail.population.ToString();
             areaPopu.enabled = true;
             areaPopuIcon.SetActive(true);
+        }
     }
 
     private void OnMouseExit()
     {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
             outline.enabled = false;
             areaTitle.enabled = false;
             areaPopu.enabled = false;
             areaPopuIcon.SetActive(false);
+        }
     }
 }

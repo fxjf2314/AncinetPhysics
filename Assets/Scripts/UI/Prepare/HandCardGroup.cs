@@ -48,9 +48,9 @@ public class HandCardGroup : MonoBehaviour, ISaveAndLoadGame
     public void Load(GameData gameData)
     {
         mHandCards= (gameData as GameData).handCards;
-        foreach(var card in mHandCards)
-        {
-            Debug.Log(card.name + card.GetDescription().title + card.GetDescription().area + card.GetDescription().effect);
-        }
+        //foreach(var card in mHandCards)
+        //{
+        //    Debug.Log(card.name + card.GetDescription().title + card.GetDescription().area + card.GetDescription().effect);
+        //}
     }
 }
