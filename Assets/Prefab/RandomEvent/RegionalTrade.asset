@@ -15,15 +15,16 @@ MonoBehaviour:
   icon: {fileID: 0}
   id: 0
   cardDes:
-    title: 
+    title: Trade
     area: 
     effect: 
+    detailDes: 
   cardPrefab: {fileID: 0}
   areasProbability:
   - area: {fileID: 0}
     probability: 0.10000000149011612
   - area: {fileID: 0}
-    probability: 0.05000000074505806
+    probability: 1
   - area: {fileID: 0}
     probability: 0.05000000074505806
   - area: {fileID: 0}

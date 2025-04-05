@@ -9,6 +9,7 @@ public class RandomEventOccurs : MonoBehaviour
     public TextMeshProUGUI RandomEventTips;
     public RandomEvent[] randomEvents;
     public GameObject wait;
+    public GameObject[] war;
 
     private void Awake()
     {
@@ -44,10 +45,26 @@ public class RandomEventOccurs : MonoBehaviour
         {
             yield return null;
         }
+        yield return new WaitUntil(() => EventVisualization.Instance.isEffecting);
+        while (EventVisualization.Instance.isEffecting)
+        {
+            yield return null;
+        }
         foreach (RandomEvent randomEvent in randomEvents)
         {
             randomEvent.Use();
         }
         yield break;
+    }
+    public void SetAnimation(bool state)
+    {
+        for (int i = 0; i < war.Length; i++)
+        {
+            war[i].SetActive(state);
+        }
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetChild(1).gameObject.SetActive(state);
+        }
     }
 }
