@@ -10,6 +10,16 @@ public class VoiceSliderAndButtonManager : MonoBehaviour
     [SerializeField] Slider Music;
     [SerializeField] Slider Sound;
 
+    private void Start()
+    {
+        if(AudioMixerManager.Instance != null)
+        {
+            Debug.Log(AudioMixerManager.Instance.GetAudioVolume("Master"));
+            Master.maxValue = AudioMixerManager.Instance.GetAudioVolume("Master");
+        }
+        
+    }
+
     //SldOnClick：传递参数以触发AudioManager的SldOnClick
     public void MasterSldOnClick(Image image)
     {

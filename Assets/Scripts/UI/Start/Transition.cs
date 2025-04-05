@@ -22,8 +22,8 @@ public class Transition : MonoBehaviour
         blackScreen = GetComponent<Image>();
         if(isFadeOutWhenOpen)
         {
+            blackScreen.raycastTarget = true;
             FadeOut();
-            blackScreen.raycastTarget = false;
         }
         
     }

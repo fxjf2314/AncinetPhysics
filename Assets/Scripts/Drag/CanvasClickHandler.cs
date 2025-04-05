@@ -144,7 +144,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     private IEnumerator RisePrefab()
     {
         isRising = true;
-
+        DragCamera.Instance.isClampCamera = false;
         // 在当前位置基础上垂直上升（使用anchoredPosition的Y轴）
         Vector2 targetPosition = riseStartPosition + new Vector2(0, riseHeight);
         float elapsed = 0f;
@@ -181,6 +181,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
         rectTransform.anchoredPosition = riseStartPosition;
         isRising = false;
+        DragCamera.Instance.isClampCamera = true;
     }
 
     // 拖拽预制体（2）
@@ -1116,6 +1117,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
         mainCamera.transform.position = targetPosition;
         mainCamera.transform.rotation = targetRotation;
+        //DragCamera.Instance.isClampCameraY = true;
     }
 
     public void Resetmodel()
