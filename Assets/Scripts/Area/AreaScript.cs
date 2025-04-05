@@ -10,6 +10,7 @@ public class AreaScript : MonoBehaviour,ISaveAndLoadArea
 
     public List<Card> cards;
 
+    public GameObject[] houses;
     private void Awake()
     {
         areaDetail.Effectiveness = new Dictionary<string, float>()
@@ -59,6 +60,9 @@ public class AreaScript : MonoBehaviour,ISaveAndLoadArea
     {
         areaDetail.food += count;
     }
+
+
+
 
     public void SaveArea(ref AreasJson area)
     {

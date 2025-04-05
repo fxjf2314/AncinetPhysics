@@ -35,6 +35,11 @@ public class AreaManager : MonoBehaviour
             area.areaDetail.coin = Random.Range(0, 70);
         }
         EventVisualization.Instance.InitVisual();
+        if(!GameSeed.MyInstance.isHouseSeedInit)
+        {
+            GameSeed.MyInstance.InitHouseSeed();
+        }
+       
     }
     private void Update()
     {
