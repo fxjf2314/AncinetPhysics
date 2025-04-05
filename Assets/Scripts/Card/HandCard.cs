@@ -199,6 +199,8 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
         gameData.handCards = cards;
         gameData.cardSeed = GameSeed.MyInstance.cardSeed;
         gameData.isCardSeedInit = GameSeed.MyInstance.isCardSeedInit;
+        gameData.houseSeed = GameSeed.MyInstance.houseSeed;
+        gameData.isHouseSeedInit = GameSeed.MyInstance.isHouseSeedInit;
     }
 
     public void Load(GameData gameData)
@@ -206,5 +208,7 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
         cards = gameData.handCards;
         GameSeed.MyInstance.cardSeed = gameData.cardSeed;
         GameSeed.MyInstance.isCardSeedInit = gameData.isCardSeedInit;
+        GameSeed.MyInstance.houseSeed = gameData.houseSeed;
+        GameSeed.MyInstance.isHouseSeedInit= gameData.isHouseSeedInit;
     }
 }

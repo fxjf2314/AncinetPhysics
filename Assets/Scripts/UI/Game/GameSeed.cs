@@ -21,9 +21,15 @@ public class GameSeed : MonoBehaviour
 
     public bool isCardSeedInit = false;
 
+    public bool isHouseSeedInit = false;
+
     public List<int> cardSeed;
 
+    public List<int> houseSeed;
+
     private HashSet<int> cardSeeds = new HashSet<int>();
+
+    private HashSet<int> houseSeeds = new HashSet<int>();   
 
     public void InitSeed()
     {
@@ -38,4 +44,18 @@ public class GameSeed : MonoBehaviour
         cardSeed = cardSeeds.ToList();
         isCardSeedInit = true;
     }
+
+    public void InitHouseSeed()
+    {
+        houseSeed = new List<int>(8);
+        while (houseSeeds.Count < 8)
+        {
+            int index = UnityEngine.Random.Range(0, 8);
+            houseSeeds.Add(index);
+
+        }
+        houseSeed = houseSeeds.ToList();
+        isHouseSeedInit=true;
+    }
+
 }
