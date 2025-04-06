@@ -104,6 +104,10 @@ public class DisasterOccurs : MonoBehaviour
         flood.Judge();
         dustStorm.Judge();
         fog.Judge();
+        while (EventVisualization.Instance.isEffecting)
+        {
+            yield return null;
+        }
         if (DisasterManager.nextDisaster != null)
         {
             RandomArea();

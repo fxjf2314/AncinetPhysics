@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         //Debug.Log("Startº¯Êý");
         foreach (var area in areas)
         {
-            CheckPeople(area.areaDetail.oPopulation);
+            StartCoroutine(CheckPeople(area.areaDetail.oPopulation));
         }
     }
 
@@ -158,14 +158,19 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         }
 
     }
-    
-    void CheckPeople(int oPeople)
+
+    IEnumerator CheckPeople(int oPeople)
     {
-        foreach(AreaScript area in areas)
+        if (DisasterManager.thisDisaster)
+            yield return new WaitUntil(() => EventVisualization.Instance.isEffecting);
+        while (EventVisualization.Instance.isEffecting)
+        {
+            yield return null;
+        }
+        foreach (AreaScript area in areas)
         {
             if(oPeople < 3 && area.areaDetail.population >= 3)
             {
-                
                 area.transform.GetComponentInChildren<HouseManager>()?.StartInitHouse();
             }
             if (oPeople < 7 && area.areaDetail.population >= 7)
@@ -188,7 +193,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             area.areaDetail.oPopulation = area.areaDetail.population;
             area.PopulationControl((int)(area.areaDetail.food / (area.areaDetail.population * foodBaseNumber)));
             area.PopulationControl(1);
-            CheckPeople(area.areaDetail.oPopulation);
+            StartCoroutine(CheckPeople(area.areaDetail.oPopulation));
         }
     }
 

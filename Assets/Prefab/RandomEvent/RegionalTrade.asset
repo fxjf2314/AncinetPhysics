@@ -24,7 +24,7 @@ MonoBehaviour:
   - area: {fileID: 0}
     probability: 0.10000000149011612
   - area: {fileID: 0}
-    probability: 1
+    probability: 0.05000000074505806
   - area: {fileID: 0}
     probability: 0.05000000074505806
   - area: {fileID: 0}

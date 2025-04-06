@@ -40,12 +40,14 @@ public class RandomEventOccurs : MonoBehaviour
         RandomEventTips.text = "";
         RandomEventTipsButton.SetActive(false);
         ButtonsManager.MyInstance.isHappenEvent = false;
+        SetAnimation(false);
         yield return null;
         while (wait.activeSelf)
         {
             yield return null;
         }
-        yield return new WaitUntil(() => EventVisualization.Instance.isEffecting);
+        if (DisasterManager.thisDisaster)
+            yield return new WaitUntil(() => EventVisualization.Instance.isEffecting);
         while (EventVisualization.Instance.isEffecting)
         {
             yield return null;

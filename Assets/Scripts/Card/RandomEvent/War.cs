@@ -81,8 +81,8 @@ public class War : RandomEvent
     }
     public override void Animation(GameObject area, GameObject surroundingArea)
     {
-        Transform AToA = area.transform.Find("SurroundArea").Find(surroundingArea.name).Find("War");
-        AToA.gameObject.SetActive(true);
+        Transform War = area.transform.Find("SurroundArea").Find(surroundingArea.name).Find("War");
+        War.gameObject.SetActive(true);
         area.transform.GetChild(1).gameObject.SetActive(true);
         surroundingArea.transform.GetChild(1).gameObject.SetActive(true);
     }
