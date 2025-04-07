@@ -32,7 +32,7 @@ public class EventVisualization : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
     }
     public void InitVisual()

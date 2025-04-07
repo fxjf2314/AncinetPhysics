@@ -34,7 +34,7 @@ public class TutorialManager : MonoBehaviour
 
     int currentIndex = 0;
     const int lowIndex = 0;
-    const int highIndex = 2;
+    const int highIndex = 7;
 
     // Start is called before the first frame update
     void Start()

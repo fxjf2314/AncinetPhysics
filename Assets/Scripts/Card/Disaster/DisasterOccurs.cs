@@ -93,6 +93,10 @@ public class DisasterOccurs : MonoBehaviour
             tip.SetActive(true);
             images = DisasterManager.thisDisaster.images;
             StartCoroutine(PlayImageSequence());
+            if(area == null)
+            {
+                area = transform.GetChild(3).gameObject;
+            }
             DisasterManager.thisDisaster.Use(area);
         }
         DisasterManager.thisDisaster = null;
@@ -100,6 +104,10 @@ public class DisasterOccurs : MonoBehaviour
         flood.Judge();
         dustStorm.Judge();
         fog.Judge();
+        while (EventVisualization.Instance.isEffecting)
+        {
+            yield return null;
+        }
         if (DisasterManager.nextDisaster != null)
         {
             RandomArea();

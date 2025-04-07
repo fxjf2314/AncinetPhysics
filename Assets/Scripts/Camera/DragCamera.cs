@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class DragCamera : MonoBehaviour
 {
+    public static DragCamera Instance => instance;
+    static DragCamera instance;
+
     public float leftBoundary = -10.0f; // 左边界
     public float rightBoundary = 10.0f; // 右边界
     public float frontBoundary = -10.0f; // 前边界
@@ -15,6 +18,7 @@ public class DragCamera : MonoBehaviour
     public float focusDistance = 5.0f; // 摄像机与目标物体的距离
     public LayerMask targetLayer; // 目标物体所在的图层（设置为 "Area"）
     public float smoothSpeed;
+    public bool isClampCamera = true;
 
     private Camera mainCamera;
     private float currentYPosition; // 当前摄像机的 Y 轴位置
@@ -22,6 +26,7 @@ public class DragCamera : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         mainCamera = Camera.main;
         currentYPosition = mainCamera.transform.position.y; // 保存当前 Y 轴位置
         //targetCameraPosition = mainCamera.transform.position;
@@ -100,11 +105,16 @@ public class DragCamera : MonoBehaviour
         // 更新摄像机位置
         Vector3 newScrollPosition = mainCamera.transform.position + scrollPosition;
 
-        // 限制摄像机的 Y 轴位置
-        newScrollPosition.y = Mathf.Clamp(newScrollPosition.y, minY, maxY);
+        
+        if(isClampCamera)
+        {
+            // 限制摄像机的 Y 轴位置
+            newScrollPosition.y = Mathf.Clamp(newScrollPosition.y, minY, maxY);
 
-        // 限制摄像机的 Z 轴位置
-        newScrollPosition.z = Mathf.Clamp(newScrollPosition.z, frontBoundary, backBoundary);
+            // 限制摄像机的 Z 轴位置
+            newScrollPosition.z = Mathf.Clamp(newScrollPosition.z, frontBoundary, backBoundary);
+        }
+        
 
         // 更新摄像机位置
         mainCamera.transform.position = newScrollPosition;

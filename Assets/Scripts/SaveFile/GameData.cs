@@ -10,7 +10,9 @@ public class GameData
     public Vector3[] modelPosition;
     public int[] hashset;
     public List<int> cardSeed;
+    public List<int> houseSeed;
     public bool isCardSeedInit;
+    public bool isHouseSeedInit;
 
     public int round;
     public int people;
@@ -28,6 +30,7 @@ public class GameData
             areas[i] = new AreasJson();
         }
         cardSeed = new List<int>();
+        houseSeed = new List<int>();
     }
 
 }

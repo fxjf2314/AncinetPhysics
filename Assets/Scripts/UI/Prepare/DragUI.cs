@@ -48,8 +48,21 @@ public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
         rectTransform.anchoredPosition = newPos;
     }
 
+    void MouseScroll()
+    {
+        // 监听鼠标滚轮事件
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (Mathf.Abs(scroll) > 0)
+        {
+            // 根据滚轮方向调整UI位置
+            Vector2 scrollDelta = new Vector2(scroll * 15000f, 0); // 滚轮滚动速度可以根据需求调整
+            rb.velocity = scrollDelta;
+        }
+    }
+
     private void Update()
     {
+        MouseScroll();
         LimitPos(rectTransform.anchoredPosition, dragArea);
     }
 }

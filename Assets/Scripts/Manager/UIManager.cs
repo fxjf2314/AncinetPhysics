@@ -44,6 +44,8 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
 
     public int totalPopulation;
 
+    public int lastPerson;
+
     public int lastPopulation;
 
     [SerializeField]
@@ -85,6 +87,10 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         //totalRound = 1;
         roundText.text = $"{totalRound}/10";
         //Debug.Log("Start函数");
+        foreach (var area in areas)
+        {
+            StartCoroutine(CheckPeople(area.areaDetail.oPopulation));
+        }
     }
 
     #region 下一回合按钮代码块
@@ -115,8 +121,10 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             PopulationNatural();
             FoodNatural();
             CoinNatural();
+
             AreaTips.MyInstance.FadeOut();
 
+            //CheckPeople();
             ButtonsManager.MyInstance.isPlaceCard = false;
             ButtonsManager.MyInstance.SearchEvent();
             ButtonsManager.MyInstance.waitIcon.transform.gameObject.SetActive(false);
@@ -125,9 +133,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         else if (totalRound == 10)
         {
             totalPopulation = 0;
-            PopulationNatural();
-            FoodNatural();
-            CoinNatural();
+            
             totalRound++;
             foreach (AreaScript area in areas)
             {
@@ -141,6 +147,9 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             coinText.text = totalCoin.ToString();
             foodText.text = totalFood.ToString();
             populationText.text = totalPopulation.ToString();
+            PopulationNatural();
+            FoodNatural();
+            CoinNatural();
             AreaTips.MyInstance.FadeOut();
 
             ButtonsManager.MyInstance.isPlaceCard = false;
@@ -149,7 +158,31 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         }
 
     }
-    
+
+    IEnumerator CheckPeople(int oPeople)
+    {
+        if (DisasterManager.thisDisaster)
+            yield return new WaitUntil(() => EventVisualization.Instance.isEffecting);
+        while (EventVisualization.Instance.isEffecting)
+        {
+            yield return null;
+        }
+        foreach (AreaScript area in areas)
+        {
+            if(oPeople < 3 && area.areaDetail.population >= 3)
+            {
+                area.transform.GetComponentInChildren<HouseManager>()?.StartInitHouse();
+            }
+            if (oPeople < 7 && area.areaDetail.population >= 7)
+            {
+                area.gameObject.GetComponentInChildren<HouseManager>()?.MiddleInitHouse();
+            }
+            if (oPeople < 11 && area.areaDetail.population >= 11)
+            {
+                area.gameObject.GetComponentInChildren<HouseManager>()?.FinalInitHouse();
+            }
+        }
+    }
 
 
     //人口自然增长
@@ -160,7 +193,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             area.areaDetail.oPopulation = area.areaDetail.population;
             area.PopulationControl((int)(area.areaDetail.food / (area.areaDetail.population * foodBaseNumber)));
             area.PopulationControl(1);
-
+            StartCoroutine(CheckPeople(area.areaDetail.oPopulation));
         }
     }
 
@@ -198,6 +231,14 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         coinText.text = totalCoin.ToString();
         foodText.text = totalFood.ToString();
         populationText.text = totalPopulation.ToString();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            settingPanel.SetActive(!settingPanel.activeSelf);
+        }
     }
 
     public void Save(ref GameData gameData)

@@ -15,9 +15,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   id: 0
   cardDes:
-    title: 
+    title: Marriage
     area: 
     effect: 
+    detailDes: 
   cardPrefab: {fileID: 0}
   areasProbability:
   - area: {fileID: 0}

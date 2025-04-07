@@ -14,6 +14,7 @@ public class RegionalMarriage : RandomEvent
         //VisualizeEvent(area.transform, "population", population);
         surroundingArea.GetComponent<AreaScript>().areaDetail.population += population;
         //VisualizeEvent(surroundingArea.transform, "population", population);
+        Animation(area, surroundingArea);
         randomEventTips.text += GetAreaName(area) + "与" + GetAreaName(surroundingArea) + "联姻"+"\n";
         randomEventTips.text += GetAreaName(area) +"和"+ GetAreaName(surroundingArea) + "人口各增加"+population+"点" + "\n";
     }

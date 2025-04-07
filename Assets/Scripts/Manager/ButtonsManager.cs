@@ -150,7 +150,7 @@ public class ButtonsManager : MonoBehaviour
 
     public float rotationInterval;
 
-    private float rotationDuration = 1.5f;
+    private float rotationDuration = 0.5f;
 
     private Quaternion targetRotation;
     
@@ -164,7 +164,7 @@ public class ButtonsManager : MonoBehaviour
     private IEnumerator IconRotation()
     {
         float elapsedTimeFirst = 0.0f; 
-        while (elapsedTimeFirst < 3.0f)
+        while (elapsedTimeFirst < 2f)
         {
             targetRotation = waitIcon.transform.rotation * Quaternion.Euler(0,0, 180);
 

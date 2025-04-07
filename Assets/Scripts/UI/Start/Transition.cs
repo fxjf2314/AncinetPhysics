@@ -22,8 +22,8 @@ public class Transition : MonoBehaviour
         blackScreen = GetComponent<Image>();
         if(isFadeOutWhenOpen)
         {
+            blackScreen.raycastTarget = true;
             FadeOut();
-            blackScreen.raycastTarget = false;
         }
         
     }
@@ -69,7 +69,7 @@ public class Transition : MonoBehaviour
         {
             if (saveName != null)
             {
-                //Debug.Log(saveName);
+               Debug.Log(saveName);
                 SceneManager.sceneLoaded += OnSceneLoaded;
 
 
@@ -101,6 +101,7 @@ public class Transition : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         DataPersistence.Instance.LoadGame(saveName);
+        saveName = null;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
