@@ -34,6 +34,7 @@ public class War : RandomEvent
         int thatPopulation= surroundingArea.GetComponent<AreaScript>().areaDetail.population;
         int n = thisPopulation - thatPopulation;
         winProbability = Mathf.Clamp(winProbability + n * probabilityChange,0.0f,1.0f);
+        Animation(area, surroundingArea);
         if (Random.Range(0f, 1f) <= winProbability)
         {
             randomEventTips.text += GetAreaName(area) + "սʤ" + GetAreaName(surroundingArea)+"\n";
@@ -77,5 +78,12 @@ public class War : RandomEvent
         float dCChange = (defeatArea.GetComponent<AreaScript>().areaDetail.population + winArea.GetComponent<AreaScript>().areaDetail.population) * dCoinRatio * defeatArea.GetComponent<AreaScript>().areaDetail.Effectiveness["War"];
         defeatArea.GetComponent<AreaScript>().areaDetail.coin -= dCChange;
         //VisualizeEvent(defeatArea.transform,"coin",dCChange);
+    }
+    public override void Animation(GameObject area, GameObject surroundingArea)
+    {
+        Transform War = area.transform.Find("SurroundArea").Find(surroundingArea.name).Find("War");
+        War.gameObject.SetActive(true);
+        area.transform.GetChild(1).gameObject.SetActive(true);
+        surroundingArea.transform.GetChild(1).gameObject.SetActive(true);
     }
 }

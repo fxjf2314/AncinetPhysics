@@ -19,6 +19,7 @@ public class RegionalTrade : RandomEvent
         //VisualizeEvent(surroundingArea.transform, "food", foodChange);
         surroundingArea.GetComponent<AreaScript>().areaDetail.coin += coinChange;
         //VisualizeEvent(surroundingArea.transform,"coin",coinChange);
+        Animation(area, surroundingArea);
         randomEventTips.text += GetAreaName(area) + "与" + GetAreaName(surroundingArea) + "通商" + "\n";
         randomEventTips.text += GetAreaName(area) + "和" + GetAreaName(surroundingArea) + "产出收成增加" + "\n";
     }

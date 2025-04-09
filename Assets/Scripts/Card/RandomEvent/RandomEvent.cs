@@ -62,6 +62,15 @@ public class RandomEvent : Card
     {
 
     }
+    public virtual void Animation(GameObject area, GameObject surroundingArea)
+    {
+        Transform AToA = area.transform.Find("SurroundArea").Find(surroundingArea.name).GetChild(0);
+        AToA.Find("Trade").gameObject.SetActive(false);
+        AToA.Find("Marriage").gameObject.SetActive(false);
+        AToA.Find(GetDescription().title).gameObject.SetActive(true);
+        AToA.gameObject.SetActive(false);
+        AToA.gameObject.SetActive(true);
+    }
     public string GetAreaName(GameObject area)
     {
         return area.GetComponent<AreaScript>().areaDetail.areaName;
