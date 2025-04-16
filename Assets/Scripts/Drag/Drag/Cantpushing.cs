@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cantpushing : MonoBehaviour
 {
+    Collider
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +17,5 @@ public class Cantpushing : MonoBehaviour
         
     }
 
-
+    
 }
