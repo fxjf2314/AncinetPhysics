@@ -11,9 +11,18 @@ public class SettingPanelManager : MonoBehaviour
     [SerializeField]
     GameObject savePanel, loadPanel;
 
+    [SerializeField]
+    Button voiceBtn;
+    [SerializeField]
+    Slider voiceSlider;
+
     private void Start()
     {
         AddListener();
+        if (VoiceSliderAndButtonManager.Instance != null)
+        {
+            VoiceSliderAndButtonManager.Instance.InitOtherSliderAndBtn(voiceSlider, voiceBtn);
+        }
     }
 
     void AddListener()

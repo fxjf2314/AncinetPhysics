@@ -64,7 +64,8 @@ public class ButtonGroup : MonoBehaviour
     Button backToTitleBtn;
 
     [SerializeField]
-    GameObject voiceBtn;
+    Button voiceBtn;
+    [SerializeField] Slider voiceSlider;
 
     GameObject currentDy;
 
@@ -73,11 +74,10 @@ public class ButtonGroup : MonoBehaviour
         currentDy = chunQiuZhanGuo;
         AddButtonListener();
 
-        /*if (AudioMixerManager.Instance.GetAudioVolume("vMaster") == -50.0f)
+        if (VoiceSliderAndButtonManager.Instance != null)
         {
-            Image image = voiceBtn.GetComponent<Image>();
-            image.sprite = AudioMixerManager.Instance.closeVoice;
-        }*/
+            VoiceSliderAndButtonManager.Instance.InitOtherSliderAndBtn(voiceSlider, voiceBtn);
+        }
 
     }
 
