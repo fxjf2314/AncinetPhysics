@@ -18,6 +18,17 @@ public class drageffect : MonoBehaviour
     public GameObject globalpanel;
     public DragCamera maincamera;
 
+    public GameObject[] northrender=new GameObject[4];
+    public GameObject[] westrender = new GameObject[2];
+    public GameObject[] centerrender = new GameObject[2];
+    public GameObject[] westsouthrender = new GameObject[4];
+    public GameObject[] southrender = new GameObject[2];
+
+    public GameObject hammer;
+    public Animator hammerani;
+    public GameObject allsmoke;
+    public ParticleSystem[] smoke=new ParticleSystem[4];
+
     //单例化状态，控制全局
     static drageffect mInstance;
     public static drageffect Instance
@@ -38,15 +49,18 @@ public class drageffect : MonoBehaviour
 
     public GameObject[] dragtipob = new GameObject[5];//拖动变深的物体预制件
     public GameObject panel4;
+    public GameObject dragone;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        hammerani.SetBool("ifhit",false);
+        hammer.SetActive(false);
         globalpanel.SetActive(false);
         allban = false;
         Instance.state=State.normal;//初始化状态
         panel4.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -109,12 +123,12 @@ public class drageffect : MonoBehaviour
     {
         if (allban)
         {
-            Invoke("Allbanfalse", 7.6f);
+            Invoke("Allbanfalse", 3f);
         }
         else
         {
             allban = true;
-            Invoke("Allbanfalse", 7.6f);
+            Invoke("Allbanfalse", 3f);
         }
     }
 

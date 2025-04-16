@@ -14,8 +14,8 @@ public class VoiceSliderAndButtonManager : MonoBehaviour
     {
         if(AudioMixerManager.Instance != null)
         {
-            Debug.Log(AudioMixerManager.Instance.GetAudioVolume("Master"));
-            Master.maxValue = AudioMixerManager.Instance.GetAudioVolume("Master");
+            Debug.Log(AudioMixerManager.Instance.GetAudioVolume("vMaster"));
+            Master.maxValue = AudioMixerManager.Instance.GetAudioVolume("vMaster");
         }
         
     }
