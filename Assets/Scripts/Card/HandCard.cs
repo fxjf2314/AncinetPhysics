@@ -115,18 +115,18 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            handCards[0] = cards[0];
-            foreach(HandCardSlot slot in slots)
-            {
-                if (slot.MyCard == null)
-                {
-                    slot.MyCard = handCards[0];
-                    break;
-                }
-            }
-        }
+        //if(Input.GetKeyDown(KeyCode.M))
+        //{
+        //    handCards[0] = cards[0];
+        //    foreach(HandCardSlot slot in slots)
+        //    {
+        //        if (slot.MyCard == null)
+        //        {
+        //            slot.MyCard = handCards[0];
+        //            break;
+        //        }
+        //    }
+        //}
 
     }
 

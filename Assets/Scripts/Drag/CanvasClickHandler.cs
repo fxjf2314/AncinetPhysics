@@ -464,21 +464,50 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     private void returnmat()//恢复材质
     {
+        foreach (GameObject one in drageffect.Instance.dragtipob)
+        {
+            one.SetActive(false);
+        }
         // 恢复材质
         for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
         {
-            //if (currentAreaCollider[i] != null)
-            //{
-            //var renderer = currentAreaCollider[i].GetComponent<Renderer>();
-            // if (renderer)
-            // {
-             // renderer.material = originalMaterial[i];
-             //renderer.gameObject.SetActive(true);
-            //}
-            // }
             if (HandCard.MyInstance.applicationArea[i] != null)
             {
-                HandCard.MyInstance.applicationArea[i].gameObject.SetActive(true);
+                if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[0])
+                {
+                    foreach (GameObject one in drageffect.Instance.northrender)
+                    {
+                        one.SetActive(true);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[1])
+                {
+                    foreach (GameObject one in drageffect.Instance.westrender)
+                    {
+                        one.SetActive(true);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[2])
+                {
+                    foreach (GameObject one in drageffect.Instance.centerrender)
+                    {
+                        one.SetActive(true);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[3])
+                {
+                    foreach (GameObject one in drageffect.Instance.westsouthrender)
+                    {
+                        one.SetActive(true);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[4])
+                {
+                    foreach (GameObject one in drageffect.Instance.southrender)
+                    {
+                        one.SetActive(true);
+                    }
+                }
             }
         }
     }
@@ -487,21 +516,45 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     private void highmat()//高亮材质
     {
-        //卡牌作用范围高亮
-       // Renderer[] renderer = new Renderer[5];
         for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)
         {
             if (HandCard.MyInstance.applicationArea[i] != null)
             {
-                //   currentAreaCollider[i] = HandCard.MyInstance.applicationArea[i].gameObject.GetComponent<Collider>();
-                //  renderer[i] = currentAreaCollider[i].GetComponent<Renderer>();
-                //  if (renderer[i] != null)
-                // {
-                //     originalMaterial[i] = renderer[i].material;
-                //     renderer[i].material = highlightMaterial; // 设置高亮材质
-                //      renderer[i].gameObject.SetActive(false);
-                //  }
-                HandCard.MyInstance.applicationArea[i].gameObject.SetActive(false);
+                if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[0])
+                {
+                    foreach(GameObject one in drageffect.Instance.northrender)
+                    {
+                        one.SetActive(false);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[1])
+                {
+                    foreach (GameObject one in drageffect.Instance.westrender)
+                    {
+                        one.SetActive(false);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[2])
+                {
+                    foreach (GameObject one in drageffect.Instance.centerrender)
+                    {
+                        one.SetActive(false);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[3])
+                {
+                    foreach (GameObject one in drageffect.Instance.westsouthrender)
+                    {
+                        one.SetActive(false);
+                    }
+                }
+                else if (HandCard.MyInstance.applicationArea[i] == HandCard.MyInstance.allarea[4])
+                {
+                    foreach (GameObject one in drageffect.Instance.southrender)
+                    {
+                        one.SetActive(false);
+                    }
+                }
             }
         }
     }
@@ -518,54 +571,43 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     private void Update()
     {
-        foreach(Transform models in model)
+        /*foreach(Transform models in model)
         {
             models.gameObject.SetActive(true);
-        }
+        }*/
         #region 换上新物体作为提示
-        if (!GameObject.Find("North"))
+        if (drageffect.Instance.state == drageffect.State.choose)
         {
-            drageffect.Instance.dragtipob[0].SetActive(true);
+            foreach(AreaScript highone in HandCard.MyInstance.applicationArea)
+            {
+                if (highone == HandCard.MyInstance.allarea[0])
+                {
+                    drageffect.Instance.dragtipob[0].SetActive(true);
+                }
+                else if (highone == HandCard.MyInstance.allarea[1])
+                {
+                    drageffect.Instance.dragtipob[1].SetActive(true);
+                }
+                else if (highone == HandCard.MyInstance.allarea[2])
+                {
+                    drageffect.Instance.dragtipob[2].SetActive(true);
+                }
+                else if (highone == HandCard.MyInstance.allarea[3])
+                {
+                    drageffect.Instance.dragtipob[3].SetActive(true);
+                }
+                else if (highone == HandCard.MyInstance.allarea[4])
+                {
+                    drageffect.Instance.dragtipob[4].SetActive(true);
+                }
+            }
         }
-        else
+        else 
         {
-            drageffect.Instance.dragtipob[0].SetActive(false);
-        }
-
-        if (!GameObject.Find("West"))
-        {
-            drageffect.Instance.dragtipob[1].SetActive(true);
-        }
-        else
-        {
-            drageffect.Instance.dragtipob[1].SetActive(false);
-        }
-
-        if (!GameObject.Find("Center"))
-        {
-            drageffect.Instance.dragtipob[2].SetActive(true);
-        }
-        else
-        {
-            drageffect.Instance.dragtipob[2].SetActive(false);
-        }
-
-        if (!GameObject.Find("WestSouth"))
-        {
-            drageffect.Instance.dragtipob[3].SetActive(true);
-        }
-        else
-        {
-            drageffect.Instance.dragtipob[3].SetActive(false);
-        }
-
-        if (!GameObject.Find("South"))
-        {
-            drageffect.Instance.dragtipob[4].SetActive(true);
-        }
-        else
-        {
-            drageffect.Instance.dragtipob[4].SetActive(false);
+            foreach (GameObject one in drageffect.Instance.dragtipob)
+            {
+               one.SetActive(false);
+            }
         }
         #endregion
         if (isPlaced)
@@ -708,92 +750,115 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             #endregion
         }
 
-        if (drageffect.Instance.state != drageffect.State.normal&& GameObject.Find("Sphere(Clone)")!=null&&isDragging)
+        if (drageffect.Instance.state == drageffect.State.drag&& GameObject.Find("Sphere(Clone)")!=null&&isDragging)
         {
             #region 按图索骥
             switch (cardtext.text)
             {
                 case "《崇祯历书》":
                     model[0].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[0].gameObject;
                     model[0].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y+10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "地动仪":
                     model[1].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[1].gameObject;
                     model[1].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+20, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "都江堰":
                     model[2].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[2].gameObject;
                     model[2].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 8, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "烽火":
                     model[3].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[3].gameObject;
                     model[3].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+1, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z-2);
                     break;
                 case "航海术":
                     model[4].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[4].gameObject;
                     model[4].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 16, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "虎蹲炮":
                     model[5].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[5].gameObject;
                     model[5].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+5, GameObject.Find("Sphere(Clone)").transform.position.y + 14, GameObject.Find("Sphere(Clone)").transform.position.z+8);
                     break;
                 case "浑天仪":
                     model[6].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[6].gameObject;
                     model[6].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x-34, GameObject.Find("Sphere(Clone)").transform.position.y + 15, GameObject.Find("Sphere(Clone)").transform.position.z+32);
                     break;
                 case "火铳":
                     model[7].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[7].gameObject;
                     model[7].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "火药":
                     model[8].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[8].gameObject;
                     model[8].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x-7, GameObject.Find("Sphere(Clone)").transform.position.y + 30, GameObject.Find("Sphere(Clone)").transform.position.z+37);
                     break;
                 case "秦朝军事力学":
                     model[9].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[9].gameObject;
                     model[9].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "《墨经》《考工记》":
                     model[10].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[10].gameObject;
                     model[10].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "《木经》":
                     model[11].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[11].gameObject;
                     model[11].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "《农桑辑要》":
                     model[12].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[12].gameObject;
                     model[12].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "简单机械组":
                     model[13].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[13].gameObject;
                     model[13].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "司南":
                     model[14].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[14].gameObject;
                     model[14].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+10, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z-14);
                     break;
                 case "唐三彩":
                     model[15].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[15].gameObject;
                     model[15].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 20, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "活字印刷术":
                     model[16].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[16].gameObject;
                     model[16].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x-5, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "云梯":
                     model[17].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[17].gameObject;
                     model[17].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "造纸术":
                     model[18].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[18].gameObject;
                     model[18].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z+10);
                     break;
                 case "子母炮":
                     model[19].gameObject.SetActive(true);
+                    drageffect.Instance.dragone = model[19].gameObject;
                     model[19].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 15, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
             }
+
+            drageffect.Instance.hammer.transform.position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+25, GameObject.Find("Sphere(Clone)").transform.position.y + 8, GameObject.Find("Sphere(Clone)").transform.position.z+5);
+            drageffect.Instance.allsmoke.gameObject.transform.position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x + 5, GameObject.Find("Sphere(Clone)").transform.position.y, GameObject.Find("Sphere(Clone)").transform.position.z+110);
             #endregion
         }
     }
@@ -1000,85 +1065,40 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     //确认放置
     public void ApplicationPlacement()
     {
+        drageffect.Instance.dragone.SetActive(false);
             //放置声音
-            #region 按图索骥--声音
+            #region 放置声音
             if (isdragone)
             {
-                switch (cardtext.text)
-                {
-                    case "《崇祯历书》":
-                        house.Play();
-                        break;
-                    case "地动仪":
-                        house.Play();
-                        break;
-                    case "都江堰":
-                        house.Play();
-                        break;
-                    case "烽火":
-                        house.Play();
-                        break;
-                    case "航海术":
-                        house.Play();
-                        break;
-                    case "虎蹲炮":
-                        house.Play();
-                        break;
-                    case "浑天仪":
-                        house.Play();
-                        break;
-                    case "火铳":
-                        house.Play();
-                        break;
-                    case "火药":
-                        house.Play();
-                        break;
-                    case "秦朝军事力学":
-                        house.Play();
-                        break;
-                    case "《墨经》《考工记》":
-                        house.Play();
-                        break;
-                    case "《木经》":
-                        house.Play();
-                        break;
-                    case "《农桑辑要》":
-                        house.Play();
-                        break;
-                    case "简单机械组":
-                        house.Play();
-                        break;
-                    case "司南":
-                        house.Play();
-                        break;
-                    case "唐三彩":
-                        house.Play();
-                        break;
-                    case "活字印刷术":
-                        house.Play();
-                        break;
-                    case "云梯":
-                        house.Play();
-                        break;
-                    case "造纸术":
-                        house.Play();
-                        break;
-                    case "子母炮":
-                        house.Play();
-                        break;
-                }
+            Invoke("HousePlay", 0.55f);
                 isdragone = false;
             }
             #endregion
-
             ischoose = false;
             drageffect.Instance.Allban();
+            Invoke("SmokeStart", -0.1f);
+            drageffect.Instance.hammer.SetActive(true);
+            drageffect.Instance.hammerani.SetBool("ifhit",true);
             if (ifapplication == false)
             {
                 Invoke("resettargetcard", 0.5f);
                 ifapplication = true;
                 ResetPlacement();
             }
+    }
+
+    void SmokeStart()
+    {
+        foreach (var smoke in drageffect.Instance.smoke)
+        {
+            smoke.Play();
+        }
+    }
+
+    void HousePlay()
+    {
+        CancelInvoke("HousePlay");
+        house.Play();
     }
 
     //复原目标区域
@@ -1130,82 +1150,102 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 case "《崇祯历书》":
                     model[0].position = new Vector3(124, -500, -82);
                     model[0].gameObject.SetActive(false);
+                    drageffect.Instance.dragone=null;
                     break;
                 case "地动仪":
                     model[1].position = new Vector3(124, -500, -82);
                     model[1].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "都江堰":
                     model[2].position = new Vector3(124, -500, -82);
                     model[2].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "烽火":
                     model[3].position = new Vector3(124, -500, -82);
                     model[3].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "航海术":
                     model[4].position = new Vector3(124, -500, -82);
                     model[4].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "虎蹲炮":
                     model[5].position = new Vector3(124, -500, -82);
                     model[5].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "浑天仪":
                     model[6].position = new Vector3(124, -500, -82);
                     model[6].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "火铳":
                     model[7].position = new Vector3(124, -500, -82);
                     model[7].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "火药":
                     model[8].position = new Vector3(124, -500, -82);
                     model[8].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "秦朝军事力学":
                     model[9].position = new Vector3(124, -500, -82);
                     model[9].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "《墨经》《考工记》":
                     model[10].position = new Vector3(124, -500, -82);
                     model[10].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "《木经》":
                     model[11].position = new Vector3(124, -500, -82);
                     model[11].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "《农桑辑要》":
                     model[12].position = new Vector3(124, -500, -82);
                     model[12].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "简单机械组":
                     model[13].position = new Vector3(124, -500, -82);
                     model[13].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "司南":
                     model[14].position = new Vector3(124, -500, -82);
                     model[14].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "唐三彩":
                     model[15].position = new Vector3(124, -500, -82);
                     model[15].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "活字印刷术":
                     model[16].position = new Vector3(124, -500, -82);
                     model[16].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "云梯":
                     model[17].position = new Vector3(124, -500, -82);
                     model[17].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "造纸术":
                     model[18].position = new Vector3(124, -500, -82);
                     model[18].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
                 case "子母炮":
                     model[19].position = new Vector3(124, -500, -82);
                     model[19].gameObject.SetActive(false);
+                    drageffect.Instance.dragone = null;
                     break;
             }
             isdragone = false;

@@ -83,19 +83,19 @@ public class EventVisualization : MonoBehaviour
         if (areas[i].areaDetail.population != oPopulation[i])
         {
             int Change = areas[i].areaDetail.population - oPopulation[i];
-            CreateText(prefab, areas[i].transform.GetChild(0).transform, "population", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(3), "population", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         if (areas[i].areaDetail.food != oFood[i])
         {
             float Change = areas[i].areaDetail.food - oFood[i];
-            CreateText(prefab, areas[i].transform.GetChild(0).transform, "food", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(3), "food", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         if (areas[i].areaDetail.coin != oCoin[i])
         {
             float Change = areas[i].areaDetail.coin - oCoin[i];
-            CreateText(prefab, areas[i].transform.GetChild(0).transform, "coin", Change, signs);
+            CreateText(prefab, areas[i].transform.GetChild(3), "coin", Change, signs);
             yield return new WaitForSeconds(0.2f);
         }
         oPopulation[i] = areas[i].areaDetail.population;

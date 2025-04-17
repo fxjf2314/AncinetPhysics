@@ -8,6 +8,7 @@ TagManager:
   - DragArea
   - DynastyPanel
   - ResourceIcon
+  - CantDragin
   layers:
   - Default
   - TransparentFX
