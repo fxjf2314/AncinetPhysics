@@ -171158,13 +171158,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1088877140221326960, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 26.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088877140221326960, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 47.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088877140221326960, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 44.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088877140221326960, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 31.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609711858002213099, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1609711858002213099, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2110853730752449726, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110853730752449726, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110853730752449726, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2118044943290291960, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -171181,6 +171209,22 @@ PrefabInstance:
     - target: {fileID: 2118044943290291960, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381674441062328372, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 26.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381674441062328372, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 47.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381674441062328372, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 44.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381674441062328372, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 31.58
       objectReference: {fileID: 0}
     - target: {fileID: 2562264549346175646, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_RaycastTarget
@@ -171354,6 +171398,22 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4301370927697529919, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
+    - target: {fileID: 6509305437078901308, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 26.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509305437078901308, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 47.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509305437078901308, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 44.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509305437078901308, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 31.58
+      objectReference: {fileID: 0}
     - target: {fileID: 6593053058963548923, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -171385,6 +171445,22 @@ PrefabInstance:
     - target: {fileID: 7873004796058526599, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093807725152049030, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 26.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093807725152049030, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 47.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093807725152049030, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 44.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093807725152049030, guid: 4fcecf7295e4f444aba438121fa450f5, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 31.58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
