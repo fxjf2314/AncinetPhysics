@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler,ISaveAndLoadGame
 {
     public GameObject prefabToSpawn; // 预制体（2）
     public float riseHeight = 10.0f; // 上升高度
@@ -1251,5 +1251,17 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
             isdragone = false;
         }
         #endregion
+    }
+
+    public void Save(ref GameData gameData)
+    {
+        gameData.ifban = ifban;
+        gameData.allban = drageffect.Instance.allban;
+    }
+
+    public void Load(GameData gameData)
+    {
+        ifban = gameData.ifban;
+        drageffect.Instance.allban = gameData.allban;
     }
 }
