@@ -781,7 +781,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 case "º½º£Êõ":
                     model[4].gameObject.SetActive(true);
                     drageffect.Instance.dragone = model[4].gameObject;
-                    model[4].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 16, GameObject.Find("Sphere(Clone)").transform.position.z);
+                    model[4].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "»¢¶×ÅÚ":
                     model[5].gameObject.SetActive(true);
