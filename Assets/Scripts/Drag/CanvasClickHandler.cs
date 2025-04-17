@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 
 public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler,ISaveAndLoadGame
@@ -200,11 +201,13 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     // 松开鼠标时放置预制体（2）
     public void OnPointerUp(PointerEventData eventData)
     {
+        //if (isDragging && spawnedPrefab != null&& drageffect.Instance.dragone.GetComponent<Cantpushing>()!=null)
         if (isDragging && spawnedPrefab != null)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, planeLayer))
             {
+                //if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Area")&&!drageffect.Instance.dragone.GetComponent<Cantpushing>().ifinmountain)
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Area"))
                 {
                     HandCard.MyInstance.targetArea = hit.transform.GetComponent<AreaScript>();
@@ -303,10 +306,10 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                             highmat();//高亮
 
                             // 显示取消按钮
-                            if (cancelButtonPrefab != null)
-                            {
+                            //if (cancelButtonPrefab != null)
+                           // {
                                 ShowCancelButton();
-                            }
+                            //}
 
                             Debug.Log("CanvasClickHandler: Stopped dragging and placed prefab (2) on Area plane.");
                         }
@@ -763,7 +766,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 case "地动仪":
                     model[1].gameObject.SetActive(true);
                     drageffect.Instance.dragone = model[1].gameObject;
-                    model[1].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+20, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z);
+                    model[1].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x+15, GameObject.Find("Sphere(Clone)").transform.position.y + 5, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "都江堰":
                     model[2].gameObject.SetActive(true);
@@ -778,7 +781,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
                 case "航海术":
                     model[4].gameObject.SetActive(true);
                     drageffect.Instance.dragone = model[4].gameObject;
-                    model[4].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 16, GameObject.Find("Sphere(Clone)").transform.position.z);
+                    model[4].position = new Vector3(GameObject.Find("Sphere(Clone)").transform.position.x, GameObject.Find("Sphere(Clone)").transform.position.y + 10, GameObject.Find("Sphere(Clone)").transform.position.z);
                     break;
                 case "虎蹲炮":
                     model[5].gameObject.SetActive(true);
@@ -901,7 +904,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     // 取消按钮相关逻辑
     private Vector2 GetButtonCanvasPosition()
     {
-        Canvas canvas = FindObjectOfType<Canvas>();
+        Canvas canvas = GameObject.Find("Canvas2").GetComponent<Canvas>();
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
 
         // 将鼠标屏幕坐标转换为Canvas本地坐标
@@ -924,9 +927,11 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         if (cancelButton == null)
         {
-            cancelButton = Instantiate(cancelButtonPrefab, FindObjectOfType<Canvas>().transform);
+            //cancelButton = Instantiate(cancelButtonPrefab, FindObjectOfType<Canvas>().transform); 
+                cancelButton = Instantiate(cancelButtonPrefab, GameObject.Find("Canvas2").GetComponent<Canvas>().transform);
             RectTransform rt = cancelButton.GetComponent<RectTransform>();
-            applicationButton = Instantiate(applicationButtonPrefab, FindObjectOfType<Canvas>().transform);
+            //applicationButton = Instantiate(applicationButtonPrefab, FindObjectOfType<Canvas>().transform);
+            applicationButton = Instantiate(applicationButtonPrefab, GameObject.Find("Canvas2").GetComponent<Canvas>().transform);
             RectTransform rt1 = applicationButton.GetComponent<RectTransform>();
 
             // 设置锚点为左下角（保证Y轴基准一致）
@@ -938,7 +943,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
 
             rt1.anchorMin = new Vector2(0, 0.5f);
             rt1.anchorMax = new Vector2(0, 0.5f);
-            rt1.pivot = new Vector2(-11.8f, 0.3f); // 轴心对齐左下角
+            rt1.pivot = new Vector2(-11.6f, 0.3f); // 轴心对齐左下角
 
             rt1.anchoredPosition = GetButtonCanvasPosition();
 
