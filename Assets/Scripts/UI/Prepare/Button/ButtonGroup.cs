@@ -50,6 +50,9 @@ public class ButtonGroup : MonoBehaviour
 
     #endregion
 
+    [Header("ø®≈∆slider")]
+    [SerializeField]
+    Slider cardSlider;
 
     [Header("”Œœ∑∞¥≈•")]
     [SerializeField]
@@ -72,6 +75,7 @@ public class ButtonGroup : MonoBehaviour
     private void Start()
     {
         currentDy = chunQiuZhanGuo;
+        chunQiuZhanGuo.GetComponent<DragUI>().UpdateSlider();
         AddButtonListener();
 
         if (VoiceSliderAndButtonManager.Instance != null)
@@ -142,6 +146,16 @@ public class ButtonGroup : MonoBehaviour
 
     void ChangeDynasty(GameObject nextDy)
     {
+        if(nextDy.transform.childCount >= 4)
+        {
+            cardSlider.gameObject.SetActive(true);
+            DragUI dragUI = nextDy.GetComponent<DragUI>();
+            dragUI.UpdateSlider();
+        }
+        else
+        {
+            cardSlider.gameObject.SetActive(false);
+        }
         currentDy.SetActive(false);
         currentDy = nextDy;
         currentDy.SetActive(true);

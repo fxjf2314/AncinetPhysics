@@ -19,6 +19,8 @@ public class GameData
     public int harvest;
     public int output;
 
+    public bool ifban;
+    public bool allban;
 
     public GameData()
     {

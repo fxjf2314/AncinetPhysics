@@ -22,7 +22,7 @@ public class VoiceSliderAndButtonManager : MonoBehaviour
         {
             Debug.Log(AudioMixerManager.Instance.GetAudioVolume("vMaster"));
             Master.maxValue = AudioMixerManager.Instance.GetAudioVolume("vMaster");
-            Master.minValue = -50;
+            Master.minValue = -80;
         }
         
     }

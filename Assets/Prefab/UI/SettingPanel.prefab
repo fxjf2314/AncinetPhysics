@@ -34,9 +34,9 @@ RectTransform:
   - {fileID: 3742336909212336579}
   m_Father: {fileID: 1572627654784456694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 323.9755, y: -262.31088}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 451.3398, y: 205.6304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5986613444800677251
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 47.92, y: 44.25, z: 31.58, w: 26.44}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -200,8 +200,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8FD4\u56DE\u6E38\u620F"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
-  m_sharedMaterial: {fileID: -6472570357103037794, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
+  m_sharedMaterial: {fileID: -4301370927697529919, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -300,7 +300,7 @@ RectTransform:
   m_Father: {fileID: 8018341109816711278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -409,8 +409,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8BFB\u53D6\u6863\u6848"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
-  m_sharedMaterial: {fileID: -6472570357103037794, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
+  m_sharedMaterial: {fileID: -4301370927697529919, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -543,8 +543,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8FD4\u56DE\u6807\u9898"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
-  m_sharedMaterial: {fileID: -6472570357103037794, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
+  m_sharedMaterial: {fileID: -4301370927697529919, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.392}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -740,6 +740,8 @@ MonoBehaviour:
   goToTitleBtn: {fileID: 4908769611808778907}
   savePanel: {fileID: 0}
   loadPanel: {fileID: 0}
+  voiceBtn: {fileID: 4358190055100744078}
+  voiceSlider: {fileID: 4927580059035495585}
 --- !u!1 &5811902455148376112
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,9 +776,9 @@ RectTransform:
   - {fileID: 479041762987101007}
   m_Father: {fileID: 1572627654784456694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 323.9755, y: -892.68915}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 451.3398, y: 205.6304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9163187584429889066
@@ -802,7 +804,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 47.92, y: 44.25, z: 31.58, w: 26.44}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1038,9 +1040,9 @@ RectTransform:
   - {fileID: 5847516030905072378}
   m_Father: {fileID: 1572627654784456694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 323.9755, y: -682.56305}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 451.3398, y: 205.6304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6622742748329396425
@@ -1066,7 +1068,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 47.92, y: 44.25, z: 31.58, w: 26.44}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1159,9 +1161,9 @@ RectTransform:
   - {fileID: 7044673006377634039}
   m_Father: {fileID: 1572627654784456694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 323.9755, y: -472.43695}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 451.3398, y: 205.6304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5733213002477266793
@@ -1187,7 +1189,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 47.92, y: 44.25, z: 31.58, w: 26.44}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1455,11 +1457,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VoiceSliderAndButtonManager, Assembly-CSharp
-        m_MethodName: MusicBtnOnClick
+        m_MethodName: MasterBtnOnClick
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7346024442543916017}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 4050571205440427063}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1497,8 +1499,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6205627869556526992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1623,13 +1625,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1609711858002213099}
   m_HandleRect: {fileID: 2110853730752449726}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -50
+  m_MaxValue: -25
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: -25
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VoiceSliderAndButtonManager, Assembly-CSharp
+        m_MethodName: MasterSldOnClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4050571205440427063}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8646546356744710497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,9 +1676,9 @@ RectTransform:
   - {fileID: 7349563836331952058}
   m_Father: {fileID: 1572627654784456694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 323.9755, y: -105}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8778951429850312292
@@ -1734,8 +1748,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u5B58\u50A8\u6863\u6848"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
-  m_sharedMaterial: {fileID: -6472570357103037794, guid: 9041d0deafda1014cbc11f2f3144dedf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
+  m_sharedMaterial: {fileID: -4301370927697529919, guid: d5bd66be47b4d1446945f8b67be36d1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
