@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: War
+  m_Name: FadeInOut
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -43,7 +43,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -73,7 +73,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -103,7 +103,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -121,8 +121,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -133,7 +151,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -163,7 +181,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -193,7 +211,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -223,7 +241,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -241,8 +259,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -253,7 +289,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -283,7 +319,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -313,7 +349,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -343,7 +379,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -361,8 +397,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -373,7 +427,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -403,7 +457,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -433,7 +487,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -463,7 +517,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -481,8 +535,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -493,7 +565,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -523,7 +595,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -553,7 +625,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -583,7 +655,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -601,8 +673,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -613,7 +703,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -643,7 +733,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -673,7 +763,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -703,7 +793,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -721,8 +811,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -733,7 +841,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -763,7 +871,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -793,7 +901,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -823,7 +931,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -841,8 +949,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -853,7 +979,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -883,7 +1009,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -913,7 +1039,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -943,7 +1069,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -961,8 +1087,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -973,7 +1117,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1003,7 +1147,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1033,7 +1177,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1063,7 +1207,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1081,8 +1225,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1093,7 +1255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1123,7 +1285,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1153,7 +1315,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1183,7 +1345,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1201,8 +1363,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1213,7 +1393,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1243,7 +1423,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1273,7 +1453,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1303,7 +1483,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1321,8 +1501,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1333,7 +1531,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1363,7 +1561,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder010"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1393,7 +1591,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder010"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1423,7 +1621,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder010"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1441,7 +1639,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
         inSlope: 0
         outSlope: 0
@@ -1449,20 +1647,8 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder010"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.6666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -1472,87 +1658,6 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.r
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.g
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.b
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1560,140 +1665,11 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.r
-    path: "GameObject/\u6746/Stone"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.g
-    path: "GameObject/\u6746/Stone"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.b
-    path: "GameObject/\u6746/Stone"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.a
-    path: "GameObject/\u6746/Stone"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -1706,7 +1682,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1494755354
+      path: 895458214
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1715,7 +1691,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 773789836
+      path: 965492792
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1724,7 +1700,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2960887087
+      path: 2693075330
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1733,7 +1709,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3346841017
+      path: 3615629588
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1742,7 +1718,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1584786435
+      path: 3636214315
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1751,7 +1727,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 870909110
+      path: 1441605475
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1760,7 +1736,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 881115311
+      path: 1102408593
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1769,7 +1745,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2911736085
+      path: 307060147
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1778,7 +1754,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3666518403
+      path: 917658375
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1787,7 +1763,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1245035538
+      path: 791507971
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1796,7 +1772,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1026722948
+      path: 2832649892
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1805,7 +1781,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1576338785
+      path: 2634917907
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -1814,25 +1790,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 594387020
-      attribute: 2108656497
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 2717993365
-      attribute: 2108656497
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 1494755354
+      path: 895458214
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -1841,7 +1799,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1494755354
+      path: 895458214
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -1850,7 +1808,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1494755354
+      path: 895458214
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -1859,7 +1817,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 773789836
+      path: 965492792
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -1868,7 +1826,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 773789836
+      path: 965492792
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -1877,7 +1835,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 773789836
+      path: 965492792
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -1886,7 +1844,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2960887087
+      path: 2693075330
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -1895,7 +1853,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2960887087
+      path: 2693075330
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -1904,7 +1862,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2960887087
+      path: 2693075330
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -1913,7 +1871,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3346841017
+      path: 3615629588
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -1922,7 +1880,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3346841017
+      path: 3615629588
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -1931,7 +1889,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3346841017
+      path: 3615629588
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -1940,7 +1898,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1584786435
+      path: 3636214315
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -1949,7 +1907,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1584786435
+      path: 3636214315
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -1958,7 +1916,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1584786435
+      path: 3636214315
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -1967,7 +1925,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 870909110
+      path: 1441605475
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -1976,7 +1934,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 870909110
+      path: 1441605475
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -1985,7 +1943,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 870909110
+      path: 1441605475
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -1994,7 +1952,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 881115311
+      path: 1102408593
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -2003,7 +1961,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 881115311
+      path: 1102408593
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -2012,7 +1970,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 881115311
+      path: 1102408593
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -2021,7 +1979,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2911736085
+      path: 307060147
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -2030,7 +1988,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2911736085
+      path: 307060147
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -2039,7 +1997,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2911736085
+      path: 307060147
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -2048,7 +2006,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3666518403
+      path: 917658375
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -2057,7 +2015,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3666518403
+      path: 917658375
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -2066,7 +2024,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3666518403
+      path: 917658375
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -2075,7 +2033,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1245035538
+      path: 791507971
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -2084,7 +2042,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1245035538
+      path: 791507971
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -2093,7 +2051,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1245035538
+      path: 791507971
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -2102,7 +2060,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1026722948
+      path: 2832649892
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -2111,7 +2069,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1026722948
+      path: 2832649892
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -2120,7 +2078,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1026722948
+      path: 2832649892
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -2129,7 +2087,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1576338785
+      path: 2634917907
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -2138,7 +2096,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1576338785
+      path: 2634917907
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -2147,61 +2105,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1576338785
-      attribute: 1840221041
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 594387020
-      attribute: 1303350129
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 594387020
-      attribute: 1571785585
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 594387020
-      attribute: 1840221041
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 2717993365
-      attribute: 1303350129
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 2717993365
-      attribute: 1571785585
-      script: {fileID: 0}
-      typeID: 23
-      customType: 22
-      isPPtrCurve: 0
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    - serializedVersion: 2
-      path: 2717993365
+      path: 2634917907
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -2257,7 +2161,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2287,7 +2191,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2317,7 +2221,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2335,8 +2239,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2347,7 +2269,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box002"
+    path: Carriege
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2377,7 +2299,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2407,7 +2329,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2437,7 +2359,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2455,8 +2377,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2467,7 +2407,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box003"
+    path: Carriege.001
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2497,7 +2437,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2527,7 +2467,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2557,7 +2497,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2575,8 +2515,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2587,7 +2545,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box004"
+    path: Carriege.002
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2617,7 +2575,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2647,7 +2605,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2677,7 +2635,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2695,8 +2653,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2707,7 +2683,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box005"
+    path: Carriege.003
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2737,7 +2713,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2767,7 +2743,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2797,7 +2773,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2815,8 +2791,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2827,7 +2821,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Box006"
+    path: "\u5BF9\u8C61001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2857,7 +2851,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2887,7 +2881,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2917,7 +2911,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2935,8 +2929,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2947,7 +2959,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder001"
+    path: "\u5BF9\u8C61001.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -2977,7 +2989,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3007,7 +3019,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3037,7 +3049,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3055,8 +3067,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3067,7 +3097,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder005"
+    path: "\u5BF9\u8C61002"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3097,7 +3127,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3127,7 +3157,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3157,7 +3187,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3175,8 +3205,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3187,7 +3235,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder006"
+    path: "\u5BF9\u8C61002.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3217,7 +3265,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3247,7 +3295,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3277,7 +3325,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3295,8 +3343,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3307,7 +3373,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder007"
+    path: "\u5BF9\u8C61003"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3337,7 +3403,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3367,7 +3433,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3397,7 +3463,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3415,8 +3481,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3427,7 +3511,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder008"
+    path: "\u5BF9\u8C61003.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3457,7 +3541,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3487,7 +3571,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3517,7 +3601,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3535,8 +3619,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6666667
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3547,7 +3649,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder009"
+    path: "\u5BF9\u8C61004"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3577,7 +3679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: "\u8F66\u5EA7/Cylinder010"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3607,7 +3709,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: "\u8F66\u5EA7/Cylinder010"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3637,7 +3739,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: "\u8F66\u5EA7/Cylinder010"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
@@ -3655,7 +3757,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.33333334
         value: 1
         inSlope: 0
         outSlope: 0
@@ -3663,20 +3765,8 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.a
-    path: "\u8F66\u5EA7/Cylinder010"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.6666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -3686,87 +3776,6 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.r
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.g
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.b
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 0
         inSlope: 0
         outSlope: 0
@@ -3774,140 +3783,11 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: "GameObject/\u6746"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.r
-    path: "GameObject/\u6746/Stone"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.g
-    path: "GameObject/\u6746/Stone"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.b
-    path: "GameObject/\u6746/Stone"
-    classID: 23
-    script: {fileID: 0}
-    flags: 16
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: material._Color.a
-    path: "GameObject/\u6746/Stone"
+    path: "\u5BF9\u8C61004.001"
     classID: 23
     script: {fileID: 0}
     flags: 16
