@@ -159,7 +159,7 @@ public class Gameover : MonoBehaviour
 
                     endscore.SetBool("startend", true);
                 }
-                Invoke("Start4", 2.5f);
+                Invoke("Start4", 2f);
             }
         }
 
