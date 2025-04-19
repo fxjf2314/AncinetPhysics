@@ -26,9 +26,10 @@ public class HouseScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision != null && collision.gameObject.tag == "Area")
+        if(collision != null && (collision.gameObject.tag == "Area"|| collision.gameObject.tag =="CantDragin" ))
         {
             Instantiate(particalSmoke, transform);
+            GetComponent<Rigidbody>().isKinematic = true;
         }
         
         

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
@@ -12,11 +14,15 @@ public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
     [SerializeField]
     RectTransform dragArea;
     float time;
+    public Slider cardSlider;
+    float sliderValue;
+    Vector2 origionPos;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rectTransform = GetComponent<RectTransform>();
+        origionPos = rectTransform.anchoredPosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -32,6 +38,7 @@ public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
         if(forbiddenY)delta.y = 0;
         LimitPos(rectTransform.anchoredPosition + delta, dragArea);       
         time += Time.deltaTime;
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -42,10 +49,24 @@ public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
         time = 0;
     }
 
+    public void UpdateSlider()
+    {
+        cardSlider.onValueChanged.RemoveAllListeners();
+        cardSlider.value = sliderValue;
+        cardSlider.onValueChanged.AddListener((float value) =>
+        {
+            transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            Vector2 newPos = new Vector2((origionPos.x - value * (dragArea.rect.xMax - dragArea.rect.xMin)), origionPos.y);
+            rectTransform.anchoredPosition = newPos;
+        });
+    }
+
     void LimitPos(Vector2 newPos, RectTransform limitArea)
     {
         newPos = new Vector2(Mathf.Clamp(newPos.x, dragArea.rect.xMin, dragArea.rect.xMax), Mathf.Clamp(newPos.y, dragArea.rect.yMin, dragArea.rect.yMax));
         rectTransform.anchoredPosition = newPos;
+        sliderValue = -(rectTransform.anchoredPosition.x - origionPos.x) / (dragArea.rect.xMax - dragArea.rect.xMin);
+        cardSlider.value = sliderValue;
     }
 
     void MouseScroll()
@@ -55,7 +76,7 @@ public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
         if (Mathf.Abs(scroll) > 0)
         {
             // 根据滚轮方向调整UI位置
-            Vector2 scrollDelta = new Vector2(scroll * 15000f, 0); // 滚轮滚动速度可以根据需求调整
+            Vector2 scrollDelta = new Vector2(scroll * 50000f, 0); // 滚轮滚动速度可以根据需求调整
             rb.velocity = scrollDelta;
         }
     }
@@ -64,5 +85,6 @@ public class DragUI : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
     {
         MouseScroll();
         LimitPos(rectTransform.anchoredPosition, dragArea);
+
     }
 }

@@ -58,7 +58,6 @@ public class drageffect : MonoBehaviour
         hammerani.SetBool("ifhit",false);
         hammer.SetActive(false);
         globalpanel.SetActive(false);
-        allban = false;
         Instance.state=State.normal;//³õÊ¼»¯×´Ì¬
         panel4.SetActive(false);
     }
