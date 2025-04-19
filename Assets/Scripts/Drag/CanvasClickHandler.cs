@@ -904,7 +904,7 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
     // 取消按钮相关逻辑
     private Vector2 GetButtonCanvasPosition()
     {
-        Canvas canvas = GameObject.Find("Canvas1").GetComponent<Canvas>();
+        Canvas canvas = GameObject.Find("Canvas2").GetComponent<Canvas>();
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
 
         // 将鼠标屏幕坐标转换为Canvas本地坐标
@@ -928,22 +928,22 @@ public class CanvasClickHandler : MonoBehaviour, IPointerDownHandler, IDragHandl
         if (cancelButton == null)
         {
             //cancelButton = Instantiate(cancelButtonPrefab, FindObjectOfType<Canvas>().transform); 
-                cancelButton = Instantiate(cancelButtonPrefab, GameObject.Find("Canvas1").GetComponent<Canvas>().transform);
+                cancelButton = Instantiate(cancelButtonPrefab, GameObject.Find("Canvas2").GetComponent<Canvas>().transform);
             RectTransform rt = cancelButton.GetComponent<RectTransform>();
             //applicationButton = Instantiate(applicationButtonPrefab, FindObjectOfType<Canvas>().transform);
-            applicationButton = Instantiate(applicationButtonPrefab, GameObject.Find("Canvas1").GetComponent<Canvas>().transform);
+            applicationButton = Instantiate(applicationButtonPrefab, GameObject.Find("Canvas2").GetComponent<Canvas>().transform);
             RectTransform rt1 = applicationButton.GetComponent<RectTransform>();
 
             // 设置锚点为左下角（保证Y轴基准一致）
             rt.anchorMin = new Vector2(0, 0.5f);
             rt.anchorMax = new Vector2(0, 0.5f);
-            rt.pivot = new Vector2(-5.8f, 1.1f); // 轴心对齐左下角
+            rt.pivot = new Vector2(-11.6f, 1f); // 轴心对齐左下角
 
             rt.anchoredPosition = GetButtonCanvasPosition();
 
             rt1.anchorMin = new Vector2(0, 0.5f);
             rt1.anchorMax = new Vector2(0, 0.5f);
-            rt1.pivot = new Vector2(-5.28f, 0.3f); // 轴心对齐左下角
+            rt1.pivot = new Vector2(-11.6f, 0.3f); // 轴心对齐左下角
 
             rt1.anchoredPosition = GetButtonCanvasPosition();
 
