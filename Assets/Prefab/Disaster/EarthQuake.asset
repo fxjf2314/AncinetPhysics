@@ -18,6 +18,7 @@ MonoBehaviour:
     title: "\u5730\u9707"
     area: 
     effect: 
+    detailDes: 
   cardPrefab: {fileID: 0}
   title: "\u5730\u9707"
   images:
@@ -27,7 +28,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cbb86c658a5eb794480f4aab97975e24, type: 3}
   - {fileID: 21300000, guid: 0f09a89e70515bc449ccb024f1ae20f9, type: 3}
   cValue: 0.001
-  population: 1
+  population: 0
   probability: 1
   coinRatio: 0.5
   foodRatio: 0.5

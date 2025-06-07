@@ -18,7 +18,7 @@ public class HandCardSlot : MonoBehaviour//,IPointerClickHandler
 
     //public Card MyCard { get => card; set => card = value; }
 
-    private void Start()
+    private void Awake()
     {
         HandCard.MyInstance.targetArea = null;
         for (int i = 0; i < HandCard.MyInstance.applicationArea.Length; i++)

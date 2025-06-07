@@ -21,13 +21,16 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
         }
     }
 
+    public bool isLevelMode;
+
     public AreaScript targetArea;
     public AreaScript[] applicationArea=new AreaScript[5];
     public AreaScript[] allarea=new AreaScript[5];
 
     private int totalCardNum;
 
-    
+   
+
     public List<Card> cards;//从选牌阶段获取卡组
 
     [SerializeField]
@@ -40,10 +43,18 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
 
     
 
-    private void Start()
+    private void Awake()
     {
         if (HandCardGroup.Instance != null)
+        {
             cards = HandCardGroup.Instance.handCards;
+            isLevelMode = false;
+        }
+        else
+        {
+            cards = ConfirmedCardsManager.MyInstance.ConfirmedCards;
+            isLevelMode = true;
+        }
         foreach(Card card in cards)
         {
             if (card != null)
@@ -54,33 +65,11 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
         }
 
         if(!GameSeed.MyInstance.isCardSeedInit)
-        GameSeed.MyInstance.InitSeed();
+            GameSeed.MyInstance.InitSeed();
         
         
         int count = 0;
-        /*if(totalCardNum >= 4)
-        {
-            while (indexes.Count < 4)
-            {
-                int index = UnityEngine.Random.Range(0, totalCardNum);
-                if (cards[index] != null)
-                {
-                    indexes.Add(index);
-                }
-
-            }
-        }
-        else
-        {
-            while (indexes.Count < (int)totalCardNum)
-            {
-                int index = UnityEngine.Random.Range(0, totalCardNum);
-                if (cards[index] != null)
-                {
-                    indexes.Add(index);
-                }
-            }
-        }*/
+       
         
         foreach(int index in GameSeed.MyInstance.cardSeed)
         {
@@ -113,22 +102,7 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
         }
     }
 
-    private void Update()
-    {
-        //if(Input.GetKeyDown(KeyCode.M))
-        //{
-        //    handCards[0] = cards[0];
-        //    foreach(HandCardSlot slot in slots)
-        //    {
-        //        if (slot.MyCard == null)
-        //        {
-        //            slot.MyCard = handCards[0];
-        //            break;
-        //        }
-        //    }
-        //}
-
-    }
+    
 
     public void NextCard(HandCardSlot slot)
     {
@@ -164,33 +138,7 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
 
 
 
-        /*int totalCount = indexes.Count;
-        if(indexes.Count != totalCardNum)
-        {
-            while (indexes.Count < (totalCount + 1))
-            {
-                int index = UnityEngine.Random.Range(0, totalCardNum);
-                if (cards[index] != null)
-                {
-                    indexes.Add(index);
-                }
-                
-            }
-            int[] array = indexes.ToArray();
-            handCards[3] = cards[array[indexes.Count - 1]];
-            slots[3].MyCard = cards[array[indexes.Count - 1]];
-        }
-        else
-        {
-            handCards[3] = null;
-            slots[3].MyCard = null;
-            Color color = slots[3].handCardBack.color;
-            color.a = 0;
-            slots[3].handCardBack.color = color;
-
-            slots[3].handCardIcon.color = color;
-            slots[3].handcardTitle.text = "";
-        }*/
+        
 
     }
 

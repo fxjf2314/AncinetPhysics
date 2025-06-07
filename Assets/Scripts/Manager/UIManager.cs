@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     }
 
     #region 变量
+    public int finalRound;
     public float coinmessage;
     public float foodmessage;
     public float populationmessage;
@@ -83,10 +84,27 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
 
     private void Start()
     {
+        totalPopulation = 0;
+        foreach (AreaScript area in areas)
+        {
+            totalPopulation += area.areaDetail.population;
+            
+            populationmessage = totalPopulation;
+            
+        }
+        populationText.text = totalPopulation.ToString();
+        if (HandCard.MyInstance.isLevelMode == false)
+        {
+            finalRound = 10;
+        }
+        else
+        {
+            finalRound = ConfirmedCardsManager.MyInstance.StageRound;
+        }
         //setting.onClick.AddListener(()=>OpenSettingPanel());
         //totalRound = 1;
-        roundText.text = $"{totalRound}/10";
-        //Debug.Log("Start函数");
+        
+        roundText.text = $"{totalRound}/{finalRound}";
         foreach (var area in areas)
         {
             StartCoroutine(CheckPeople(area.areaDetail.oPopulation));
@@ -96,7 +114,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     #region 下一回合按钮代码块
     public void NextRound()
     {
-        if (totalRound < 10)
+        if (totalRound < finalRound)
         {
             lastCoin = totalCoin;
             lastFood = totalFood;
@@ -104,7 +122,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             totalPopulation = 0;
             
             totalRound++;
-            roundText.text = $"{totalRound}/10";
+            roundText.text = $"{totalRound}/{finalRound}";
             
             foreach (AreaScript area in areas)
             {
@@ -130,7 +148,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             ButtonsManager.MyInstance.waitIcon.transform.gameObject.SetActive(false);
             
         }
-        else if (totalRound == 10)
+        else if (totalRound == finalRound)
         {
             totalPopulation = 0;
             
@@ -227,7 +245,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
 
     public void UpdataUI()
     {
-        roundText.text = $"{totalRound}/10";
+        roundText.text = $"{totalRound}/ {finalRound}";
         coinText.text = totalCoin.ToString();
         foodText.text = totalFood.ToString();
         populationText.text = totalPopulation.ToString();
