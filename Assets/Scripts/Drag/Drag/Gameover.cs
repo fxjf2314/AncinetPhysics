@@ -70,8 +70,8 @@ public class Gameover : MonoBehaviour
     {
 
         finalscore = (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage));
-
-        if (UIManager.MyInstance.totalRound == 11)
+        
+        if (UIManager.MyInstance.totalRound == UIManager.MyInstance.finalRound + 1)
         {
             
             drageffect.Instance.allban = true;

@@ -39,7 +39,7 @@ public class SettingPanelManager : MonoBehaviour
 
         goToTitleBtn.onClick.AddListener(() =>
         {
-            TipPanelManager.Instance.OpenPanel(BtnFunction.goToTitle, "是否返回标题界面\n!未保存的数据将被清除!");
+            TipPanelManager.Instance.OpenPanel(BtnFunction.goToTitle, "是否返回标题界面\n*未保存的数据将被清除*");
         });
     }
 }
