@@ -133,7 +133,6 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
         else if (totalRound == 10)
         {
             totalPopulation = 0;
-            
             totalRound++;
             foreach (AreaScript area in areas)
             {
@@ -155,6 +154,8 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             ButtonsManager.MyInstance.isPlaceCard = false;
             ButtonsManager.MyInstance.SearchEvent();
             ButtonsManager.MyInstance.waitIcon.transform.gameObject.SetActive(false);
+            
+            AchievementControl.Instance.GameOverTestAchievement();
         }
 
     }
