@@ -19,4 +19,4 @@ MonoBehaviour:
   icon: "\u81F3\u5C11\u6709\u56DB\u4E2A\u533A\u57DF\u540C\u65F6\u51FA\u73B0\u6218\u706B"
   addicon: 
   ifhide: 0
-  finish: 1
+  finish: 0

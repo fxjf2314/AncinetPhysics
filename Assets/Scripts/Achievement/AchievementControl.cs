@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AchievementControl : MonoBehaviour
 {
@@ -25,6 +27,9 @@ public class AchievementControl : MonoBehaviour
     public int disastertime;
     public int[] usecardtime=new int[21];
 
+    public int beforeachis;
+    public int nowachis;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -35,6 +40,16 @@ public class AchievementControl : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+        Achievements.Instance.Loadallachievement();
+        Achievements.Instance.Saveallachievement();
+        foreach (int i in usecardtime)
+        {
+            usecardtime[i] = PlayerPrefs.GetInt("card" + i, 0);
+        }
+        minscore = PlayerPrefs.GetInt("minscore", 0);
+        maxscore = PlayerPrefs.GetInt("maxscore", 0);
+        beforeachis = PlayerPrefs.GetInt("beforeachievement", 0);
+        nowachis = PlayerPrefs.GetInt("nowachievement", 0);
     }
 
     void Start()
@@ -45,14 +60,6 @@ public class AchievementControl : MonoBehaviour
         if16happen = false;
         ifnewgame = false;
         disastertime = 0;
-        Achievements.Instance.Loadallachievement();
-        Achievements.Instance.Saveallachievement();
-        foreach(int i in usecardtime)
-        {
-            usecardtime[i]=PlayerPrefs.GetInt("card"+i, 0);
-        }
-        minscore = PlayerPrefs.GetInt("minscore", 0);
-        maxscore = PlayerPrefs.GetInt("maxscore", 0);
     }
 
 
@@ -76,6 +83,7 @@ public class AchievementControl : MonoBehaviour
                 }
             }
         }
+
     }
 
     public void GameOverTestAchievement()
@@ -272,6 +280,8 @@ public class AchievementControl : MonoBehaviour
                 }
             }//18
 
+            //19在test
+
             if (disastertime > 0)
             {
                 int time = PlayerPrefs.GetInt("disastertime", 0);
@@ -287,6 +297,13 @@ public class AchievementControl : MonoBehaviour
                 PlayerPrefs.DeleteKey("maxscore");
                 PlayerPrefs.SetInt("maxscore",maxscore);
                 PlayerPrefs.Save();
+                if (minscore == 0)
+                {
+                    minscore = (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage));
+                    PlayerPrefs.DeleteKey("minscore");
+                    PlayerPrefs.SetInt("minscore", minscore);
+                    PlayerPrefs.Save();
+                }
             }
             else if((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) < minscore)
             {
@@ -298,7 +315,41 @@ public class AchievementControl : MonoBehaviour
             #endregion
             if (newachievement > 0)
             {
+                nowachis += newachievement;
+                PlayerPrefs.DeleteKey("nowachievement");
+                PlayerPrefs.SetInt("nowachievement",nowachis);
+                PlayerPrefs.Save();
                 Achievements.Instance.Saveallachievement();
+            }
+        }
+    }
+
+    public void Test20()
+    {
+        if (Input.GetMouseButtonDown(1)) // 1 表示右键
+        {
+            Vector2 mousePosition = Input.mousePosition;
+
+            RectTransform rectTransform = Statistic.Instance.exitbutton.GetComponent<RectTransform>();
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, mousePosition, null, out Vector2 localPoint);
+
+            if (rectTransform.rect.Contains(localPoint))
+            {
+                if (Achievements.Instance.achievements[20].finish == false)
+                {
+                    Achievements.Instance.achievements[20].finish = true;
+                    nowachis++;
+                    PlayerPrefs.DeleteKey("nowachievement");
+                    PlayerPrefs.SetInt("nowachievement", nowachis);
+                    PlayerPrefs.Save();
+                }
+#if UNITY_EDITOR
+                // 如果是在Unity编辑器中，调用Unity的关闭方法
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+			// 如果是在构建的游戏中，调用Application的退出方法
+			Application.Quit();
+#endif
             }
         }
     }

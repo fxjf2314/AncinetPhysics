@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
+    public Slider slider;
+    public Button button;
+    public Sprite closevoice;
+
     void Start()
     {
         if (FindObjectOfType<HandCardGroup>() != null)
@@ -32,5 +37,30 @@ public class Test : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void Achi19()
+    {
+        if (!Achievements.Instance.achievements[19].finish)
+        {
+            if (slider.value == -80 && button.gameObject.GetComponent<Image>().sprite == closevoice)
+            {
+                Invoke("Ifalso", 0.001f);
+            }
+        }
+    }
+
+    void Ifalso()
+    {
+        CancelInvoke("Ifalso");
+        if(button.gameObject.GetComponent<Image>().sprite == closevoice)
+        {
+            Achievements.Instance.achievements[19].finish = true;
+            AchievementControl.Instance.nowachis++;
+            PlayerPrefs.DeleteKey("nowachievement");
+            PlayerPrefs.SetInt("nowachievement", AchievementControl.Instance.nowachis);
+            PlayerPrefs.Save();
+            Achievements.Instance.Saveallachievement();
+        }
     }
 }

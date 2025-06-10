@@ -46,11 +46,11 @@ public class Achievements : MonoBehaviour
         {
             if (one != null)
             {
-                if (PlayerPrefs.GetInt("achievement" + one.id.ToString()) == 0)
+                if (PlayerPrefs.GetInt("achievement" + one.id.ToString(),0) == 0)
                 {
                     one.finish = false;
                 }
-                else if (PlayerPrefs.GetInt("achievement" + one.id.ToString()) == 1)
+                else if (PlayerPrefs.GetInt("achievement" + one.id.ToString(),0) == 1)
                 {
                     one.finish = true;
                 }

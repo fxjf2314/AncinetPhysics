@@ -17,9 +17,18 @@ public class LookAchievement : MonoBehaviour
     public GameObject achievementpage;
     public GameObject btnpanel;
 
+    public GameObject newachitip;
+
     void Start()
     {
-
+        if(AchievementControl.Instance.nowachis> AchievementControl.Instance.beforeachis)
+        {
+            newachitip.SetActive(true);
+        }
+        else
+        {
+            newachitip.SetActive(false);
+        }
     }
 
     void Update()
@@ -29,10 +38,14 @@ public class LookAchievement : MonoBehaviour
             dot[i].GetComponent<Image>().color = simpledot;
         }
         dot[nowpage].GetComponent<Image>().color = hitdot;
+
+        AchievementControl.Instance.Test20();
     }
 
     public void OpenAchievement()
     {
+        AchievementControl.Instance.beforeachis=AchievementControl.Instance.nowachis;
+        newachitip.SetActive(false);
         btnpanel.SetActive(false);
         nowpage = 1;
         page.transform.localPosition = new Vector3(0, 0, 0);
