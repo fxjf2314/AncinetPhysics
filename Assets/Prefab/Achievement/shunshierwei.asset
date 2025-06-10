@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c965e1d48a8b084dbe7e00b394240c4, type: 3}
   m_Name: shunshierwei
   m_EditorClassIdentifier: 
-  id: 8
+  id: 11
   achievementname: "\u987A\u52BF\u800C\u4E3A"
+  blacksprite: {fileID: 0}
+  finishsprite: {fileID: 0}
   icon: "\u6210\u529F\u4F7F\u7528\u201C\u6D51\u5929\u4EEA\"\u4F7F\u707E\u5BB3\u63D0\u4F9B\u6B63\u6536\u76CA"
   addicon: 
   ifhide: 0

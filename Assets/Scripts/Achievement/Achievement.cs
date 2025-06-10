@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,11 @@ public class Achievement : MonoBehaviour
     GameObject finish;
     Sprite blacksprite;
     Sprite finishsprite;
+    TextMeshProUGUI icon;
     void Start()
     {
         finish=gameObject.transform.GetChild(2).gameObject;
+        icon=gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         int.TryParse(gameObject.name,out id);
         achievement = Achievements.Instance.achievements[id];
         //finishsprite=achievement.finishsprite;
@@ -26,6 +29,7 @@ public class Achievement : MonoBehaviour
             if (achievement.finish)
             {
                 finish.SetActive (true);
+                icon.text=achievement.icon;
                 //gameObject.GetComponent<Image>().sprite = finishsprite;
             }
             else

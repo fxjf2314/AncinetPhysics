@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c965e1d48a8b084dbe7e00b394240c4, type: 3}
-  m_Name: Achievement
+  m_Name: beishuichexin
   m_EditorClassIdentifier: 
   id: 18
-  achievementname: 
-  icon: 
+  achievementname: "\u676F\u6C34\u8F66\u85AA"
+  blacksprite: {fileID: 0}
+  finishsprite: {fileID: 0}
+  icon: "\u5728\u4F7F\u7528\u4E86\u5361\u724C\u7684\u60C5\u51B5\u4E0B\u6700\u7EC8\u5206\u6570\u4E0D\u9AD8\u4E8E15000\u5206"
   addicon: 
   ifhide: 0
   finish: 0

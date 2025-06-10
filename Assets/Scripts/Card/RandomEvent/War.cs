@@ -38,6 +38,27 @@ public class War : RandomEvent
         if (Random.Range(0f, 1f) <= winProbability)
         {
             randomEventTips.text += GetAreaName(area) + "սʤ" + GetAreaName(surroundingArea)+"\n";
+            if(AchievementControl.Instance.test&& Achievements.Instance.achievements[13].finish == false)
+            {
+                switch (area.name)
+                {
+                    case "North":
+                        AchievementControl.Instance.warwintime[1]++;
+                        break;
+                    case "West":
+                        AchievementControl.Instance.warwintime[2]++;
+                        break;
+                    case "South":
+                        AchievementControl.Instance.warwintime[3]++;
+                        break;
+                    case "Center":
+                        AchievementControl.Instance.warwintime[4]++;
+                        break;
+                    case "WestSouth":
+                        AchievementControl.Instance.warwintime[5]++;
+                        break;
+                }
+            }//13
             Depopulation(area, probability,wPopulation);
             Depopulation(surroundingArea, probability,dPopulation);
             DeFoodCoin(area, surroundingArea);
@@ -45,6 +66,27 @@ public class War : RandomEvent
         else
         {
             randomEventTips.text += GetAreaName(surroundingArea) + "սʤ" + GetAreaName(area) + "\n";
+            if (AchievementControl.Instance.test && Achievements.Instance.achievements[13].finish == false)
+            {
+                switch (surroundingArea.name)
+                {
+                    case "North":
+                        AchievementControl.Instance.warwintime[1]++;
+                        break;
+                    case "West":
+                        AchievementControl.Instance.warwintime[2]++;
+                        break;
+                    case "South":
+                        AchievementControl.Instance.warwintime[3]++;
+                        break;
+                    case "Center":
+                        AchievementControl.Instance.warwintime[4]++;
+                        break;
+                    case "WestSouth":
+                        AchievementControl.Instance.warwintime[5]++;
+                        break;
+                }
+            }//13
             Depopulation(surroundingArea, probability, wPopulation);
             Depopulation(area,probability,dPopulation);
             DeFoodCoin(surroundingArea, area);

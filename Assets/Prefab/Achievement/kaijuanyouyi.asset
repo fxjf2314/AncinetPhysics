@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c965e1d48a8b084dbe7e00b394240c4, type: 3}
   m_Name: kaijuanyouyi
   m_EditorClassIdentifier: 
-  id: 15
+  id: 9
   achievementname: "\u5F00\u5377\u6709\u76CA"
   blacksprite: {fileID: 0}
   finishsprite: {fileID: 0}

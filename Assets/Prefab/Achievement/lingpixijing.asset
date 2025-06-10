@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c965e1d48a8b084dbe7e00b394240c4, type: 3}
-  m_Name: zonghuofan
+  m_Name: lingpixijing
   m_EditorClassIdentifier: 
-  id: 12
-  achievementname: "\u706B\u70E7\u8FDE\u8425"
-  icon: "\u81F3\u5C11\u6709\u56DB\u4E2A\u533A\u57DF\u540C\u65F6\u51FA\u73B0\u6218\u706B"
+  id: 20
+  achievementname: "\u53E6\u8F9F\u8E4A\u5F84"
+  icon: "\u901A\u8FC7\u53F3\u952E\u70B9\u51FB\u4E3B\u9875\u9762\u201C\u9000\u51FA\u201D\u952E\u9000\u51FA\u6E38\u620F"
   addicon: 
-  ifhide: 0
+  ifhide: 1
   finish: 0

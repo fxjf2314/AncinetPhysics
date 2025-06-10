@@ -11,8 +11,18 @@ public class AchievementControl : MonoBehaviour
 
     private HandCard handcard;
 
+    public bool if11happen;
+    public bool if12happen;
+    public bool if16happen;
+
     public bool test;
+    public bool ifnewgame;
     public int newachievement;
+    public int[] warwintime;
+
+    public int minscore;
+    public int maxscore;
+    public int disastertime;
     public int[] usecardtime=new int[21];
 
     private void Awake()
@@ -30,14 +40,42 @@ public class AchievementControl : MonoBehaviour
     void Start()
     {
         newachievement=0;
+        if11happen = false;
+        if12happen = false;
+        if16happen = false;
+        ifnewgame = false;
+        disastertime = 0;
         Achievements.Instance.Loadallachievement();
         Achievements.Instance.Saveallachievement();
+        foreach(int i in usecardtime)
+        {
+            usecardtime[i]=PlayerPrefs.GetInt("card"+i, 0);
+        }
+        minscore = PlayerPrefs.GetInt("minscore", 0);
+        maxscore = PlayerPrefs.GetInt("maxscore", 0);
     }
 
 
     void Update()
     {
-        
+        if (test)
+        {
+            if(Achievements.Instance.achievements[12].finish == false)
+            {
+                int fire = 0;
+                foreach(AreaScript area in HandCard.MyInstance.allarea)
+                {
+                    if (area.gameObject.transform.GetChild(1).gameObject.activeSelf)
+                    {
+                        fire++;
+                    }
+                }
+                if (fire >= 4)
+                {
+                    if12happen = true;
+                }
+            }
+        }
     }
 
     public void GameOverTestAchievement()
@@ -66,6 +104,15 @@ public class AchievementControl : MonoBehaviour
                 Achievements.Instance.achievements[4].finish = true;
                 newachievement++;
             }//4
+
+            if (Achievements.Instance.achievements[5].finish == false)
+            {
+                if (disastertime >= 5)
+                {
+                    Achievements.Instance.achievements[5].finish = true;
+                    newachievement++;
+                }
+            }//5
 
             if (Achievements.Instance.achievements[6].finish == false)
             {
@@ -98,15 +145,23 @@ public class AchievementControl : MonoBehaviour
                 }
             }//7
 
-            if (Achievements.Instance.achievements[9].finish == false)
+            if ((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) >= 24000 && Achievements.Instance.achievements[8].finish == false)
             {
-                foreach (AreaScript area in handcard.allarea)
+                if (handcard.cards.Count == 0)
                 {
-                    if (area.cards.Contains(Cards.Instance.cards[19])&&area.cards.Contains(Cards.Instance.cards[17])) 
+                    Achievements.Instance.achievements[8].finish = true;
+                    newachievement++;
+                }
+            }//8
+
+            if ((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) >= 30000 && Achievements.Instance.achievements[9].finish == false)
+            {
+                if (handcard.cards.Count == 4)
+                {
+                    if (handcard.cards.Contains(Cards.Instance.cards[1]) && handcard.cards.Contains(Cards.Instance.cards[11]) && handcard.cards.Contains(Cards.Instance.cards[12]) && handcard.cards.Contains(Cards.Instance.cards[13]))
                     {
                         Achievements.Instance.achievements[9].finish = true;
                         newachievement++;
-                        break;
                     }
                 }
             }//9
@@ -122,14 +177,32 @@ public class AchievementControl : MonoBehaviour
                 }
             }//10
 
-            if ((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) >= 24000 && Achievements.Instance.achievements[11].finish == false)
+            if (if11happen)
             {
-                if (handcard.cards.Count == 0)
-                {
-                        Achievements.Instance.achievements[11].finish = true;
-                        newachievement++;
-                }
+                Achievements.Instance.achievements[11].finish = true;
+                newachievement++;
+                if11happen = false;
             }//11
+
+            if (if12happen)
+            {
+                Achievements.Instance.achievements[12].finish = true;
+                newachievement++;
+                if12happen = false;
+            }//12
+
+            if (Achievements.Instance.achievements[13].finish == false)
+            {
+                foreach(int time in warwintime)
+                {
+                    if (time >= 4)
+                    {
+                        Achievements.Instance.achievements[13].finish = true;
+                        newachievement++;
+                        break;
+                    }
+                }
+            }//13
 
             if (Achievements.Instance.achievements[14].finish == false)
             {
@@ -144,23 +217,33 @@ public class AchievementControl : MonoBehaviour
                 }
             }//14
 
-            if ((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) >= 30000 && Achievements.Instance.achievements[15].finish == false)
+            if (Achievements.Instance.achievements[15].finish == false)
             {
-                if (handcard.cards.Count == 4)
+                foreach (AreaScript area in handcard.allarea)
                 {
-                    if (handcard.cards.Contains(Cards.Instance.cards[1]) && handcard.cards.Contains(Cards.Instance.cards[11]) && handcard.cards.Contains(Cards.Instance.cards[12]) && handcard.cards.Contains(Cards.Instance.cards[13]))
+                    if (area.cards.Contains(Cards.Instance.cards[19]) && area.cards.Contains(Cards.Instance.cards[17]))
                     {
                         Achievements.Instance.achievements[15].finish = true;
                         newachievement++;
+                        break;
                     }
                 }
             }//15
 
-            for(int i = 1; i < Cards.Instance.cards.Count; i++)
+            if (if16happen && Achievements.Instance.achievements[16].finish == false)
+            {
+                    if (handcard.cards.Contains(Cards.Instance.cards[2]) && handcard.cards.Contains(Cards.Instance.cards[3]) && handcard.cards.Contains(Cards.Instance.cards[7]) && handcard.cards.Contains(Cards.Instance.cards[15]))
+                    {
+                        Achievements.Instance.achievements[16].finish = true;
+                        newachievement++;
+                    }
+            }//16
+
+            for (int i = 1; i < Cards.Instance.cards.Count; i++)
             {
                 if (handcard.cards.Contains(Cards.Instance.cards[i]))
                 {
-                    usecardtime[i]=PlayerPrefs.GetInt("card"+i);
+                    usecardtime[i]=PlayerPrefs.GetInt("card"+i,0);
                     usecardtime[i]++;
                     PlayerPrefs.DeleteKey("card"+i);
                     PlayerPrefs.SetInt("card"+i, usecardtime[i]);
@@ -174,13 +257,50 @@ public class AchievementControl : MonoBehaviour
                         }
                     }
                 }
-            }//统计卡牌使用次数+17
+            }//统计卡牌使用次数+ 成就17判断
 
+            if (Achievements.Instance.achievements[18].finish == false&& (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage))<=15000)
+            {
+                foreach (AreaScript area in handcard.allarea)
+                {
+                    if (area.cards.Count>0)
+                    {
+                        Achievements.Instance.achievements[18].finish = true;
+                        newachievement++;
+                        break;
+                    }
+                }
+            }//18
+
+            if (disastertime > 0)
+            {
+                int time = PlayerPrefs.GetInt("disastertime", 0);
+                time += disastertime;
+                PlayerPrefs.DeleteKey("disastertime");
+                PlayerPrefs.SetInt("disastertime", time);
+                PlayerPrefs.Save();
+            }
+            #region 存储最大分数和最小分数
+            if ((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) > maxscore)
+            {
+                maxscore = (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage));
+                PlayerPrefs.DeleteKey("maxscore");
+                PlayerPrefs.SetInt("maxscore",maxscore);
+                PlayerPrefs.Save();
+            }
+            else if((int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage)) < minscore)
+            {
+                minscore = (int)((UIManager.MyInstance.coinmessage + UIManager.MyInstance.foodmessage));
+                PlayerPrefs.DeleteKey("minscore");
+                PlayerPrefs.SetInt("minscore", minscore);
+                PlayerPrefs.Save();
+            }
+            #endregion
             if (newachievement > 0)
             {
-                Debug.Log("1111");
                 Achievements.Instance.Saveallachievement();
             }
         }
     }
+
 }
