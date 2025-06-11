@@ -60,7 +60,7 @@ public class Test : MonoBehaviour
             PlayerPrefs.DeleteKey("nowachievement");
             PlayerPrefs.SetInt("nowachievement", AchievementControl.Instance.nowachis);
             PlayerPrefs.Save();
-            Achievements.Instance.Saveallachievement();
+            Achievements.Instance.Saveachievement(19);
         }
     }
 }

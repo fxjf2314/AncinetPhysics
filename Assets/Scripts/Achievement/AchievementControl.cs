@@ -338,6 +338,7 @@ public class AchievementControl : MonoBehaviour
                 if (Achievements.Instance.achievements[20].finish == false)
                 {
                     Achievements.Instance.achievements[20].finish = true;
+                    Achievements.Instance.Saveachievement(20);
                     nowachis++;
                     PlayerPrefs.DeleteKey("nowachievement");
                     PlayerPrefs.SetInt("nowachievement", nowachis);
