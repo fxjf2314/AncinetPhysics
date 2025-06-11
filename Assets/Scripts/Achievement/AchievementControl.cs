@@ -115,7 +115,7 @@ public class AchievementControl : MonoBehaviour
 
             if (Achievements.Instance.achievements[5].finish == false)
             {
-                if (disastertime >= 5)
+                if (disastertime >= 4)
                 {
                     Achievements.Instance.achievements[5].finish = true;
                     newachievement++;
@@ -326,7 +326,7 @@ public class AchievementControl : MonoBehaviour
 
     public void Test20()
     {
-        if (Input.GetMouseButtonDown(1)) // 1 ±íÊ¾ÓÒ¼ü
+        if (Input.GetMouseButtonDown(1))
         {
             Vector2 mousePosition = Input.mousePosition;
 
