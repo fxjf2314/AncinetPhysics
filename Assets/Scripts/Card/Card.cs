@@ -33,6 +33,9 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
     [SerializeField]
     private GameObject cardPrefab;
 
+    [SerializeField]
+    private SerializableDictionary<string, float> Effectiveness;
+
     public Sprite MyIcon { get => icon; }
     public int MyId { get => id; set => id = value; }
 
