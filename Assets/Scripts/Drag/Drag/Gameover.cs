@@ -16,6 +16,8 @@ public class Gameover : MonoBehaviour
     public Animator endscore;
     public GameObject endscore4;
     public GameObject tip;
+    public GameObject achievement;
+    public TextMeshProUGUI achievementnum;
     public TextMeshProUGUI population;
     public TextMeshProUGUI coin;
     public TextMeshProUGUI food;
@@ -44,6 +46,7 @@ public class Gameover : MonoBehaviour
     {
         //finalscoremes.SetActive(false);
         //finalscoretip.SetActive(false);
+        achievement.SetActive(false);
         ifgameover = true;
         endscore4.SetActive(false);
         tip.SetActive(false);
@@ -223,7 +226,15 @@ public class Gameover : MonoBehaviour
         {
             tip.SetActive(true);
         }
-        
+        if (achievement != null)
+        {
+            if (AchievementControl.Instance.newachievement > 0)
+            {
+                achievementnum.text= AchievementControl.Instance.newachievement.ToString();
+                achievement.SetActive(true);
+                AchievementControl.Instance.newachievement = 0;
+            }
+        }
     }
 
     private void GameOver()

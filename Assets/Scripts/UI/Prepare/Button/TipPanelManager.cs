@@ -62,6 +62,7 @@ public class TipPanelManager : MonoBehaviour
                     confirmBtn.onClick.AddListener(() =>
                     {
                         Debug.Log("¿ªÊ¼ÓÎÏ·");
+                        AchievementControl.Instance.ifnewgame = true;
                         Transition.Instance.LoadSceneWithTransition("wwwww");
                         this.gameObject.SetActive(false);
 
