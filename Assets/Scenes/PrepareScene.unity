@@ -8303,6 +8303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 5871242926787735953, guid: ba5a5df3252ef66468244454947b6fad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6744376144036704660, guid: ba5a5df3252ef66468244454947b6fad, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
