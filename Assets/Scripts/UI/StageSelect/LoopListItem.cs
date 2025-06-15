@@ -11,6 +11,9 @@ public class LoopListItem : MonoBehaviour {
     [SerializeField]
     private TMP_Text nameText;
 
+    [SerializeField]
+    private Color color;
+
     private Data currentData;
 
     public Data CurrentData => currentData;
@@ -19,6 +22,7 @@ public class LoopListItem : MonoBehaviour {
         currentData = data;
         backgroundImage.sprite = data.image;
         nameText.text = data.name;
+        color = data.color;
     }
 
     public int index;

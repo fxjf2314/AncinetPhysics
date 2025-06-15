@@ -36,8 +36,10 @@ public class HelpPanel : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI[] stageSetDes;                                                   
     #endregion
-    private Stage stageType = Stage.Defend;
-    
+    private Stage stageType;
+
+    private int starCount;
+
     private void Start()
     {
         foreach(Image image in rightIcon)
@@ -49,25 +51,30 @@ public class HelpPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        //记得删注释stageType = ConfirmedCardsManager.MyInstance.confirmStageType;
+        stageType = ConfirmedCardsManager.MyInstance.confirmStageType;
         foodCount.text = UIManager.MyInstance.totalFood.ToString();
         coinCount.text = UIManager.MyInstance.totalCoin.ToString();
         popuCount.text = UIManager.MyInstance.totalPopulation.ToString();
 
-        targetOne.text = string.Format("总得分到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[0],(UIManager.MyInstance.totalFood + UIManager.MyInstance.totalCoin), StageManager.MyInstance.stages[stageType].starsTarget[0]);
-        if((UIManager.MyInstance.totalFood + UIManager.MyInstance.totalCoin) == StageManager.MyInstance.stages[stageType].starsTarget[0])
+        targetOne.text = string.Format("总产出到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[0],UIManager.MyInstance.totalCoin, StageManager.MyInstance.stages[stageType].starsTarget[0]);
+        if(UIManager.MyInstance.totalCoin >= StageManager.MyInstance.stages[stageType].starsTarget[0] && rightIcon[0].enabled == false)
         {
             rightIcon[0].enabled = true;
+            starCount++;
         }
-        targetTwo.text = string.Format("总人口到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[1], UIManager.MyInstance.totalPopulation, StageManager.MyInstance.stages[stageType].starsTarget[1]);
-        if (UIManager.MyInstance.totalPopulation == StageManager.MyInstance.stages[stageType].starsTarget[1])
-        {
-            rightIcon[1].enabled = true;
-        }
-        targetThree.text = string.Format("总得分到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[2], (UIManager.MyInstance.totalFood + UIManager.MyInstance.totalCoin), StageManager.MyInstance.stages[stageType].starsTarget[2]);
-        if ((UIManager.MyInstance.totalFood + UIManager.MyInstance.totalCoin) == StageManager.MyInstance.stages[stageType].starsTarget[2])
+        
+        targetTwo.text = string.Format("总收成到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[1], UIManager.MyInstance.totalFood, StageManager.MyInstance.stages[stageType].starsTarget[1]);
+        if (UIManager.MyInstance.totalFood >= StageManager.MyInstance.stages[stageType].starsTarget[1] && rightIcon[1].enabled == false)
         {
             rightIcon[2].enabled = true;
+            starCount++;
+        }
+
+        targetThree.text = string.Format("总人口到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[2], UIManager.MyInstance.totalPopulation, StageManager.MyInstance.stages[stageType].starsTarget[2]);
+        if (UIManager.MyInstance.totalPopulation >= StageManager.MyInstance.stages[stageType].starsTarget[2] && rightIcon[2].enabled == false)
+        {
+            rightIcon[1].enabled = true;
+            starCount++;
         }
 
         stageSetTitle.text = StageManager.MyInstance.stages[stageType].stageSetTitle;
@@ -75,4 +82,6 @@ public class HelpPanel : MonoBehaviour
         stageSetDes[1].text = StageManager.MyInstance.stages[stageType].stageSetDescription[1];
 
     }
+
+    
 }
