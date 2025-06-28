@@ -44,6 +44,7 @@ public class LoadPanelManger : MonoBehaviour
         save1.onClick.AddListener(() =>
         {
             Debug.Log("跳转到存档1");
+            AchievementControl.Instance.test = true;
             Transition.Instance.LoadSceneWithTransition("wwwww", SaveTool.File_Name_01);
             //DataPersistence.Instance.LoadGame(SaveTool.File_Name_01);
         });
@@ -59,6 +60,7 @@ public class LoadPanelManger : MonoBehaviour
         save2.onClick.AddListener(() =>
         {
             Debug.Log("跳转到存档2");
+            AchievementControl.Instance.test = true;
             Transition.Instance.LoadSceneWithTransition("wwwww", SaveTool.File_Name_02);
             //DataPersistence.Instance.LoadGame(SaveTool.File_Name_02);
         });
@@ -74,6 +76,7 @@ public class LoadPanelManger : MonoBehaviour
         save3.onClick.AddListener(() =>
         {
             Debug.Log("跳转到存档3");
+            AchievementControl.Instance.test = true;
             Transition.Instance.LoadSceneWithTransition("wwwww", SaveTool.File_Name_03);
             //DataPersistence.Instance.LoadGame(SaveTool.File_Name_03);
         });

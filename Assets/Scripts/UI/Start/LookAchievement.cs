@@ -45,6 +45,9 @@ public class LookAchievement : MonoBehaviour
     public void OpenAchievement()
     {
         AchievementControl.Instance.beforeachis=AchievementControl.Instance.nowachis;
+        PlayerPrefs.DeleteKey("beforeachievement");
+        PlayerPrefs.SetInt("beforeachievement",AchievementControl.Instance.beforeachis);
+        PlayerPrefs.Save();
         newachitip.SetActive(false);
         btnpanel.SetActive(false);
         nowpage = 1;

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 18
   achievementname: "\u676F\u6C34\u8F66\u85AA"
-  blacksprite: {fileID: 0}
-  finishsprite: {fileID: 0}
+  blacksprite: {fileID: 21300000, guid: e7e248500efa92a4c91692f97e402dc4, type: 3}
+  finishsprite: {fileID: 21300000, guid: e7e248500efa92a4c91692f97e402dc4, type: 3}
   icon: "\u5728\u4F7F\u7528\u4E86\u5361\u724C\u7684\u60C5\u51B5\u4E0B\u6700\u7EC8\u5206\u6570\u4E0D\u9AD8\u4E8E15000\u5206"
   addicon: 
   ifhide: 0

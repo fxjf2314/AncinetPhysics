@@ -120,6 +120,7 @@ public static class SaveTool
         {
             setting.currentSave = NoSaveFile;
         }
+        Save(GameSetting_Name, setting);
     }
 
 }

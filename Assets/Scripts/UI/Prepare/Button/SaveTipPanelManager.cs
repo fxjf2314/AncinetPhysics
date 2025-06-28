@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveTipPanelManager : MonoBehaviour
@@ -68,12 +69,25 @@ public class SaveTipPanelManager : MonoBehaviour
             DeleteSave(index);
             delete.SetActive(false);
             saveTipPanel.SetActive(false);
+            DebugContinueBtn();
         });
         //Button cancelDelete = TransformFind.TransformFindChild(delete.transform, "No").GetComponent<Button>();
         //confirmDelete.onClick.AddListener(() =>
         //{
         //    delete.SetActive(false);
         //});
+    }
+
+    void DebugContinueBtn()
+    {
+        if(SceneManager.GetActiveScene().name == "StartScene")
+        {
+            StartButtons startButtons = FindFirstObjectByType<StartButtons>();
+            //if(startButtons != null)
+            {
+                startButtons.UpdateContinueBtn();
+            }
+        }
     }
 
     public void DeleteSave(int index)

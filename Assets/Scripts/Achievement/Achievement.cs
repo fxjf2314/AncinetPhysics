@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class Achievement : MonoBehaviour
 {
@@ -18,8 +20,8 @@ public class Achievement : MonoBehaviour
         icon=gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         int.TryParse(gameObject.name,out id);
         achievement = Achievements.Instance.achievements[id];
-        //finishsprite=achievement.finishsprite;
-        //blacksprite=achievement.blacksprite;
+        finishsprite=achievement.finishsprite;
+        blacksprite=achievement.blacksprite;
     }
 
     void Update()
@@ -30,12 +32,12 @@ public class Achievement : MonoBehaviour
             {
                 finish.SetActive (true);
                 icon.text=achievement.icon;
-                //gameObject.GetComponent<Image>().sprite = finishsprite;
+                gameObject.GetComponent<Image>().sprite = finishsprite;
             }
             else
             {
                 finish.SetActive (false);
-                //gameObject.GetComponent<Image>().sprite = blacksprite;
+                gameObject.GetComponent<Image>().sprite = blacksprite;
             }
         }
     }
