@@ -81,6 +81,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
         });
         freeGameBtm.onClick.AddListener(() =>
         {
+            AchievementControl.Instance.test=true;
             Transition.Instance.LoadSceneWithTransition("PrepareScene");
         });
 
@@ -89,6 +90,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
             isHaveSave = true;
             continueGameBtn.onClick.AddListener(() =>
             {
+                AchievementControl.Instance.test = true;
                 Transition.Instance.LoadSceneWithTransition("wwwww", GameSettingSave.Instance.setting.currentSave);
             });
         }

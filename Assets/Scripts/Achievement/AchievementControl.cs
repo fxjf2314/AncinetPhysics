@@ -37,17 +37,16 @@ public class AchievementControl : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         instance = this;
         DontDestroyOnLoad(gameObject);
-        foreach (int i in usecardtime)
-        {
-            usecardtime[i] = PlayerPrefs.GetInt("card" + i, 0);
-        }
         minscore = PlayerPrefs.GetInt("minscore", 0);
         maxscore = PlayerPrefs.GetInt("maxscore", 0);
         beforeachis = PlayerPrefs.GetInt("beforeachievement", 0);
         nowachis = PlayerPrefs.GetInt("nowachievement", 0);
+        for (int i = 1; i < usecardtime.Length; i++)
+        {
+            usecardtime[i] = PlayerPrefs.GetInt("card" + i, 0);
+        }
     }
 
     void Start()
@@ -67,19 +66,24 @@ public class AchievementControl : MonoBehaviour
     {
         if (test)
         {
-            if(Achievements.Instance.achievements[12].finish == false)
+            if (GameObject.Find("HandCard")!= null)
             {
-                int fire = 0;
-                foreach(AreaScript area in HandCard.MyInstance.allarea)
+                if (Achievements.Instance.achievements[12].finish == false)
                 {
-                    if (area.gameObject.transform.GetChild(1).gameObject.activeSelf)
+                    int fire = 0;
+
+                    foreach (AreaScript area in HandCard.MyInstance.allarea)
                     {
-                        fire++;
+                        if (area.gameObject.transform.GetChild(1).gameObject.activeSelf)
+                        {
+                            fire++;
+                        }
                     }
-                }
-                if (fire >= 4)
-                {
-                    if12happen = true;
+
+                    if (fire >= 4)
+                    {
+                        if12happen = true;
+                    }
                 }
             }
         }
