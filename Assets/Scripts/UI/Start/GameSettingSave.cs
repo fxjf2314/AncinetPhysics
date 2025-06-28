@@ -14,7 +14,7 @@ public class GameSettingSave : MonoBehaviour,ISaveAndLoadSetting
     {
         instance = this;
         setting = SaveTool.Load<GameSettingData>(SaveTool.GameSetting_Name);
-        if (setting == null )
+        if (setting == null || setting.currentSave == SaveTool.NoSaveFile)
         {
             isExistSave = false;
             Debug.Log("û�д浵");

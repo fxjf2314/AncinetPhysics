@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,13 +10,14 @@ using UnityEngine;
 public static class SaveTool
 {
     public const string Game_Name = "天工";
+    public const string NoSaveFile = "NoSave";
     public const string File_Name_01 = "Save01";
     public const string File_Name_02 = "Save02";
     public const string File_Name_03 = "Save03";
     public const string GameSetting_Name = "Setting";
 
     private static string mSavePath;
-
+    private const int maxFileCount = 3;
     //存档
     public static void Save<T>(string FileName, T data)
     {
@@ -85,6 +87,39 @@ public static class SaveTool
     static void ChangeSavePath(string FileName)
     {
         mSavePath = Application.persistentDataPath + "/" + Game_Name + "/" + FileName + ".json";
+    }
+
+    //在删除文件后自动更改存档文件名，传入删除的存档文件号
+    public static void ChangeFileName(int index)
+    {
+        for (int i = index; i < maxFileCount; i++)
+        {
+            // 定义原始文件路径和新文件名
+            string originalFilePath = Application.persistentDataPath + "/" + Game_Name + "/" + "Save0" + (i+1) + ".json"; ; // 替换为你的JSON文件路径
+            string newFileName = "Save0" + (i) + ".json"; // 新文件名
+            string newFilePath = Path.Combine(Path.GetDirectoryName(originalFilePath), newFileName);
+
+            // 检查原始文件是否存在
+            if (File.Exists(originalFilePath))
+            {
+                // 更改文件名
+                File.Move(originalFilePath, newFilePath);
+                Console.WriteLine($"文件已重命名为：{newFilePath}");
+            }
+            else
+            {
+                Console.WriteLine("原始文件不存在，请检查路径！");
+            }
+        }
+        GameSettingData setting = Load<GameSettingData>(GameSetting_Name);
+        if (File.Exists(Application.persistentDataPath + "/" + Game_Name + "/" + File_Name_01 + ".json"))
+        {
+            setting.currentSave = File_Name_01;
+        }
+        else
+        {
+            setting.currentSave = NoSaveFile;
+        }
     }
 
 }
