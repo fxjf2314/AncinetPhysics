@@ -45,16 +45,6 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
 
     private void Awake()
     {
-        if (HandCardGroup.Instance != null)
-        {
-            cards = HandCardGroup.Instance.handCards;
-            isLevelMode = false;
-        }
-        else
-        {
-            cards = ConfirmedCardsManager.MyInstance.ConfirmedCards;
-            isLevelMode = true;
-        }
         foreach(Card card in cards)
         {
             if (card != null)

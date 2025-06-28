@@ -93,7 +93,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             
         }
         populationText.text = totalPopulation.ToString();
-        if (HandCard.MyInstance.isLevelMode == false)
+        if (AchievementControl.Instance.test == false)
         {
             finalRound = 10;
         }

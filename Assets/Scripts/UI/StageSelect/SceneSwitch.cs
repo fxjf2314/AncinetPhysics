@@ -8,44 +8,120 @@ using static Unity.VisualScripting.Metadata;
 
 public class SceneSwitch : MonoBehaviour
 {
-    private static SceneSwitch instance;
-    public static SceneSwitch MyInstance => instance;
-    public string targetSceneName; // 目标场景的名称
-    private LoopList LoopList;
+    public static SceneSwitch Instance { get; private set; }
+
+    [Header("Scene Settings")]
+    //[SerializeField] private string defaultSceneName = "MainMenu";
+
+    private LoopList levelSelectionList;
+
+
+    private string targetSceneName;
+    
+    public string TargetSceneName => targetSceneName;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        LoopList = transform.GetComponent<LoopList>();
+        levelSelectionList = GetComponent<LoopList>();
+        if (levelSelectionList == null)
+        {
+            Debug.LogError("LoopList component not found on SceneSwitch object!");
+        }
     }
 
-    
-    public void LoadScene()
+    public void LoadSelectedLevel()
     {
+        if (TryGetSelectedLevel(out var selectedLevel))
+        {
+            if (IsLevelUnlocked(selectedLevel))
+            {
+                PrepareLevelData(selectedLevel);
+                LoadScene();
+            }
+            else
+            {
+                ShowLevelLockedMessage(selectedLevel);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No level selected or level not found!");
+            //LoadScene(defaultSceneName);
+        }
+    }
+
+    private bool TryGetSelectedLevel(out Data selectedLevel)
+    {
+        selectedLevel = new Data();
+
+        
+
         foreach (Transform item in transform)
         {
-            LoopListItem loopListItem = item.GetComponentInChildren<LoopListItem>();
-            if(loopListItem.index == 0)
+            var loopListItem = item.GetComponentInChildren<LoopListItem>();
+            if (loopListItem != null && loopListItem.index == 0)
             {
-                string nextScene = item.GetComponentInChildren<TextMeshProUGUI>().text;
-                targetSceneName = nextScene;
-                GetDataCard(nextScene);
+                string levelName = item.GetComponentInChildren<TextMeshProUGUI>().text;
+                targetSceneName = levelName;
+
+                foreach (Data data in levelSelectionList.data)
+                {
+                    if (data.name == levelName)
+                    {
+                        selectedLevel = data;
+                        return true;
+                    }
+                }
             }
         }
-        
+
+        return false;
     }
 
-    private void GetDataCard(string nextScene)
+    private bool IsLevelUnlocked(Data levelData)
     {
-        foreach(Data data in LoopList.data)
-        {
-            if(data.name == nextScene)
-            {
-                ConfirmedCardsManager.MyInstance.StageRound = data.StageRound;
-                ConfirmedCardsManager.MyInstance.ConfirmedCards = data.cards;
-                ConfirmedCardsManager.MyInstance.confirmStageType = data.stageType;
-            }
-        }
+        return LockManager.Instance.IsLevelUnlocked(levelData);
+    }
 
+    private void PrepareLevelData(Data levelData)
+    {
+        if (ConfirmedCardsManager.MyInstance != null)
+        {
+            ConfirmedCardsManager.MyInstance.StageRound = levelData.StageRound;
+            ConfirmedCardsManager.MyInstance.ConfirmedCards = levelData.cards;
+            ConfirmedCardsManager.MyInstance.confirmStageType = levelData.stageType;
+        }
+        else
+        {
+            Debug.LogError("ConfirmedCardsManager instance not found!");
+        }
+    }
+
+    private void ShowLevelLockedMessage(Data levelData)
+    {
+        //Debug.Log($"Level {levelData.name} is locked! {levelData.unlockHint}");
+        // 可以在这里调用UI系统显示提示
+    }
+
+    public void LoadScene()
+    {
+        
+        
+        SceneManager.LoadScene("wwwww");
+        
         
     }
 }

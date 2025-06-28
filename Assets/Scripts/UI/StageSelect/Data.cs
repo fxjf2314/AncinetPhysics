@@ -19,5 +19,11 @@ public struct Data {
     public int StageRound;
 
     public Stage stageType;
+
+    public bool isUnlocked;
+
+    public int requiredStars;
+
+    public string needText;
 }
 

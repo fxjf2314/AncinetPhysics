@@ -14,6 +14,15 @@ public class LoopListItem : MonoBehaviour {
     [SerializeField]
     private Color color;
 
+    [SerializeField]
+    private GameObject lockMask;
+
+    [SerializeField]
+    private Image lockIcon;
+
+    [SerializeField]
+    private TMP_Text labelText;
+    
     private Data currentData;
 
     public Data CurrentData => currentData;
@@ -23,6 +32,14 @@ public class LoopListItem : MonoBehaviour {
         backgroundImage.sprite = data.image;
         nameText.text = data.name;
         color = data.color;
+
+        bool isUnlocked = LockManager.Instance.IsLevelUnlocked(data);
+        lockMask.SetActive(!isUnlocked);
+
+        if(!isUnlocked)
+        {
+            labelText.text = data.needText ?? $"ÐèÒª {data.requiredStars} ¿ÅÐÇÐÇ½âËø";
+        }
     }
 
     public int index;
