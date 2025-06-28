@@ -24,6 +24,8 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
     Button exitGameBtn;
     [SerializeField]
     Button TutorialBtn;
+    [SerializeField]
+    Button achievementBtn;
     #endregion
 
     #region ±‰¡ø
@@ -114,7 +116,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
             MakeButtonInteractable(exitGameBtn);
             MakeButtonInteractable(loadGameBtn);
             MakeButtonInteractable(TutorialBtn);
-
+            MakeButtonInteractable(achievementBtn);
             isChooseMode = true;
             FadeOut(startGameBtnCanvas, startGameBtnTransform, startGameBtnPos);
             startGameBtnCanvas.blocksRaycasts = false;
@@ -210,6 +212,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
                 MakeButtonInteractable(exitGameBtn);
                 MakeButtonInteractable(loadGameBtn);
                 MakeButtonInteractable(TutorialBtn);
+                MakeButtonInteractable(achievementBtn);
                 isChooseMode = false;
                 FadeOut(stageGameBtnCanvas, stageGameBtnTransform, stageGameBtnStartPos);
                 FadeOut(freeGameBtnCanvas, freeGameBtnTransform, freeGameBtnStartPos);
@@ -225,9 +228,12 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
     void MakeButtonInteractable(Button button)
     {
         button.interactable = !button.interactable;
-        Image image = button.transform.Find("text").GetComponent<Image>();
-        Color color = image.color;
-        color.a = color.a == 0.5f ? 1f : 0.5f;
-        image.color = color;   
+        if (button.transform.Find("text") != null)
+        {
+            Image image = button.transform.Find("text").GetComponent<Image>();
+            Color color = image.color;
+            color.a = color.a == 0.5f ? 1f : 0.5f;
+            image.color = color;
+        }   
     }
 }
