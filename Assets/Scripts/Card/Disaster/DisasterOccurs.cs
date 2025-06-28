@@ -93,6 +93,10 @@ public class DisasterOccurs : MonoBehaviour
             tip.SetActive(true);
             images = DisasterManager.thisDisaster.images;
             AchievementControl.Instance.disastertime++;
+            if(DisasterManager.thisDisaster.title== "µØÕð")
+            {
+                AchievementControl.Instance.earthquaketime++;
+            }
             StartCoroutine(PlayImageSequence());
             if(area == null)
             {
