@@ -21,7 +21,7 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
         }
     }
 
-    public bool isLevelMode;
+    //public bool isLevelMode;
 
     public AreaScript targetArea;
     public AreaScript[] applicationArea=new AreaScript[5];
@@ -43,8 +43,17 @@ public class HandCard : MonoBehaviour,ISaveAndLoadGame
 
     
 
-    private void Awake()
+    private void Start()
     {
+        if(AchievementControl.Instance.test && HandCardGroup.Instance)
+        {
+            cards = HandCardGroup.Instance.handCards;
+        }
+        else if(!AchievementControl.Instance.test)
+        {
+            cards = ConfirmedCardsManager.MyInstance.ConfirmedCards;
+        }
+       
         foreach(Card card in cards)
         {
             if (card != null)

@@ -93,7 +93,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             
         }
         populationText.text = totalPopulation.ToString();
-        if (AchievementControl.Instance.test == false)
+        if (AchievementControl.Instance.test == true)
         {
             finalRound = 10;
         }

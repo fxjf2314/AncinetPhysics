@@ -8,12 +8,13 @@ public class Test : MonoBehaviour
     public Slider slider;
     public Button button;
     public Sprite closevoice;
+    public GameObject statebtn;
 
     void Start()
     {
-        if (FindObjectOfType<HandCardGroup>() != null)
+        if (AchievementControl.Instance.test)
         {
-            AchievementControl.Instance.test = true;
+            statebtn.SetActive(false);
             if (AchievementControl.Instance.ifnewgame)
             {
                 AchievementControl.Instance.ifnewgame = false;
@@ -29,7 +30,7 @@ public class Test : MonoBehaviour
         }
         else
         {
-            AchievementControl.Instance.test = false;
+            
         }
         DisasterManager.thisDisaster=null;
     }

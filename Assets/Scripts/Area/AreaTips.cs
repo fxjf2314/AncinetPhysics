@@ -76,6 +76,7 @@ public class AreaTips : MonoBehaviour
             tipsCanvasGroup.blocksRaycasts = true;
             tipsCanvasGroup.interactable = true;
             areaScript = area.transform.GetComponent<AreaScript>();
+            Debug.Log("run");
             PlacedAchivement(areaScript);
             areaName.text = areaScript.GetName();
             areaPopu.text = areaScript.GetPopulation();
