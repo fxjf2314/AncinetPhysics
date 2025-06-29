@@ -19,10 +19,9 @@ public class SettingPanelManager : MonoBehaviour
     private void Start()
     {
         AddListener();
-        if (VoiceSliderAndButtonManager.Instance != null)
-        {
+        
             VoiceSliderAndButtonManager.Instance.InitOtherSliderAndBtn(voiceSlider, voiceBtn);
-        }
+        
     }
 
     void AddListener()

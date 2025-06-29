@@ -24,6 +24,8 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
     Button exitGameBtn;
     [SerializeField]
     Button TutorialBtn;
+    [SerializeField]
+    Button achievementBtn;
     #endregion
 
     #region ±äÁ¿
@@ -81,26 +83,11 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
         });
         freeGameBtm.onClick.AddListener(() =>
         {
+            AchievementControl.Instance.test=true;
             Transition.Instance.LoadSceneWithTransition("PrepareScene");
         });
 
-        if(GameSettingSave.Instance.isExistSave)
-        {
-            isHaveSave = true;
-            continueGameBtn.onClick.AddListener(() =>
-            {
-                Transition.Instance.LoadSceneWithTransition("wwwww", GameSettingSave.Instance.setting.currentSave);
-            });
-        }
-        else
-        {
-            isHaveSave = false;
-            continueGameBtn.interactable = false;
-            Image tmp = continueGameBtn.transform.Find("text").GetComponent<Image>();
-            Color color = tmp.color;
-            color.a = 0.5f;
-            tmp.color = color;
-        }
+        UpdateContinueBtn();
 
         startGameBtn.onClick.AddListener(() =>
         {
@@ -112,7 +99,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
             MakeButtonInteractable(exitGameBtn);
             MakeButtonInteractable(loadGameBtn);
             MakeButtonInteractable(TutorialBtn);
-
+            MakeButtonInteractable(achievementBtn);
             isChooseMode = true;
             FadeOut(startGameBtnCanvas, startGameBtnTransform, startGameBtnPos);
             startGameBtnCanvas.blocksRaycasts = false;
@@ -138,6 +125,30 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
 			Application.Quit();
 #endif
         });
+    }
+
+    public void UpdateContinueBtn()
+    {
+        GameSettingSave.Instance.UpdateCurrentSave();
+        if (GameSettingSave.Instance.isExistSave)
+        {
+            isHaveSave = true;
+            continueGameBtn.onClick.RemoveAllListeners();
+            continueGameBtn.onClick.AddListener(() =>
+            {
+                AchievementControl.Instance.test = true;
+                Transition.Instance.LoadSceneWithTransition("wwwww", GameSettingSave.Instance.setting.currentSave);
+            });
+        }
+        else
+        {
+            isHaveSave = false;
+            continueGameBtn.interactable = false;
+            Image tmp = continueGameBtn.transform.Find("text").GetComponent<Image>();
+            Color color = tmp.color;
+            color.a = 0.5f;
+            tmp.color = color;
+        }
     }
 
     private void FadeIn(CanvasGroup canvasGroup,RectTransform tsf,Vector2 finalPos)
@@ -208,6 +219,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
                 MakeButtonInteractable(exitGameBtn);
                 MakeButtonInteractable(loadGameBtn);
                 MakeButtonInteractable(TutorialBtn);
+                MakeButtonInteractable(achievementBtn);
                 isChooseMode = false;
                 FadeOut(stageGameBtnCanvas, stageGameBtnTransform, stageGameBtnStartPos);
                 FadeOut(freeGameBtnCanvas, freeGameBtnTransform, freeGameBtnStartPos);
@@ -223,9 +235,12 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
     void MakeButtonInteractable(Button button)
     {
         button.interactable = !button.interactable;
-        Image image = button.transform.Find("text").GetComponent<Image>();
-        Color color = image.color;
-        color.a = color.a == 0.5f ? 1f : 0.5f;
-        image.color = color;   
+        if (button.transform.Find("text") != null)
+        {
+            Image image = button.transform.Find("text").GetComponent<Image>();
+            Color color = image.color;
+            color.a = color.a == 0.5f ? 1f : 0.5f;
+            image.color = color;
+        }   
     }
 }

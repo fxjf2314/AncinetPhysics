@@ -25,6 +25,8 @@ MonoBehaviour:
   cardPrefab: {fileID: 0}
   Effectiveness:
     keys:
+    - disaster
     - food
     values:
+    - 1
     - 1

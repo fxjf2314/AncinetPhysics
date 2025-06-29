@@ -13,8 +13,14 @@ public class GameSettingSave : MonoBehaviour,ISaveAndLoadSetting
     private void Awake()
     {
         instance = this;
+        UpdateCurrentSave();
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void UpdateCurrentSave()
+    {
         setting = SaveTool.Load<GameSettingData>(SaveTool.GameSetting_Name);
-        if (setting == null )
+        if (setting == null || setting.currentSave == SaveTool.NoSaveFile)
         {
             isExistSave = false;
             Debug.Log("û�д浵");
@@ -22,13 +28,11 @@ public class GameSettingSave : MonoBehaviour,ISaveAndLoadSetting
         }
         else
         {
-            if(setting.currentSave != null)
+            if (setting.currentSave != null)
             {
-                isExistSave=true;
+                isExistSave = true;
             }
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void SaveSetting(ref GameSettingData gameSettingData)

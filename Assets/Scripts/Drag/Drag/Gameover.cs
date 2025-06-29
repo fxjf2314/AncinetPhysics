@@ -242,6 +242,10 @@ public class Gameover : MonoBehaviour
         CancelInvoke("GameOver");
         ifover=true;
         ifshader = true;
+        if (StageEffect.Instance)
+        {
+            StageEffect.Instance.stageAffects[ConfirmedCardsManager.MyInstance.confirmStageType].ResetEffect();
+        }
     }
 
     private void Appearimage()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class TangSanCai : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         targetArea.PopulationControl(1);//其中一个区域
-                        HandCard.MyInstance.applicationArea[i].CoinControl(100);
+                        HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(100 * effectiveness["coin"]));
 
 
                     }

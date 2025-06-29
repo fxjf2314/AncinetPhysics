@@ -30,8 +30,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6f5f86ed37524e4a960361bfc47b09e, type: 3}
   - {fileID: 21300000, guid: 26e1dea92af24124891dbf6e6b4d5263, type: 3}
   - {fileID: 21300000, guid: 77e7a0a5ca46c8e4fb27a0875c59c9b0, type: 3}
-  o_cValue: 0.02
+  ocValue: 0.02
   cValue: 0.02
+  pValue: 0
   population: 1
   probability: 0.3
   coinRatio: 0.2

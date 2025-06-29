@@ -42,6 +42,7 @@ public class VoiceSliderAndButtonManager : MonoBehaviour
     public void InitOtherSliderAndBtn(Slider slider, Button button)
     {
         Debug.Log(button.name);
+        Debug.Log(Btn.name);
         slider.maxValue = Master.maxValue;
         slider.minValue = Master.minValue;
         slider.value = Master.value;

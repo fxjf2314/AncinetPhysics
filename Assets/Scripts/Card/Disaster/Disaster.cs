@@ -9,9 +9,9 @@ public class Disaster : Card
 {
     public string title;
     public Sprite[] images; // 存储所有图片
-    public double o_cValue;
+    public double ocValue;
     public double cValue;
-    private double pValue;
+    public double pValue;
     private int count;
     public int population;
     [Tooltip("失去人口的概率")]
@@ -25,6 +25,7 @@ public class Disaster : Card
     {
         count = 0;
         pValue = 0;
+        cValue = ocValue;
     }
     public void Judge()
     {

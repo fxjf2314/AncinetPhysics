@@ -77,9 +77,13 @@ public class ButtonGroup : MonoBehaviour
         currentDy = chunQiuZhanGuo;
         chunQiuZhanGuo.GetComponent<DragUI>().UpdateSlider();
         AddButtonListener();
-
-        if (VoiceSliderAndButtonManager.Instance != null)
+        if(VoiceSliderAndButtonManager.Instance != null)
         {
+            if (voiceBtn == null)
+            {
+                voiceBtn = voiceBtn.gameObject.AddComponent<Button>();
+            }
+            Debug.Log(voiceBtn.name);
             VoiceSliderAndButtonManager.Instance.InitOtherSliderAndBtn(voiceSlider, voiceBtn);
         }
 

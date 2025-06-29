@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public string saveFileName = "Î´ÃüÃû´æµµ";
     public List<Card> handCards;
     public AreasJson[] areas;
     public Vector3[] modelPosition;
