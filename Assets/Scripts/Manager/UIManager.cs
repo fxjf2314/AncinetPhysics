@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -176,7 +177,11 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             
             AchievementControl.Instance.GameOverTestAchievement();
         }
-        HelpPanel.Instance.UpdateHelpData();
+        if (!AchievementControl.Instance.test)
+        {
+            HelpPanel.Instance.UpdateHelpData();
+        }
+        
     }
 
     IEnumerator CheckPeople(int oPeople)

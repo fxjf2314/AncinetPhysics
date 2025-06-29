@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class Chongzhen : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
                         HandCard.MyInstance.applicationArea[i].PopulationControl(1);
-                        HandCard.MyInstance.applicationArea[i].FoodControl(100);
+                        HandCard.MyInstance.applicationArea[i].FoodControl(Convert.ToInt32(100 * effectiveness["food"]));
                     }
                 }
                 base.Use(area);

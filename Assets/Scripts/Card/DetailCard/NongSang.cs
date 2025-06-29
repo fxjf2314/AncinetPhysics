@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class NongSang : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].FoodControl(300);
+                        HandCard.MyInstance.applicationArea[i].FoodControl(Convert.ToInt32(300 * effectiveness["food"]));
                     }
                 }
                 base.Use(area);

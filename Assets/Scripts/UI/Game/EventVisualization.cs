@@ -115,7 +115,7 @@ public class EventVisualization : MonoBehaviour
         else
         {
             textMeshPro.color = new Color(0f, 0.5f, 0f);
-            textMeshPro.text = "+" + Convert.ToInt16(change);
+            textMeshPro.text = "+" + Convert.ToInt32(change);
         }
         Transform sign = textMeshPro.transform.GetChild(0);
         sign.GetComponent<SpriteRenderer>().sprite=signs[type];

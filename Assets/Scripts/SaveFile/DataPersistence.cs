@@ -85,6 +85,13 @@ public class DataPersistence : MonoBehaviour
         }
     }
 
+    public void DeleteGame(int index)
+    {
+        string deleteFile = "Save0" + index;
+        SaveTool.Delete<GameData>(deleteFile);
+        SaveTool.ChangeFileName(index);
+    }
+
     public void SaveGameSetting(string FileName)
     {
         settingPeresistenceObjs = FindAllSettingPersistenceObjs();

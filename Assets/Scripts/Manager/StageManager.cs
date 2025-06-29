@@ -20,7 +20,7 @@ public class StageManager : MonoBehaviour
 
     public SerializableDictionary<Stage, StageDetail> stages;
 
-    
+    public SerializableDictionary<Stage, StageEffect> effects;
 
-    
+
 }

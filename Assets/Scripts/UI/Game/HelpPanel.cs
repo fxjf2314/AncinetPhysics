@@ -55,7 +55,11 @@ public class HelpPanel : MonoBehaviour
     {
         Instance = this;
         canvasGroup = GetComponent<CanvasGroup>();
-        stageType = ConfirmedCardsManager.MyInstance.confirmStageType;
+        if(!AchievementControl.Instance.test)
+        {
+            stageType = ConfirmedCardsManager.MyInstance.confirmStageType;
+        }
+        
         foreach (Image image in rightIcon)
         {
             image.enabled = false;
@@ -109,6 +113,7 @@ public class HelpPanel : MonoBehaviour
         Settle();
     }
 
+
     public void Settle()
     {
         if(targetOneCompleted)
@@ -127,6 +132,7 @@ public class HelpPanel : MonoBehaviour
             PlayerProgress.Instance.CountCompeleted();
         }
     }
+
 
 
 }

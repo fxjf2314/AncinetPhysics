@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class SimpleMachine : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].CoinControl(180);
+                        HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(180 * effectiveness["coin"]));
                         if (area.areaDetail.Effectiveness["War"] > 0)
                             area.areaDetail.Effectiveness["War"] -= area.areaDetail.Effectiveness["War"] < 0.2f ? area.areaDetail.Effectiveness["War"] : 0.2f;
                     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class Mozi : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].CoinControl(200);
+                        HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(200 * effectiveness["coin"]));
                     }
                 }
                 base.Use(area);

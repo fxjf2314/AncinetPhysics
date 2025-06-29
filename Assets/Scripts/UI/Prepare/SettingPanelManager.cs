@@ -19,10 +19,19 @@ public class SettingPanelManager : MonoBehaviour
     private void Start()
     {
         AddListener();
-        if (VoiceSliderAndButtonManager.Instance != null)
-        {
+        
             VoiceSliderAndButtonManager.Instance.InitOtherSliderAndBtn(voiceSlider, voiceBtn);
+        if (AchievementControl.Instance.test)
+        {
+            saveBtn.interactable = true;
+            loadBtn.interactable = true;
         }
+        else
+        {
+            saveBtn.interactable = false;
+            loadBtn.interactable = false;
+        }
+
     }
 
     void AddListener()

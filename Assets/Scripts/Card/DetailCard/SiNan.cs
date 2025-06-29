@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class SiNan : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].CoinControl(150);
+                        HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(150 * effectiveness["coin"]));
                         if (area.areaDetail.Effectiveness["DustStorm"] > 0)
                             area.areaDetail.Effectiveness["DustStorm"] -= 0.1f;
                         if (area.areaDetail.Effectiveness["Fog"] > 0)

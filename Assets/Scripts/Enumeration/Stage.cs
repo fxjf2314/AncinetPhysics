@@ -8,6 +8,4 @@ public enum Stage
     War,
     Recover,
     Undone
-    
-
 }

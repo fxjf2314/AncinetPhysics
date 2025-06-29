@@ -87,24 +87,7 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
             Transition.Instance.LoadSceneWithTransition("PrepareScene");
         });
 
-        if(GameSettingSave.Instance.isExistSave)
-        {
-            isHaveSave = true;
-            continueGameBtn.onClick.AddListener(() =>
-            {
-                AchievementControl.Instance.test = true;
-                Transition.Instance.LoadSceneWithTransition("wwwww", GameSettingSave.Instance.setting.currentSave);
-            });
-        }
-        else
-        {
-            isHaveSave = false;
-            continueGameBtn.interactable = false;
-            Image tmp = continueGameBtn.transform.Find("text").GetComponent<Image>();
-            Color color = tmp.color;
-            color.a = 0.5f;
-            tmp.color = color;
-        }
+        UpdateContinueBtn();
 
         startGameBtn.onClick.AddListener(() =>
         {
@@ -142,6 +125,30 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
 			Application.Quit();
 #endif
         });
+    }
+
+    public void UpdateContinueBtn()
+    {
+        GameSettingSave.Instance.UpdateCurrentSave();
+        if (GameSettingSave.Instance.isExistSave)
+        {
+            isHaveSave = true;
+            continueGameBtn.onClick.RemoveAllListeners();
+            continueGameBtn.onClick.AddListener(() =>
+            {
+                AchievementControl.Instance.test = true;
+                Transition.Instance.LoadSceneWithTransition("wwwww", GameSettingSave.Instance.setting.currentSave);
+            });
+        }
+        else
+        {
+            isHaveSave = false;
+            continueGameBtn.interactable = false;
+            Image tmp = continueGameBtn.transform.Find("text").GetComponent<Image>();
+            Color color = tmp.color;
+            color.a = 0.5f;
+            tmp.color = color;
+        }
     }
 
     private void FadeIn(CanvasGroup canvasGroup,RectTransform tsf,Vector2 finalPos)

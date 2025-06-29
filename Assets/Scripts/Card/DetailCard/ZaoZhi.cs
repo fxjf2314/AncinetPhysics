@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,10 @@ public class ZaoZhi : Card
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
 
-                        HandCard.MyInstance.applicationArea[i].CoinControl(150);
+                        HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(150 * effectiveness["coin"]));
                         if (area.areaDetail.isCoin == true)
                         {
-                            HandCard.MyInstance.applicationArea[i].CoinControl(280);
+                            HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(280 * effectiveness["coin"]));
                         }
                         else
                         {

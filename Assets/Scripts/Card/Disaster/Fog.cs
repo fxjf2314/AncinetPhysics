@@ -8,6 +8,6 @@ public class Fog : Disaster
     public override void Use(GameObject area)
     {
         Depopulation(area);
-        DeFood(area);
+        DeCoin(area);
     }
 }

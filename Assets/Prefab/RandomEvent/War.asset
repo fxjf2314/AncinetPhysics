@@ -18,7 +18,11 @@ MonoBehaviour:
     title: 
     area: 
     effect: 
+    detailDes: 
   cardPrefab: {fileID: 0}
+  Effectiveness:
+    keys: []
+    values: []
   areasProbability:
   - area: {fileID: 0}
     probability: 0.10000000149011612
