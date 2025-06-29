@@ -10,6 +10,8 @@ public enum BtnFunction
     clearHandCard,
     goToGame,
     goToTitle,
+    defaultMode,
+    resetStar,
 }
 
 public class TipPanelManager : MonoBehaviour
@@ -76,6 +78,26 @@ public class TipPanelManager : MonoBehaviour
                         this.gameObject.SetActive(false);
                     });
                 }break;
+            case BtnFunction.defaultMode:
+                {
+                    confirmBtn.onClick.AddListener(() =>
+                    {
+                        
+                        this.gameObject.SetActive(false);
+                    });
+                }
+                break;
+            case BtnFunction.resetStar:
+                {
+                    confirmBtn.onClick.AddListener(() =>
+                    {
+                        LockManager.Instance.TotalStarsEarned = 0;
+                        Transition.Instance.LoadSceneWithTransition("StartScene");
+                        
+                        this.gameObject.SetActive(false);
+                    });
+                }
+                break;
         }
     }
 }

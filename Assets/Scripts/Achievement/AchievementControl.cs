@@ -25,6 +25,8 @@ public class AchievementControl : MonoBehaviour
     public int minscore;
     public int maxscore;
     public int disastertime;
+    public int earthquaketime;
+
     public int[] usecardtime=new int[21];
 
     public int beforeachis;
@@ -59,6 +61,7 @@ public class AchievementControl : MonoBehaviour
         if16happen = false;
         ifnewgame = false;
         disastertime = 0;
+        earthquaketime = 0;
     }
 
 
@@ -119,7 +122,7 @@ public class AchievementControl : MonoBehaviour
 
             if (Achievements.Instance.achievements[5].finish == false)
             {
-                if (disastertime >= 4)
+                if (disastertime >= 4&&earthquaketime>=1)
                 {
                     Achievements.Instance.achievements[5].finish = true;
                     newachievement++;

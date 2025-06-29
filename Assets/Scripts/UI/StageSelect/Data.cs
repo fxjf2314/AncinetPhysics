@@ -25,5 +25,7 @@ public struct Data {
     public int requiredStars;
 
     public string needText;
+
+    public int stageLevel;
 }
 

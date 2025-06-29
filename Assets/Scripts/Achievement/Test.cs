@@ -21,6 +21,7 @@ public class Test : MonoBehaviour
                 AchievementControl.Instance.if16happen = true;
             }
             AchievementControl.Instance.disastertime = 0;
+            AchievementControl.Instance.earthquaketime = 0;
             AchievementControl.Instance.if11happen = false;
             AchievementControl.Instance.if12happen = false;
             for (int i = 0; i < AchievementControl.Instance.warwintime.Length; i++)

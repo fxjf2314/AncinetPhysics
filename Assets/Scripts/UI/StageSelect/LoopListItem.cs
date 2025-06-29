@@ -38,7 +38,7 @@ public class LoopListItem : MonoBehaviour {
 
         if(!isUnlocked)
         {
-            labelText.text = data.needText ?? $"需要 {data.requiredStars} 颗星星解锁";
+            labelText.text = $"需要进度为 {data.requiredStars} 时解锁";
         }
     }
 

@@ -16,6 +16,7 @@ public class SceneSwitch : MonoBehaviour
     private LoopList levelSelectionList;
 
 
+
     private string targetSceneName;
     
     public string TargetSceneName => targetSceneName;
@@ -42,28 +43,9 @@ public class SceneSwitch : MonoBehaviour
         }
     }
 
-    public void LoadSelectedLevel()
-    {
-        if (TryGetSelectedLevel(out var selectedLevel))
-        {
-            if (IsLevelUnlocked(selectedLevel))
-            {
-                PrepareLevelData(selectedLevel);
-                LoadScene();
-            }
-            else
-            {
-                ShowLevelLockedMessage(selectedLevel);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("No level selected or level not found!");
-            //LoadScene(defaultSceneName);
-        }
-    }
+    
 
-    private bool TryGetSelectedLevel(out Data selectedLevel)
+    public bool TryGetSelectedLevel(out Data selectedLevel)
     {
         selectedLevel = new Data();
 
@@ -91,18 +73,14 @@ public class SceneSwitch : MonoBehaviour
         return false;
     }
 
-    private bool IsLevelUnlocked(Data levelData)
-    {
-        return LockManager.Instance.IsLevelUnlocked(levelData);
-    }
-
-    private void PrepareLevelData(Data levelData)
+    public void PrepareLevelData(Data levelData)
     {
         if (ConfirmedCardsManager.MyInstance != null)
         {
             ConfirmedCardsManager.MyInstance.StageRound = levelData.StageRound;
             ConfirmedCardsManager.MyInstance.ConfirmedCards = levelData.cards;
             ConfirmedCardsManager.MyInstance.confirmStageType = levelData.stageType;
+            ConfirmedCardsManager.MyInstance.confirmLevelNum = levelData.stageLevel;
         }
         else
         {

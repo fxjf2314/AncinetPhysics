@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class HelpPanel : MonoBehaviour
 {
+    public static HelpPanel Instance;
+
     #region 序列化私有变量
     //四个完成度标识
     [SerializeField]
@@ -40,18 +42,38 @@ public class HelpPanel : MonoBehaviour
 
     private int starCount;
 
+    private bool targetOneCompleted;
+    private bool targetTwoCompleted;
+    private bool targetThreeCompleted;
+
+    private bool isOpen;
+
+    private CanvasGroup canvasGroup;
+
+
     private void Start()
     {
-        foreach(Image image in rightIcon)
+        Instance = this;
+        canvasGroup = GetComponent<CanvasGroup>();
+        stageType = ConfirmedCardsManager.MyInstance.confirmStageType;
+        foreach (Image image in rightIcon)
         {
             image.enabled = false;
         }
     }
-
-
-    private void OnEnable()
+    public void ChangeStatus()
     {
-        stageType = ConfirmedCardsManager.MyInstance.confirmStageType;
+        UpdateHelpData();
+        isOpen = !isOpen;
+        canvasGroup.alpha = canvasGroup.alpha == 0 ? 1 : 0;
+        canvasGroup.blocksRaycasts = isOpen;
+        canvasGroup.interactable = isOpen;
+    }
+    
+
+    public void UpdateHelpData()
+    {
+        
         foodCount.text = UIManager.MyInstance.totalFood.ToString();
         coinCount.text = UIManager.MyInstance.totalCoin.ToString();
         popuCount.text = UIManager.MyInstance.totalPopulation.ToString();
@@ -60,28 +82,51 @@ public class HelpPanel : MonoBehaviour
         if(UIManager.MyInstance.totalCoin >= StageManager.MyInstance.stages[stageType].starsTarget[0] && rightIcon[0].enabled == false)
         {
             rightIcon[0].enabled = true;
-            starCount++;
+            targetOneCompleted = true;
+            
         }
         
         targetTwo.text = string.Format("总收成到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[1], UIManager.MyInstance.totalFood, StageManager.MyInstance.stages[stageType].starsTarget[1]);
         if (UIManager.MyInstance.totalFood >= StageManager.MyInstance.stages[stageType].starsTarget[1] && rightIcon[1].enabled == false)
         {
-            rightIcon[2].enabled = true;
-            starCount++;
+            rightIcon[1].enabled = true;
+            targetTwoCompleted = true;
+            
         }
 
         targetThree.text = string.Format("总人口到达{0}：{1}/{2}", StageManager.MyInstance.stages[stageType].starsTarget[2], UIManager.MyInstance.totalPopulation, StageManager.MyInstance.stages[stageType].starsTarget[2]);
         if (UIManager.MyInstance.totalPopulation >= StageManager.MyInstance.stages[stageType].starsTarget[2] && rightIcon[2].enabled == false)
         {
-            rightIcon[1].enabled = true;
-            starCount++;
+            rightIcon[2].enabled = true;
+            targetThreeCompleted = true;
+            
         }
 
         stageSetTitle.text = StageManager.MyInstance.stages[stageType].stageSetTitle;
         stageSetDes[0].text = StageManager.MyInstance.stages[stageType].stageSetDescription[0];
         stageSetDes[1].text = StageManager.MyInstance.stages[stageType].stageSetDescription[1];
 
+        Settle();
     }
 
-    
+    public void Settle()
+    {
+        if(targetOneCompleted)
+        {
+            PlayerProgress.Instance.targets.Add(ConfirmedCardsManager.MyInstance.confirmLevelNum * 10 + 1);
+            PlayerProgress.Instance.CountCompeleted();
+        }
+        if(targetTwoCompleted)
+        {
+            PlayerProgress.Instance.targets.Add(ConfirmedCardsManager.MyInstance.confirmLevelNum * 10 + 2);
+            PlayerProgress.Instance.CountCompeleted();
+        }
+        if(targetThreeCompleted)
+        {
+            PlayerProgress.Instance.targets.Add(ConfirmedCardsManager.MyInstance.confirmLevelNum * 10 + 3);
+            PlayerProgress.Instance.CountCompeleted();
+        }
+    }
+
+
 }

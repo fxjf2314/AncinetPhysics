@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LockManager : MonoBehaviour
 {
     public static LockManager Instance;
 
-    [SerializeField] private int totalStarsEarned; // 玩家获得的总星星数
+    private int totalStarsEarned; // 玩家获得的总星星数
+
+    public int TotalStarsEarned
+    {
+        get{ return totalStarsEarned; }
+        set { totalStarsEarned = value;}
+    }
+
+    [SerializeField]
+    private TextMeshProUGUI starCount;
 
     private void Awake()
     {
+        totalStarsEarned = PlayerPrefs.GetInt("Stars",0);
+        starCount.text = totalStarsEarned.ToString();
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 

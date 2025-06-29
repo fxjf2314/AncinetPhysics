@@ -114,6 +114,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
     #region 下一回合按钮代码块
     public void NextRound()
     {
+        
         if (totalRound < finalRound)
         {
             lastCoin = totalCoin;
@@ -175,7 +176,7 @@ public class UIManager : MonoBehaviour,ISaveAndLoadGame
             
             AchievementControl.Instance.GameOverTestAchievement();
         }
-
+        HelpPanel.Instance.UpdateHelpData();
     }
 
     IEnumerator CheckPeople(int oPeople)

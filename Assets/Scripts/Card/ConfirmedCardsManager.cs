@@ -14,9 +14,19 @@ public class ConfirmedCardsManager : MonoBehaviour
 
     public Stage confirmStageType;
 
+    public int confirmLevelNum;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-        Instance = this;
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }
