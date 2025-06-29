@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Stage 
+public class LockManager : MonoBehaviour
 {
-    Defend,
-    War,
-    Recover,
-    Undone
+    
 }

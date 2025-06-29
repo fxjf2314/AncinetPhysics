@@ -32,6 +32,7 @@ public class AchievementControl : MonoBehaviour
 
     private void Awake()
     {
+
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -40,8 +41,6 @@ public class AchievementControl : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Achievements.Instance.Loadallachievement();
-        Achievements.Instance.Saveallachievement();
         foreach (int i in usecardtime)
         {
             usecardtime[i] = PlayerPrefs.GetInt("card" + i, 0);
@@ -54,7 +53,9 @@ public class AchievementControl : MonoBehaviour
 
     void Start()
     {
-        newachievement=0;
+        Achievements.Instance.Loadallachievement();
+        Achievements.Instance.Saveallachievement();
+        newachievement =0;
         if11happen = false;
         if12happen = false;
         if16happen = false;

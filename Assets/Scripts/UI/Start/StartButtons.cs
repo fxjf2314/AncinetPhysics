@@ -46,9 +46,6 @@ public class StartButtons : MonoBehaviour,IPointerClickHandler
     private Vector2 stageGameBtnFinalPos = new Vector2(-18,49);
     private Vector2 startGameBtnPos = new Vector2(-18,-165);
 
-    private Coroutine currentCoroutine1;
-    private Coroutine currentCoroutine2;
-
     private float duration = 0.2f;
 
     private bool isChooseMode;

@@ -20,6 +20,9 @@ MonoBehaviour:
     effect: 
     detailDes: 
   cardPrefab: {fileID: 0}
+  Effectiveness:
+    keys: []
+    values: []
   title: "\u5927\u96FE"
   images:
   - {fileID: 21300000, guid: 324c01a93e08e1c44b1056fbca9c9937, type: 3}
@@ -27,7 +30,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e1b8034dce8fe8e4782a6415d2c10b65, type: 3}
   - {fileID: 21300000, guid: a8b68d9dc84f800489804143f308521c, type: 3}
   - {fileID: 21300000, guid: 324c01a93e08e1c44b1056fbca9c9937, type: 3}
-  cValue: 0.05
+  o_cValue: 0.02
+  cValue: 0.02
   population: 1
   probability: 0.3
   coinRatio: 0.1

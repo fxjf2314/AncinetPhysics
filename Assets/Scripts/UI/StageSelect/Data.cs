@@ -12,6 +12,8 @@ public struct Data {
 
     public string name;
 
+    public Color color;
+
     public List<Card> cards;
 
     public int StageRound;

@@ -38,6 +38,7 @@ public class Card : ScriptableObject,IDescribable,IUseable//卡牌的基类，用于卡牌
 
     public Sprite MyIcon { get => icon; }
     public int MyId { get => id; set => id = value; }
+    public SerializableDictionary<string, float> effectiveness { get => Effectiveness; set => Effectiveness = value; }
 
     public Sprite GetSprite()
     {

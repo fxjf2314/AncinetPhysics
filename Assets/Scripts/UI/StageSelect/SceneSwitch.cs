@@ -42,6 +42,7 @@ public class SceneSwitch : MonoBehaviour
             {
                 ConfirmedCardsManager.MyInstance.StageRound = data.StageRound;
                 ConfirmedCardsManager.MyInstance.ConfirmedCards = data.cards;
+                ConfirmedCardsManager.MyInstance.confirmStageType = data.stageType;
             }
         }
 

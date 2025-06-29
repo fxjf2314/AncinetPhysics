@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class DuJiangYan : Card
                 {
                     if (HandCard.MyInstance.applicationArea[i] != null)
                     {
-                        HandCard.MyInstance.applicationArea[i].FoodControl(200);
+                        HandCard.MyInstance.applicationArea[i].FoodControl(Convert.ToInt32(200 * effectiveness["food"]));
                         area.areaDetail.Effectiveness["Flood"] = 0;
                     }
                 }

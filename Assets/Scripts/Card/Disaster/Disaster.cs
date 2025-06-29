@@ -9,6 +9,7 @@ public class Disaster : Card
 {
     public string title;
     public Sprite[] images; // ´æ´¢ËùÓĞÍ¼Æ¬
+    public double o_cValue;
     public double cValue;
     private double pValue;
     private int count;

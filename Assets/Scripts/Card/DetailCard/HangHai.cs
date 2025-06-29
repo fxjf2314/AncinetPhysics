@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,11 @@ public class HangHai : Card
                     {
                         if (HandCard.MyInstance.applicationArea[i].areaDetail.food > HandCard.MyInstance.applicationArea[i].areaDetail.coin)
                         {
-                            HandCard.MyInstance.applicationArea[i].FoodControl(250);
+                            HandCard.MyInstance.applicationArea[i].FoodControl(Convert.ToInt32(250 * effectiveness["food"]));
                         }
                         if (HandCard.MyInstance.applicationArea[i].areaDetail.food < HandCard.MyInstance.applicationArea[i].areaDetail.coin)
                         {
-                            HandCard.MyInstance.applicationArea[i].CoinControl(250);
+                            HandCard.MyInstance.applicationArea[i].CoinControl(Convert.ToInt32(250 * effectiveness["coin"]));
                         }
                     }
                 }

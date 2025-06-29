@@ -18,7 +18,11 @@ MonoBehaviour:
     title: "\u6C99\u5C18\u66B4"
     area: 
     effect: 
+    detailDes: 
   cardPrefab: {fileID: 0}
+  Effectiveness:
+    keys: []
+    values: []
   title: "\u6C99\u5C18\u66B4"
   images:
   - {fileID: 21300000, guid: 77e7a0a5ca46c8e4fb27a0875c59c9b0, type: 3}
@@ -26,7 +30,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6f5f86ed37524e4a960361bfc47b09e, type: 3}
   - {fileID: 21300000, guid: 26e1dea92af24124891dbf6e6b4d5263, type: 3}
   - {fileID: 21300000, guid: 77e7a0a5ca46c8e4fb27a0875c59c9b0, type: 3}
-  cValue: 0.03
+  o_cValue: 0.02
+  cValue: 0.02
   population: 1
   probability: 0.3
   coinRatio: 0.2
